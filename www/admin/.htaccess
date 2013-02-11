@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Section"
+AuthUserFile "C:/Program Files/Apache Software Foundation/Apache2.2/auth/.htpasswd"
+Require valid-user

@@ -1,0 +1,49 @@
+﻿@main[][path;id]
+	^Templates.add[admin/text.xslt]
+	^useModule[tidy]
+
+	$XSL-Params.use-fckeditor[true]
+	$XSL-Params.include-file[false]
+
+	^if(def $form:l){$XSL-Params.lang[$form:l]}
+
+	^useModule[text]
+	^if(def $form:id){
+		$id[^if(def $form:l){$form:l}{$XSL-Params.lang}.^form:id.replace[^table::create{from	to
+/	.}]]
+		^try{
+			^if($form:act eq edit){
+				$t[^text::create[$id]]
+				$t.process-text(true)
+				^t.xml-string[textform]
+			}{
+				^if($form:act eq update){
+					$tx[$form:text]
+					$tx[^tidy[$tx]]
+					^text:update[$.id[$id] $.title[$form:title] $.text[$tx]] $.published[1]]
+					^throw[kernel.location;^request:uri.left(^request:uri.pos[?])?l=$form:l]
+				}{
+					^try{
+						$t[^text::create[$id]]
+					}{
+						^if($exception.type eq text.not_found){
+							$exception.handled(true)
+							^text:update[$.id[$id]]
+							$t[^text::create[$id]]
+						}
+					}
+					^t.xml-string[text]
+				}
+			}
+		}{
+			^if($exception.type eq text.not_found){
+				$exception.handled(true)
+				<html>
+					<h1>Ошибка</h1>
+					<p>Текста с идентификатором <code>$id</code> не существует, возможно его нужно создать.</p>
+				</html>
+			}
+		}
+	}{
+		<list/>
+	}

@@ -1,0 +1,20 @@
+@main[][news;sale]
+#	^useModule[article]
+#	^useModule[sale]
+	
+#	$news[^article::list[
+#		$.type[events]
+#		$.limit(4)
+#		$.published(1)
+#	]]
+#	^news.xml-string[news]
+	
+#	$sale[^sale::sales[
+#		$.main(true)
+#	]]
+#	^sale.xmlString[]
+	
+#	^static-text[^page-id[]]
+	
+	$XSL-Params.index[true]
+	^Templates.add[index.xslt]
