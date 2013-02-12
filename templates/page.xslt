@@ -9,7 +9,6 @@
 	<xsl:param name="lang"/>
 	<xsl:param name="index"/>
 	<xsl:param name="date-now"/>
-	<xsl:param name="maps-key"/>
 	
 	<xsl:variable name="languages" select="document('../resources/languages.xml')/languages"/>
 	<xsl:variable name="txtres" select="document('../resources/txtres.xml')/txtres/resources[@lang=$lang]"/>

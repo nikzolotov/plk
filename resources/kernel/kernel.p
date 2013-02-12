@@ -23,7 +23,6 @@ templates.p
 		$XSL-Params.server-name[$env:SERVER_NAME]
 		$XSL-Params.request-uri[$request:uri]
 		$XSL-Params.referer[$env:HTTP_REFERER]
-		$XSL-Params.maps-key[AHQaNlABAAAAzHTCEAMAxIZx1JiYynQk9OhQpxZ0BkDNvR8AAAAAAAAAAACXm6Pfh_UHiTr4TncXjEQI6kfnKA==]
 	}
 
 

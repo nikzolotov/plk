@@ -5,30 +5,26 @@
 	
 	<xsl:template name="script-includes">
 		<xsl:call-template name="include-script">
-			<xsl:with-param name="url">
-				<xsl:text>http://api-maps.yandex.ru/1.1/index.xml?key=</xsl:text>
-				<xsl:value-of select="$maps-key"/>
-			</xsl:with-param>
+			<xsl:with-param name="url">http://api-maps.yandex.ru/2.0/?load=package.standard&amp;mode=debug&amp;lang=ru-RU</xsl:with-param>
 		</xsl:call-template>
 		<xsl:call-template name="include-script">
-			<xsl:with-param name="name" select="'contacts'"/>
+			<xsl:with-param name="name" select="'map'"/>
 		</xsl:call-template>
 	</xsl:template>
 
 	<xsl:template name="content">
-		<div class="h-shift-27p h-column-28p">
-			<xsl:apply-templates select="static-text/title"/>
-		</div>
-		<div class="l-wrapper">
-			<div class="l-column-18p h-shift-6p h-column-3p">
-				<xsl:call-template name="sub-menu"/>
-			</div>
-			<div class="l-column-45p">
-				<xsl:apply-templates select="static-text/text"/>
-				<div id="map" class="b-map b-map-highlighted">
+		<xsl:apply-templates select="static-text/title"/>
+		<xsl:apply-templates select="static-text/text"/>
+		<div class="b-yandex-map">
+			<div class="inner">
+				<h3 class="title">Схема проезда</h3>
+				<div id="YMapsID">
 					<xsl:text><![CDATA[]]></xsl:text>
 				</div>
 			</div>
+			<i class="man">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</i>
 		</div>
 	</xsl:template>
 	
