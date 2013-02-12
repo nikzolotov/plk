@@ -19,7 +19,15 @@
 					<xsl:value-of select="@key"/>
 				</xsl:for-each>
 				<xsl:choose>
-					<xsl:when test="item or @dir='true' or not(@key)">/</xsl:when>
+					<xsl:when test="@skip">
+						<xsl:text>/</xsl:text>
+						<xsl:value-of select="descendant::item[1]/@key"/>
+						<xsl:choose>
+							<xsl:when test="descendant::item[1]/item or descendant::item[1]/@dir = 'true'">/</xsl:when>
+							<xsl:otherwise>.html</xsl:otherwise>
+						</xsl:choose>
+					</xsl:when>
+					<xsl:when test="item or @dir = 'true' or not(@key)">/</xsl:when>
 					<xsl:otherwise>.html</xsl:otherwise>
 				</xsl:choose>
 			</xsl:otherwise>

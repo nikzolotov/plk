@@ -1,0 +1,12 @@
+@main[][persons]
+	^useModule[person]
+	
+	$persons[^person::persons[
+		$.city[$form:city]
+		$.published(1)
+	]]
+	^persons.xmlString[persons;$.city[$form:city]]
+	
+	^static-text[${XSL-Params.lang}.team]
+	
+	^Templates.add[persons.xslt]	

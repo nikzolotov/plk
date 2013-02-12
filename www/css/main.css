@@ -105,14 +105,14 @@ BODY .l-page {
 A:link {
 	color: #fff;
 }
+A:visited {
+	color: #fff;
+}
 A:hover {
 	color: #FBCDCD;
 }
 A:active {
 	text-decoration: none;
-}
-A:visited {
-	color: #fff;
 }
 A IMG {
 	border: none;

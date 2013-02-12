@@ -59,7 +59,7 @@ $f.stderr]
 	$call[^table::create{param}]
 	$f[^if(def $params.format){$params.format}{jpeg}]
 	^call.append{-out $f}
-	^call.append{-q ^params.quality.int(80)}
+	^call.append{-q ^params.quality.int(95)}
 	^call.append{^if(def $params.colors){$params.colors}{-truecolors}}
 	^call.append{-rflag decr}
 	^call.append{-rmeta}

@@ -15,7 +15,7 @@
 
 	<xsl:template match="item">
 		<item>
-			<xsl:copy-of select="@*"/>
+			<xsl:copy-of select="@key|@name"/>
 			<xsl:apply-templates select="item[not(@module)]"/>
 		</item>
 	</xsl:template>

@@ -96,19 +96,20 @@
 				<a href="?1">Обратная связь</a>
 			</div>
 			<xsl:if test="not($index)">
-				<div class="b-mini-logo">
-					<a href="/" class="link">
-						<span class="text">Первая лизинговая компания</span>
-					</a>
-				</div>
+				<xsl:call-template name="logo"/>
 				<xsl:call-template name="service-menu"/>
 			</xsl:if>
 		</div>
 	</xsl:template>
 	
-	<xsl:template name="content">
-		<xsl:apply-templates select="/page/*"/>
-		<xsl:text><![CDATA[]]></xsl:text>
+	<xsl:template name="logo">
+		<div class="b-mini-logo">
+			<a href="/" class="link">
+				<span class="text">
+					<xsl:value-of select="$txtres/title/text()"/>
+				</span>
+			</a>
+		</div>
 	</xsl:template>
 	
 	<xsl:template name="main-menu">
@@ -138,7 +139,13 @@
 		<ul class="b-main-navigation">
 			<xsl:for-each select="navigation/group[@id = 'service']/item">
 				<li class="item item-{@key}">
-					<a class="link" href="#{@key}">
+					<a class="link" href="/#{@key}">
+						<xsl:if test="$index">
+							<xsl:attribute name="href">
+								<xsl:text>#</xsl:text>
+								<xsl:value-of select="@key"/>
+							</xsl:attribute>
+						</xsl:if>
 						<span class="area-icon">
 							<b class="b-icon b-icon-{@key}-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						</span>
@@ -158,7 +165,13 @@
 			</xsl:for-each>
 			<xsl:for-each select="navigation/group[@id = 'request']/item">
 				<li class="item-{@key}">
-					<a class="link" href="#{@key}">
+					<a class="link" href="/#{@key}">
+						<xsl:if test="$index">
+							<xsl:attribute name="href">
+								<xsl:text>#</xsl:text>
+								<xsl:value-of select="@key"/>
+							</xsl:attribute>
+						</xsl:if>
 						<b class="b-icon b-icon-{@key}-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<span class="text">
 							<xsl:value-of select="@name"/>
@@ -170,6 +183,11 @@
 				</li>
 			</xsl:for-each>
 		</ul>
+	</xsl:template>
+	
+	<xsl:template name="content">
+		<xsl:apply-templates select="/page/*"/>
+		<xsl:text><![CDATA[]]></xsl:text>
 	</xsl:template>
 	
 	<xsl:template name="footer">
@@ -196,12 +214,12 @@
 	<xsl:template match="item" mode="sibling-page">
 		<xsl:param name="preceding" select="true()"/>
 		<a class="link link-l">
-			<xsl:attribute name="href">
-				<xsl:call-template name="navigation-item-path"/>
-			</xsl:attribute>
 			<xsl:if test="not($preceding)">
 				<xsl:attribute name="class">link link-r</xsl:attribute>
 			</xsl:if>
+			<xsl:attribute name="href">
+				<xsl:call-template name="navigation-item-path"/>
+			</xsl:attribute>
 			<span class="arrow">
 				<span class="text">
 					<xsl:value-of select="@long-name" disable-output-escaping="yes"/>

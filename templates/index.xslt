@@ -24,11 +24,7 @@
 			</div>
 			<div id="external_content" class="l-external-content">
 				<div class="l-column-1000">
-					<div class="b-mini-logo">
-						<a href="index.html" class="link">
-							<span class="text">Первая лизинговая компания</span>
-						</a>
-					</div>
+					<xsl:call-template name="logo"/>
 					<xsl:call-template name="service-menu"/>
 				</div>
 			</div>

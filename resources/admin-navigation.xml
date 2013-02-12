@@ -3,6 +3,7 @@
 	<item key="text" name="Текстовые страницы" module="text">
 		<item key="index" name="Главная страница" dir="true"/>
 	</item>
-	<item key="vacancies" name="Вакансии" dir="true"/>
+	<item key="persons" name="Команда" dir="true"/>
 	<item key="news" name="Новости" dir="true"/>
+	<item key="vacancies" name="Вакансии" dir="true"/>
 </navigation>

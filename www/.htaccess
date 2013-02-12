@@ -8,14 +8,7 @@ RewriteRule ^news/(\d+)\.html$		/news/?id=$1 [QSA,L,NC]
 RewriteRule ^news/(\d+)/$			/news/?y=$1 [QSA,L,NC]
 RewriteRule ^news/(\d+)/(\d+)/$		/news/?y=$1&m=$2 [QSA,L,NC]
 
-RewriteRule ^news/(events|media|video|sale)/$				/news/?type=$1 [QSA,L,NC]
-RewriteRule ^news/(events|media|video|sale)/(\d+)/$			/news/?type=$1&y=$2 [QSA,L,NC]
-RewriteRule ^news/(events|media|video|sale)/(\d+)/(\d+)/$	/news/?type=$1&y=$2&m=$3 [QSA,L,NC]
-
-#RewriteRule ^news/sale/$					/news/sale.html [QSA,L,NC]
-RewriteRule ^news/sale/(\d+)\.html$			/news/sale.html?id=$1 [QSA,L,NC]
-#RewriteRule ^news/sale/(\d+)/$				/news/sale.html?y=$1 [QSA,L,NC]
-#RewriteRule ^news/sale/(\d+)/(\d+)/$		/news/sale.html?y=$1&m=$2 [QSA,L,NC]
+RewriteRule ^team/(tver|moscow)/$		/team/?city=$1 [QSA,L,NC]
 
 RewriteCond	$0								!^admin/
 RewriteCond	$0								!^cgi-bin/
