@@ -5,29 +5,29 @@
 		<xsl:choose>
 			<xsl:when test="/page/navigation/item[@in]/item and not(/page/navigation/item[@in]/@hide-submenu)">
 				<xsl:if test="title/text()">
-						<xsl:if test="$nav-item/@layout ='wider'">
-							<xsl:attribute name="class">h-shift-27p h-column-24p</xsl:attribute>
-						</xsl:if>
-						<xsl:apply-templates select="title"/>
-				</xsl:if>
-						<xsl:call-template name="sub-menu"/>
-						<xsl:if test="$nav-item/@layout ='wider'">
-							<xsl:attribute name="class">l-column-49p</xsl:attribute>
-						</xsl:if>
-						<xsl:if test="text/text() | text/*">
-							<xsl:apply-templates select="text"/>
-						</xsl:if>
-			</xsl:when>
-			<xsl:otherwise>
 					<xsl:if test="$nav-item/@layout ='wider'">
 						<xsl:attribute name="class">h-shift-27p h-column-24p</xsl:attribute>
 					</xsl:if>
-					<xsl:if test="title/text()">
-						<xsl:apply-templates select="title"/>
-					</xsl:if>
-					<xsl:if test="text/text() | text/*">
-						<xsl:apply-templates select="text"/>
-					</xsl:if>
+					<xsl:apply-templates select="title"/>
+				</xsl:if>
+				<xsl:call-template name="sub-menu"/>
+				<xsl:if test="$nav-item/@layout ='wider'">
+					<xsl:attribute name="class">l-column-49p</xsl:attribute>
+				</xsl:if>
+				<xsl:if test="text/text() | text/*">
+					<xsl:apply-templates select="text"/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:if test="$nav-item/@layout ='wider'">
+					<xsl:attribute name="class">h-shift-27p h-column-24p</xsl:attribute>
+				</xsl:if>
+				<xsl:if test="title/text()">
+					<xsl:apply-templates select="title"/>
+				</xsl:if>
+				<xsl:if test="text/text() | text/*">
+					<xsl:apply-templates select="text"/>
+				</xsl:if>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

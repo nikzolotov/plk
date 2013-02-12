@@ -44,9 +44,6 @@
 				<xsl:with-param name="name" select="'history'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
-				<xsl:with-param name="name" select="'tabs'"/>
-			</xsl:call-template>
-			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'main'"/>
 			</xsl:call-template>
 			<xsl:call-template name="script-includes"/>

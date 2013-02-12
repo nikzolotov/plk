@@ -2,6 +2,8 @@
 ---------------------------------------- */
 BODY {
 	background: #FFF;
+	font-size: 14px;
+	line-height: 18px;
 	color: #333;
 	}
 A:link {
@@ -26,6 +28,9 @@ H2 {
 	}
 UL LI, OL LI {
 	margin-bottom: 6px;
+	}
+UL LI:before {
+	color: #999;
 	}
 	UL UL, UL OL, OL UL, OL OL {
 		margin-top: 6px;

@@ -30,25 +30,12 @@
 				<xsl:attribute name="class">b-not-published</xsl:attribute>
 			</xsl:if>
 			<a class="link" href="?id={@id}&amp;act=edit">
-				<xsl:if test="@type = 'video'">
-					<xsl:attribute name="class">link b-video-icon</xsl:attribute>
-				</xsl:if>
-				<xsl:choose>
-					<xsl:when test="@type = 'video'">&#9658;</xsl:when>
-					<xsl:when test="@type = 'sale'">
-						<xsl:call-template name="sale-title"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of select="title/text()"/>
-					</xsl:otherwise>
-				</xsl:choose>
+				<xsl:value-of select="title/text()"/>
 			</a>
 			<span class="b-meta">
 				<xsl:call-template name="format-date">
 					<xsl:with-param name="date" select="date"/>
 				</xsl:call-template>
-				<xsl:text>, </xsl:text>
-				<xsl:value-of select="/page/news-types/type[@id = current()/@type]/@title"/>
 			</span>
 		</li>
 	</xsl:template>
@@ -59,64 +46,21 @@
 		</h1>
 		<form method="post" action="?id={article/@id}&amp;act=update" enctype="multipart/form-data">
 			<fieldset>
-				<div class="b-field">
-					<label class="b-label" for="f-type">Тип новости</label>
-					<xsl:choose>
-						<xsl:when test="article/@type = 'sale'">
-							<strong>
-								<xsl:value-of select="/page/news-types/type[@id = 'sale']/@title"/>
-								<xsl:text>: </xsl:text>
-							</strong>
-							<a>
-								<xsl:attribute name="href">
-									<xsl:apply-templates select="/page/navigation/item[@key = 'sales']" mode="navigation-item-path"/>
-									<xsl:text>?action=edit&amp;id=</xsl:text>
-									<xsl:value-of select="article/@sale-id"/>
-								</xsl:attribute>
-								<xsl:call-template name="sale-title"/>
-							</a>
-						</xsl:when>
-						<xsl:otherwise>
-							<select id="f-type" name="type">
-								<xsl:for-each select="/page/news-types/type[@id != 'sale']">
-									<option value="{@id}">
-										<xsl:if test="/page/article-form/article/@type = @id">
-											<xsl:attribute name="selected">selected</xsl:attribute>
-										</xsl:if>
-										<xsl:value-of select="@title"/>
-									</option>
-								</xsl:for-each>
-							</select>
-						</xsl:otherwise>
-					</xsl:choose>
+				<div id="title-field" class="b-field">
+					<label class="b-label" for="f-title">Заголовок</label>
+					<div class="b-wide-input">
+						<input id="f-title" type="text" name="title" value="{article/title/text()}"/>
+					</div>
 				</div>
-				<xsl:if test="article/@type != 'sale' or not(article)">
-					<div id="title-field" class="b-field">
-						<label class="b-label" for="f-title">Заголовок</label>
-						<div class="b-wide-input">
-							<input id="f-title" type="text" name="title" value="{article/title/text()}"/>
-						</div>
+				<div id="text-field" class="b-field">
+					<label class="b-label" for="f-body">Текст <span>(<a name="body" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
+					<div class="b-wide-input">
+						<textarea id="f-body" name="body" rows="15" cols="100">
+							<xsl:copy-of select="article/body/*|article/body/text()"/>
+							<xsl:text><![CDATA[]]></xsl:text>
+						</textarea>
 					</div>
-					<div id="lead-field" class="b-field">
-						<label class="b-label" for="f-lead">Код видео</label>
-						<div class="b-wide-input">
-							<textarea id="f-lead" name="lead" rows="6" cols="100">
-								<xsl:copy-of select="article/lead/*|article/lead/text()"/>
-								<xsl:text><![CDATA[]]></xsl:text>
-							</textarea>
-							<span class="b-tip">Рекомендуемый размер видео: 486&#215;273&#160;px</span>
-						</div>
-					</div>
-					<div id="text-field" class="b-field">
-						<label class="b-label" for="f-body">Текст <span>(<a name="body" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
-						<div class="b-wide-input">
-							<textarea id="f-body" name="body" rows="15" cols="100">
-								<xsl:copy-of select="article/body/*|article/body/text()"/>
-								<xsl:text><![CDATA[]]></xsl:text>
-							</textarea>
-						</div>
-					</div>
-				</xsl:if>
+				</div>
 				<div class="b-field">
 					<label class="b-label">Дата</label>
 					<xsl:call-template name="dateForm">
@@ -140,6 +84,7 @@
 					<label for="f-published"> Опубликовать</label>
 				</div>
 				<div class="b-field">
+					<input type="hidden" name="type" value="news"/>
 					<input type="submit" value="Сохранить"/>
 					<xsl:if test="article">
 						<xsl:text>&#160;&#160;&#160;</xsl:text>
@@ -150,33 +95,6 @@
 				</div>
 			</fieldset>
 		</form>
-		<xsl:if test="article/@type != 'sale' or not(article)">
-			<script type="text/javascript">
-				var formFields = {
-						title: $('#title-field'),
-						lead: $('#lead-field'),
-						text: $('#text-field')
-					},
-					typeSelect = $('#f-type');
-				
-				typeSelect.change(function(){
-					showFields(this.value);
-				}).change();
-				
-				function showFields(newsType){
-					if( newsType == 'video' ){
-						formFields.title.hide();
-						formFields.lead.show();
-						formFields.text.hide();
-					}
-					else {
-						formFields.title.show();
-						formFields.lead.hide();
-						formFields.text.show();
-					}
-				}
-			</script>
-		</xsl:if>
 		<div>
 			<a>
 				<xsl:attribute name="href">

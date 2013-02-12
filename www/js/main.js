@@ -1,40 +1,8 @@
 $(function(){
-	run_tabs('#tabs', '.b-tabs-compact a', '.js-tab', 'region-1');
-	run_tabs('#tabs_docs', '.b-tabs-docs a', '.js-category', 'category-1');
-	run_tabs('#tabs_news', '.b-tabs-compact a', '.js-news', 'year-2011');
-	
-
-	function run_tabs(name_tabs, links, tab_selector, _hash){
-		$(name_tabs).tabs({
-			linkSelector: links,
-			tabSelector: tab_selector,
-			onSwitchTab: function(){
-				$.history.load( $(this).attr('href').substr(5) );
-			}
-		});
-		$.history.init(function(hash){
-			if( hash == '' ){
-				hash = _hash;
-			}
-			hash = hash.replace('tab-', '');
-			$(name_tabs+' a[href=#tab-' + hash + ']').trigger('clickOnly');
-		});
-	}
     $('.b-moving-car').movingCar();
     $('#external_content .b-main-navigation').parallaxScroll();
     $('#external_content .b-main-navigation, .b-navigation-deployed').smoothScrolling();
 });
-
-
-
-
-
-
-
-
-
-
-
 
 (function( $ ){
 	$.fn.movingCar = function(userOptions) {

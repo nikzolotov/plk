@@ -10,7 +10,6 @@ article
 
 @USE
 modules/share.p
-modules/sale.p
 #/USE
 
 @auto[]
@@ -64,8 +63,7 @@ modules/sale.p
 #{ left(`body`,500) AS `lbody`,}
 				`published`,
 				`date`,
-				`share_id`,
-				`sale_id`
+				`share_id`
 			FROM `${tables.article}`
 			WHERE
 				1 = 1
@@ -86,9 +84,6 @@ modules/sale.p
 				}
 				^if($prms && ^params.prev_id.int(0)){
 					AND `date` > (SELECT `date` FROM `${tables.article}` WHERE `article_id` = $params.prev_id)
-				}
-				^if($prms && ^params.sale_id.int(0)){
-					AND `sale_id` = '$params.sale_id'
 				}
 			ORDER BY
 				`date` ^if($prms && def $params.order && ^params.order.upper[] eq "ASC"){ ASC }{ DESC }
@@ -211,8 +206,7 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 					`date`,
 					`meta-description`,
 					`meta-keywords`,
-					`share_id`,
-					`sale_id`
+					`share_id`
 				FROM `${tables.article}`
 				WHERE `article_id` = ^id.int(0)
 				^if(def $published){ AND `published` = ^published.int(0) }
@@ -251,13 +245,13 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 	$result[^xdoc::create{<?xml version="1.0" encoding="$MAIN:CHARSET"?>^xml-string[$node;$attr]}]
 #/xml
 
-@xml-string[node;attr][sale;k;v]
+@xml-string[node;attr][k;v]
 #$node[string]									- optional
 #$attr[hash-of-strings]							- optional
 	$result[]
 	^if(def $_list){
 		$result[^_list.menu{
-			<article id="$_list.id" type="$_list.type"^if($_list.sale_id){ sale-id="$_list.sale_id"}^if($_list.published){ published="true" }>
+			<article id="$_list.id" type="$_list.type"^if($_list.published){ published="true" }>
 				<date>$_list.date</date>
 				<title>^taint[xml][$_list.title]</title>
 				^try{<lead>^to_xml[$_list.lead]</lead>}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
@@ -282,18 +276,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 					$body[^body.match[(<[^^>]*>|<.*^$)][g]{}]
 					<body>^to_xml[$body]</body>
 				}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
-				^if(def $_params.withSale){
-					^try{
-						^if($_list.sale_id){
-							$sale[^sale::sales[
-								$.id($_list.sale_id)
-							]]
-							^sale.xmlString[]
-						}
-					}{
-						$exception.handled(1)
-					}
-				}
 			</article>
 		}]
 	}
@@ -319,7 +301,7 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 	}
 	^if(def $_article){
 		$result[
-			<article id="$_article.id" type="$_article.type"^if($_article.sale_id){ sale-id="$_article.sale_id"}^if($_article.published){ published="true"}>
+			<article id="$_article.id" type="$_article.type"^if($_article.published){ published="true"}>
 				<date>$_article.date</date>
 				<title>^taint[xml][$_article.title]</title>
 				^try{<lead>^to_xml[$_article.lead]</lead>}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
@@ -335,12 +317,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 						^if(def $v){
 							<preview ^if(def $k.table.path){src="^if(^v.src.left(4) eq "/../"){^v.src.mid(3)}{$v.src}"} width="$v.width" height="$v.height" share_id="$_article.share_id" />
 						}
-					}
-					^if($_article.sale_id){
-						$sale[^sale::sales[
-							$.id($_article.sale_id)
-						]]
-						^sale.xmlString[]
 					}
 				}{
 					$exception.handled(1)
@@ -392,7 +368,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 						`body` = ^if(def $params.body){'$params.body'}{NULL},
 						`published` = ^params.published.int(0),
 						^if(def $share_id){ `share_id` = $share_id, }
-						^if(def $params.sale_id){`sale_id` = $params.sale_id, }
 						`meta-description` = ^if(def $params.[meta-description]){ '$params.meta-description' }{ NULL },
 						`meta-keywords` = ^if(def $params.[meta-keywords]){ '$params.meta-keywords' }{ NULL }
 					ON DUPLICATE KEY UPDATE
@@ -403,7 +378,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 						`body` = ^if(def $params.body){'$params.body'}{NULL},
 						`published` = ^params.published.int(0),
 						^if(def $share_id){ `share_id` = $share_id, }
-						^if(def $params.sale_id){`sale_id` = $params.sale_id, }
 						`meta-description` = ^if(def $params.[meta-description]){ '$params.meta-description' }{ NULL },
 						`meta-keywords` = ^if(def $params.[meta-keywords]){ '$params.meta-keywords' }{ NULL }
 				}

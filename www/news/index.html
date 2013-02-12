@@ -1,0 +1,49 @@
+﻿@main[]
+	^useModule[article]
+	
+	^if(^form:id.int(0)){
+		$ns[^article::article[^form:id.int(0);1]]
+		^ns.xml-string[]
+		$dt[^date::create[$ns.table.date]]
+		$XSL-Params.y[$dt.year]
+	}{
+		^if(def $form:y){
+			$XSL-Params.y[$form:y]
+			
+			^if(def $form:m){
+				$XSL-Params.m[$form:m]
+				$before[^date::create(^form:y.int(1);^form:m.int(0))]
+				^before.roll[month](1)
+				$ns[^article::list[
+					$.type[$form:type]
+					$.published(1)
+					$.date-from[^date::create(^form:y.int(1);^form:m.int(0))]
+					$.date-before[$before]
+				]]
+				^ns.xml-string[news;$.type[$form:type]]
+			}{
+				$ns[^article::list[
+					$.type[$form:type]
+					$.published(1)
+					$.date-from[^date::create[^form:y.int(1)]]
+					$.date-before[^date::create[^eval(^form:y.int(1)+1)]]
+				]]
+				^ns.xml-string[news;$.type[$form:type]]
+			}
+		}{
+			$ns[^article::list[
+				$.type[$form:type]
+				$.limit(10)
+				$.published(1)
+			]]
+			^ns.xml-string[news;$.type[$form:type]]
+		}
+	}
+	$cal[^article::calendar[
+		$.short(true)
+		$.type[$form:type]
+		$.published(1)
+	]]
+	^cal.xml-string[calendar;$.type[$form:type]]
+	
+	^Templates.add[news.xslt]

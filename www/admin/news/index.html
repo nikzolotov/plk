@@ -1,0 +1,58 @@
+﻿@main[][params]
+	^useModule[article]
+	^useModule[tidy]
+	
+	<news-types>
+		<type id="news" title="Новости"/>
+	</news-types>
+	
+	^switch[$form:act]{
+		^case[show;hide]{
+			^article:update[ $.id(^form:id.int(0)) $.published(^if($form:act eq "show"){1}{0}) ]
+			^throw[kernel.location;^request:uri.left(^request:uri.pos[?])?id=^form:id.int(0)]
+		}
+		^case[update]{
+			$params[$form:fields]
+			$params.date[^date::create($form:year;$form:month;$form:day;$form:hour;$form:minute)]
+			$params.date[^params.date.sql-string[]]
+			$params.lead[^tidy[$form:lead]]
+			$params.body[^tidy[$form:body]]
+			$id(^article:update[$params])
+			^throw[kernel.location;^request:uri.left(^request:uri.pos[?])?id=$id&act=edit]
+		}
+		^case[delete]{
+			^article:delete(^form:id.int(0))
+			^throw[kernel.location;^request:uri.left(^request:uri.pos[?])]
+		}
+		^case[edit]{
+			^if(^form:id.int(0)){
+				$Article[^article::article(^form:id.int(0))]
+				$Article.escape-xml(true)
+				^Article.xml-string[article-form]
+			}{
+				^article:xml-string[article-form]
+			}
+		}
+		^case[DEFAULT]{
+			^if(!^form:id.int(0)){
+				$total(^article:count[
+					$.type[$form:type]
+				])
+				$offset[^set_pages[10;$total;^form:page.int(-1)]]
+				$offset.xml
+				
+				$Article[^article::list[
+					$.type[$form:type]
+					$.limit(10)
+					$.offset($offset.offset)
+				]]
+				^Article.xml-string[article-list]
+			}{
+				$Article[^article::article(^form:id.int(0))]
+				^Article.xml-string[]
+			}
+		}
+	}
+	
+	$XSL-Params.use-fckeditor[true]
+	^Templates.add[admin/news.xslt]
