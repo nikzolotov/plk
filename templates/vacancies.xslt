@@ -4,45 +4,44 @@
 	<xsl:import href="static-text.xslt"/>
 
 	<xsl:template name="content">
-		<div class="h-shift-27p h-column-28p">
-			<xsl:apply-templates select="static-text/title"/>
-		</div>
-		<div class="l-wrapper">
-			<div class="l-column-18p h-shift-6p h-column-3p">
-				<xsl:call-template name="sub-menu"/>
-			</div>
-			<div class="l-column-45p">
-				<xsl:apply-templates select="static-text/text"/>
-				<xsl:apply-templates select="vacancies/vacancy"/>
-			</div>
-		</div>
+		<h1>Работа в Первой Лизинговой Компании</h1>
+		<xsl:apply-templates select="vacancies/vacancy"/>
 	</xsl:template>
 	
 	<xsl:template match="vacancy">
-		<h3>
-			<xsl:value-of select="title/text()" disable-output-escaping="yes"/>
-		</h3>
-		<div class="l-wrapper-54">
+		<div class="b-important">
+			<h2 class="b-title-square">
+				<a href="?">
+					<xsl:value-of select="title/text()" disable-output-escaping="yes"/>
+				</a>
+			</h2>
 			<xsl:if test="normalize-space(desc)">
-				<h4>Обязанности:</h4>
+				<h4 class="title">Обязанности:</h4>
 				<xsl:apply-templates select="desc"/>
 			</xsl:if>
 			<xsl:if test="normalize-space(require)">
-				<h4>Требования:</h4>
+				<h4 class="title">Требования:</h4>
 				<xsl:apply-templates select="require"/>
 			</xsl:if>
 			<xsl:if test="normalize-space(salary)">
-				<h4>Условия:</h4>
+				<h4 class="title">Условия:</h4>
 				<xsl:apply-templates select="salary"/>
 			</xsl:if>
 			<xsl:if test="normalize-space(employment)">
-				<h4>Тип занятости:</h4>
+				<h4 class="title">Тип занятости:</h4>
 				<xsl:apply-templates select="employment"/>
 			</xsl:if>
-			<a class="b-button" href="mailto:hire@alexandrit.ru?subject=Отклик на вакансию: {title/text()}">
-				<span class="text">Откликнуться</span>
+			<a href="mailto:hire@plk.ru?subject=Отклик на вакансию: {title/text()}" class="b-transform-link">
+				<span class="text">Откликнуться на вакансию</span>
 			</a>
+			<i class="zigzag zigzag-t">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</i>
+			<i class="zigzag zigzag-b">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</i>
 		</div>
+		<br/>
 	</xsl:template>
 	
 	<xsl:template match="desc | require | salary | employment">

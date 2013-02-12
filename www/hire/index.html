@@ -1,0 +1,9 @@
+﻿@main[]
+	^useModule[vacancy]
+	
+	$vacancies[^vacancy::vacancies[
+		$.published(1)
+	]]
+	^vacancies.xmlString[vacancies]
+	
+	^Templates.add[vacancies.xslt]
