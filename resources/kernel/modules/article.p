@@ -19,6 +19,7 @@ modules/share.p
 	]
 	$__share_pid[]
 	$__perpage[10]
+	$escape-xml(false)
 # escape-xml - false - значит ^to_xml[] выполнит ^taint[as-is]
 # escape-xml - true - значит ^to_xml[] выполнит ^taint[xml]
 #/auto
@@ -41,7 +42,6 @@ modules/share.p
 #	$.published(0|1)							- optional
 #	$.date-from(date)	$.date-before(date)		- optional
 #]
-	$escape-xml(false)
 	^if(def $params && $params is hash){
 		$prms(true)
 		$loc[^hash::create[]]
@@ -166,7 +166,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 #	$.type(0)	$.published(0|1)				- optional
 #	$.date-from(date)	$.date-before(date)		- optional
 #]
-	$escape-xml(false)
 	^if(def $params && $params is hash){ $prms(true) }{ $prms(false) }
 #		short version of calendar - only year and month
 	^server{
@@ -192,7 +191,6 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 @article[id;published]
 #$id(0)
 #$published(0|1)								- optional
-	$escape-xml(false)
 	^if(^id.int(0) > 0){
 		^server{
 			$_article[^table::sql{
@@ -269,13 +267,13 @@ $rdf[<?xml version="1.0" encoding="utf-8" ?>
 					$exception.handled(1)
 				}
 				^try{
-					<body>^taint[xml][$_list.body]</body>
+					<body>^to_xml[$_list.body]</body>
 				}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
-				^try{
-					$body[$_list.lbody]
-					$body[^body.match[(<[^^>]*>|<.*^$)][g]{}]
-					<body>^to_xml[$body]</body>
-				}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
+#				^try{
+#					$body[$_list.lbody]
+#					$body[^body.match[(<[^^>]*>|<.*^$)][g]{}]
+#					<body>^to_xml[$body]</body>
+#				}{^if($exception.type eq "parser.runtime"){$exception.handled(1)}}
 			</article>
 		}]
 	}

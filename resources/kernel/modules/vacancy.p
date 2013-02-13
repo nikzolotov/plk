@@ -15,6 +15,7 @@ vacancy
 			SELECT
 				`id`,
 				`title`,
+				`intro`,
 				`desc`,
 				`require`,
 				`salary`,
@@ -47,6 +48,7 @@ vacancy
 		$result(^_params.id.int(0))
 		$sql[
 			`title` = ^if(def $_params.title){'$_params.title'}{NULL},
+			`intro` = ^if(def $_params.intro){'$_params.intro'}{NULL},
 			`desc` = ^if(def $_params.desc){'$_params.desc'}{NULL},
 			`require` = ^if(def $_params.require){'$_params.require'}{NULL},
 			`salary` = ^if(def $_params.salary){'$_params.salary'}{NULL},
@@ -85,6 +87,7 @@ vacancy
 			^__vacancies.menu{
 				<vacancy id="$__vacancies.id" date="$__vacancies.date" ^if($__vacancies.published){ published="true"}>
 					^if(def $__vacancies.title){<title>^toXml[$__vacancies.title]</title>}
+					^if(def $__vacancies.intro){<intro>^toXml[$__vacancies.intro]</intro>}
 					^if(def $__vacancies.desc){<desc>^toXml[$__vacancies.desc]</desc>}
 					^if(def $__vacancies.require){<require>^toXml[$__vacancies.require]</require>}
 					^if(def $__vacancies.salary){<salary>^toXml[$__vacancies.salary]</salary>}

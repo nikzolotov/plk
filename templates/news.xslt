@@ -28,7 +28,7 @@
 	<xsl:template match="news">
 		<h1>Новости</h1>
 		<xsl:apply-templates select="/page/calendar" mode="list"/>
-		<ul class="b-news">
+		<ul class="b-events">
 			<xsl:apply-templates select="article" mode="list"/>
 		</ul>
 	</xsl:template>
@@ -41,10 +41,28 @@
 				</xsl:call-template>
 			</div>
 			<h3 class="title">
-				<a href="?">
+				<a class="link" href="?">
 					<xsl:value-of select="title/text()"/>
 				</a>
 			</h3>
+			<div class="sub-content">
+				<xsl:choose>
+					<xsl:when test="not(body/*)">
+						<p>
+							<xsl:apply-templates select="body/text()" mode="text"/>
+						</p>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:apply-templates select="body/*|body/text()" mode="text"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</div>
+			<i class="zigzag zigzag-t">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</i>
+			<i class="zigzag zigzag-b">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</i>
 		</li>
 	</xsl:template>
 	

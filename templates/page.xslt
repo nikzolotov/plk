@@ -40,7 +40,10 @@
 				<xsl:with-param name="name" select="'jquery-1.8.3.min'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
-				<xsl:with-param name="name" select="'history'"/>
+				<xsl:with-param name="name" select="'jquery-ui-1.9.2.custom'"/>
+			</xsl:call-template>
+			<xsl:call-template name="include-script">
+				<xsl:with-param name="name" select="'scrollGallery'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'main'"/>

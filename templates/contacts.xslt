@@ -22,9 +22,6 @@
 					<xsl:text><![CDATA[]]></xsl:text>
 				</div>
 			</div>
-			<i class="man">
-				<xsl:text><![CDATA[]]></xsl:text>
-			</i>
 		</div>
 	</xsl:template>
 	

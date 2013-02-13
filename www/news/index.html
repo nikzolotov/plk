@@ -16,6 +16,7 @@
 				^before.roll[month](1)
 				$ns[^article::list[
 					$.type[news]
+					$.with-body(true)
 					$.published(1)
 					$.date-from[^date::create(^form:y.int(1);^form:m.int(0))]
 					$.date-before[$before]
@@ -24,6 +25,7 @@
 			}{
 				$ns[^article::list[
 					$.type[news]
+					$.with-body(true)
 					$.published(1)
 					$.date-from[^date::create[^form:y.int(1)]]
 					$.date-before[^date::create[^eval(^form:y.int(1)+1)]]
@@ -33,6 +35,7 @@
 		}{
 			$ns[^article::list[
 				$.type[news]
+				$.with-body(true)
 				$.limit(10)
 				$.published(1)
 			]]

@@ -45,6 +45,15 @@
 					</div>
 				</div>
 				<div class="b-field">
+					<label class="b-label" for="f-intro">Краткое описание <span>(<a name="intro" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
+					<div class="b-wide-input">
+						<textarea id="f-intro" name="intro" rows="4" cols="100">
+							<xsl:copy-of select="vacancy/intro/* | vacancy/intro/text()"/>
+							<xsl:text><![CDATA[]]></xsl:text>
+						</textarea>
+					</div>
+				</div>
+				<div class="b-field">
 					<label class="b-label" for="f-desc">Обязанности <span>(<a name="desc" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
 					<div class="b-wide-input">
 						<textarea id="f-desc" name="desc" rows="8" cols="100">

@@ -16,6 +16,7 @@
 		}
 		^case[update]{
 			$params[$form:fields]
+			$params.intro[^tidy[$form:intro]]
 			$params.desc[^tidy[$form:desc]]
 			$params.require[^tidy[$form:require]]
 			$params.salary[^tidy[$form:salary]]

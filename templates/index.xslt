@@ -57,86 +57,67 @@
 							</i>
 						</div>
 					</div>
-				</div>
-				<div class="b-gallery">
-					<h2 class="title">В своей работе мы придерживаемся <br/>семи простых правил</h2>
-					<div class="area-gallery">
-						<ul class="navigation">
-							<li class="item item-efficiency">
-								<a href="#efficiency" class="link link-active">Оперативность</a>
-							</li>
-							<li class="item item-availability">
-								<a href="#availability" class="link">Доступность</a>
-							</li>
-							<li class="item item-convenience">
-								<a href="#convenience" class="link">Удобство</a>
-							</li>
-							<li class="item item-promotion">
-								<a href="#promotion" class="link">Содействие</a>
-							</li>
-							<li class="item item-competence">
-								<a href="#competence" class="link">Компентентность</a>
-							</li>
-							<li class="item item-leadership">
-								<a href="#leadership" class="link">Лидерство</a>
-							</li>
-							<li class="item item-reliability">
-								<a href="#reliability" class="link">Надежность</a>
-							</li>
-						</ul>
-						<ul class="icons">
-							 <li class="item item-efficiency">
-								<b class="icon icon-efficiency"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-availability">
-								<b class="icon icon-availability"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-convenience">
-								<b class="icon icon-convenience"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-promotion">
-								<b class="icon icon-promotion"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-competence">
-								<b class="icon icon-competence"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-leadership">
-								<b class="icon icon-leadership"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-							<li class="item item-reliability">
-								<b class="icon icon-reliability"><xsl:text><![CDATA[]]></xsl:text></b>
-							</li>
-						</ul>
-						<ul class="content">
-							<li class="item item-efficiency">
-								<h3 class="title">Оперативность</h3>
-								<p class="text">1. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-availability">
-								<h3 class="title">Доступность</h3>
-								<p class="text">2. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-convenience">
-								<h3 class="title">Удобство</h3>
-								<p class="text">3. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-promotion">
-								<h3 class="title">Содействие</h3>
-								<p class="text">4. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-competence">
-								<h3 class="title">Компентентность</h3>
-								<p class="text">5. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-leadership">
-								<h3 class="title">Лидерство</h3>
-								<p class="text">6. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-							<li class="item item-reliability">
-								<h3 class="title">Надежность</h3>
-								<p class="text">7. Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-							</li>
-						</ul>
+					<div class="b-scroll-gallery">
+						<h2 class="common-title">В своей работе мы придерживаемся семи простых правил</h2>
+						<div class="slides">
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Оперативность</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Доступность</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Удобство</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Содействие</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Компетентность</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Лидерство</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="content">
+									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<h3 class="title"><span class="text">Надежность</span></h3>
+									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+								</div>
+							</div>
+						</div>
+						<div class="common-content">
+							<i class="circ">
+								<xsl:text><![CDATA[]]></xsl:text>
+							</i>
+							<div class="navigation">
+								<xsl:text><![CDATA[]]></xsl:text>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="b-transition">
@@ -428,7 +409,9 @@
 																<label for="name_supplier" class="label">Общие сведения лизинга</label>
 																<span class="desc">Марка, модель, год, наименование производителя, страна производителя</span>
 															</div>
-															<textarea id="address" class="l-input-323" cols="30" rows="5" name="address"><xsl:text><![CDATA[]]></xsl:text></textarea>
+															<textarea id="address" class="l-input-323" cols="30" rows="5" name="address">
+																<xsl:text><![CDATA[]]></xsl:text>
+															</textarea>
 														</div>
 													</li>
 													<li class="item">
@@ -437,86 +420,68 @@
 																<h3 class="title l-label-190">Валюта</h3>
 																<ul class="currencies">
 																	<li class="item">
-																		<a class="link link-rub"><span class="text">РУБ</span></a>
+																		<a class="link selected">
+																			<span class="text">РУБ</span>
+																		</a>
 																	</li>
 																	<li class="item">
-																		<a class="link link-usd"><span class="text">USD</span></a>
+																		<a class="link">
+																			<span class="text">USD</span>
+																		</a>
 																	</li>
 																	<li class="item">
-																		<a class="link link-eur"><span class="text">EUR</span></a>
+																		<a class="link">
+																			<span class="text">EUR</span>
+																		</a>
 																	</li>
 																</ul>
 															</div>
-															<div class="field">
+															<div class="field field-currencies">
 																<label for="cost" class="label l-label-190">Общая стоимость</label>
-																<div class="b-movement b-movement-currencies">
+																<div class="b-movement">
 																	<ul class="category">
-																		<li class="item">
-																			100 000 <span class="currency">$</span>
-																		</li>
-																		<li class="item">
-																			500 000 <span class="currency">$</span>
-																		</li>
-																		<li class="item">
-																			1 000 000 <span class="currency">$</span>
-																		</li>
-																		<li class="item">
-																			10 000 000 <span class="currency">$</span>
-																		</li>
+																		<li class="item">100&#160;000&#160;<span class="currency">р</span></li>
+																		<li class="item">500&#160;000&#160;<span class="currency">р</span></li>
+																		<li class="item">1&#160;000&#160;000&#160;<span class="currency">р</span></li>
+																		<li class="item">10&#160;000&#160;000&#160;<span class="currency">р</span></li>
 																	</ul>
-																	<div class="movement">
-																		<div class="fulled">
-																			<a href="?" class="circ"></a>
-																		</div>
-																	</div>
+																	<div class="movement"><xsl:text><![CDATA[]]></xsl:text></div>
 																</div>
 																<div class="b-field-sign">
 																	<input id="cost" name="cost" type="text" class="input l-input-66"/>
-																	<span class="sign">$</span>
+																	<span class="sign">р</span>
 																</div>
 															</div>
-															<div class="field">
-																<label for="advance" class="label l-label-190">Авансовый платеж, %</label>
-																<div class="b-movement b-movement-advance">
+															<div class="field field-advance">
+																<label for="advance" class="label l-label-190">Авансовый платеж,&#160;%</label>
+																<div class="b-movement">
 																	<ul class="category">
-																		<li class="item">0%</li><li class="item">50%</li><li class="item">100%</li>
+																		<li class="item">0%</li>
+																		<li class="item">50%</li>
+																		<li class="item">100%</li>
 																	</ul>
 																	<div class="movement">
-																		<div class="fulled">
-																			<a href="?" class="circ"><xsl:text><![CDATA[]]></xsl:text></a>
-																		</div>
+																		<xsl:text><![CDATA[]]></xsl:text>
 																	</div>
 																</div>
 																<input id="advance" name="advance" type="text" class="input l-input-66"/>
 															</div>
-															<div class="field">
+															<div class="field field-years">
 																<label for="years" class="label l-label-190">Срок, лет</label>
-																<div class="b-movement b-movement-years">
+																<div class="b-movement">
 																	<ul class="category">
-																		<li class="item">
-																			1 год
-																		</li>
-																		<li class="item">
-																			2 года
-																		</li>
-																		<li class="item">
-																			3 года
-																		</li>
-																		<li class="item">
-																			4 года
-																		</li>
+																		<li class="item">1 год</li>
+																		<li class="item">2 года</li>
+																		<li class="item">3 года</li>
+																		<li class="item">4 года</li>
 																	</ul>
 																	<div class="movement">
-																		<div class="fulled">
-																			<a href="?" class="circ"><xsl:text><![CDATA[]]></xsl:text></a>
-																		</div>
+																		<xsl:text><![CDATA[]]></xsl:text>
 																	</div>
 																</div>
 																<input id="years" name="years" type="text" class="input l-input-66"/>
 															</div>
-															<div class="b-calculation">
-																Размер ежемесячного платежа: <span class="number">208 573 — 195 357 Р*</span>
-															</div>
+															<div class="b-calculation">Размер ежемесячного платежа: <span class="number">208 573</span>&#160;<span class="currency">р</span>*</div>
 														</div>
 													</li>
 													<li class="item">
@@ -529,15 +494,15 @@
 										</li>
 									</ol>
 								</form>
-								<i class="cutaway">
-									<xsl:text><![CDATA[]]></xsl:text>
-								</i>
 							</div>
+							<i class="cutaway">
+								<xsl:text><![CDATA[]]></xsl:text>
+							</i>
 							<div class="l-intercolumn-26-200">
 								<p class="b-desc"><sub>*</sub> Приблизительная оценка. Фактический размер ежемесячного платежа определяется после прохождения финансовой экспертизы. Заявка не является прохожденияубличной офертой.</p>
 							</div>
 						</div>
-						<div class="b-answer-request">
+						<div class="b-answer-request" style="display:none;">
 							<div class="b-thelargest-text">
 								<p>Ваша заявка на лизинг успешно отправлена. Спасибо! Мы свяжемся с вами <br/>в самое ближайшее время.</p>
 							</div>
@@ -555,7 +520,7 @@
 					<i class="cup">
 						<xsl:text><![CDATA[]]></xsl:text>
 					</i>
-					<i class="cutaway-2">
+					<i class="cutaway-2" style="display:none;">
 						<xsl:text><![CDATA[]]></xsl:text>
 					</i>
 				</div>
