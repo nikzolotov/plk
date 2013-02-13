@@ -8,7 +8,9 @@
 	<item key="news" name="Новости" dir="true" module="news" long-name="Новости компании"/>
 	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
 	<item key="hire" name="Вакансии" dir="true" module="vacancies" long-name="Вакансии в&#160;компании"/>
-	<item key="customers" name="Клиентам" dir="true" long-name="Информация для&#160;клиентов"/>
+	<item key="customers" name="Клиентам" module="articles" long-name="Информация для&#160;клиентов">
+		<item key="articles" name="Статьи" dir="true"/>
+	</item>
 	<group id="service">
 		<item key="about" name="Компания"/>
 		<item key="special-technics" name="Спецтехника"/>

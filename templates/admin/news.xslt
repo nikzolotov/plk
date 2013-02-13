@@ -4,6 +4,7 @@
 	<xsl:import href="../common/utils.xslt" />
 	<xsl:import href="../common/text.xslt" />
 	<xsl:import href="../common/date-form.xslt" />
+	<xsl:import href="../common/pages.xslt" />
 
 	<xsl:param name="action" />
 	
@@ -11,10 +12,6 @@
 		<h1>
 			<xsl:value-of select="/page/navigation//item[@in and not(item/@in)]/@name" />
 		</h1>
-		<p>
-			<a class="b-add-link" href="?act=edit">Добавить</a>
-		</p>
-		<xsl:apply-templates select="../pages" mode="pages" />
 		<ul>
 			<xsl:apply-templates mode="list" />
 		</ul>
@@ -32,11 +29,13 @@
 			<a class="link" href="?id={@id}&amp;act=edit">
 				<xsl:value-of select="title/text()"/>
 			</a>
-			<span class="b-meta">
-				<xsl:call-template name="format-date">
-					<xsl:with-param name="date" select="date"/>
-				</xsl:call-template>
-			</span>
+			<xsl:if test="@type = 'news'">
+				<span class="b-meta">
+					<xsl:call-template name="format-date">
+						<xsl:with-param name="date" select="date"/>
+					</xsl:call-template>
+				</span>
+			</xsl:if>
 		</li>
 	</xsl:template>
 	
@@ -52,6 +51,17 @@
 						<input id="f-title" type="text" name="title" value="{article/title/text()}"/>
 					</div>
 				</div>
+				<xsl:if test="@type = 'article'">
+					<div id="text-field" class="b-field">
+						<label class="b-label" for="f-lead">Анонс <span>(<a name="lead" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
+						<div class="b-wide-input">
+							<textarea id="f-lead" name="lead" rows="7" cols="100">
+								<xsl:copy-of select="article/lead/*|article/lead/text()"/>
+								<xsl:text><![CDATA[]]></xsl:text>
+							</textarea>
+						</div>
+					</div>
+				</xsl:if>
 				<div id="text-field" class="b-field">
 					<label class="b-label" for="f-body">Текст <span>(<a name="body" href="#" onclick="return showeditor(this)">редактор</a>)</span></label>
 					<div class="b-wide-input">
@@ -84,11 +94,20 @@
 					<label for="f-published"> Опубликовать</label>
 				</div>
 				<div class="b-field">
-					<input type="hidden" name="type" value="news"/>
+					<input type="hidden" name="type" value="{@type}"/>
 					<input type="submit" value="Сохранить"/>
 					<xsl:if test="article">
 						<xsl:text>&#160;&#160;&#160;</xsl:text>
-						<a class="b-delete-link" href="?act=delete&amp;id={article/@id}" onclick="return confirm('Удалить эту новость?')">
+						<a class="b-delete-link" href="?act=delete&amp;id={article/@id}">
+							<xsl:attribute name="onclick">
+								<xsl:text>return confirm('Удалить </xsl:text>
+								<xsl:choose>
+									<xsl:when test="article/@type = 'article'">эту статью</xsl:when>
+									<xsl:when test="article/@type = 'definition'">это определение</xsl:when>
+									<xsl:otherwise>эту новость</xsl:otherwise>
+								</xsl:choose>
+								<xsl:text>?')</xsl:text>
+							</xsl:attribute>
 							<xsl:text>Удалить</xsl:text>
 						</a>
 					</xsl:if>

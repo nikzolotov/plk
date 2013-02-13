@@ -4,11 +4,13 @@ RewriteBase	/
 
 RewriteRule	^share/(.+)/(.*)$				share/$2 [L,NC]
 
+RewriteRule ^team/(tver|moscow)/$		/team/?city=$1 [QSA,L,NC]
+
 RewriteRule ^news/(\d+)\.html$		/news/?id=$1 [QSA,L,NC]
 RewriteRule ^news/(\d+)/$			/news/?y=$1 [QSA,L,NC]
 RewriteRule ^news/(\d+)/(\d+)/$		/news/?y=$1&m=$2 [QSA,L,NC]
 
-RewriteRule ^team/(tver|moscow)/$		/team/?city=$1 [QSA,L,NC]
+RewriteRule ^customers/articles/(\d+)\.html$		/customers/articles/?id=$1 [QSA,L,NC]
 
 RewriteCond	$0								!^admin/
 RewriteCond	$0								!^cgi-bin/

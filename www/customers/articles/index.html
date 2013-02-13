@@ -1,0 +1,9 @@
+﻿@main[][article]
+	^useModule[article]
+	
+	^if(^form:id.int(0)){
+		$article[^article::article[^form:id.int(0);1]]
+		^article.xml-string[]
+	}
+	
+	^Templates.add[articles.xslt]

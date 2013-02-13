@@ -1,0 +1,18 @@
+﻿@main[][articles;definitions]
+	^useModule[article]
+	
+	$articles[^article::list[
+		$.type[article]
+		$.published(1)
+	]]
+	^articles.xml-string[articles]
+	
+	$definitions[^article::list[
+		$.type[definition]
+		$.with-body(true)
+		$.published(1)
+		$.order[ASC]
+	]]
+	^definitions.xml-string[definitions]
+	
+	^Templates.add[customers.xslt]

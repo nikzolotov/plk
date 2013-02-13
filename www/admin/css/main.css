@@ -30,7 +30,7 @@ UL LI, OL LI {
 	margin-bottom: 6px;
 	}
 UL LI:before {
-	color: #999;
+	color: #B0B0B0;
 	}
 	UL UL, UL OL, OL UL, OL OL {
 		margin-top: 6px;
@@ -190,6 +190,34 @@ UL LI:before {
 			}
 		.b-edit-photos .swap-link:hover {
 			color: #999;
+			}
+
+/* Pages */
+.b-pages {
+	height: 13px;
+	margin-bottom: 28px;
+	border-bottom: 1px solid #DFDFDF;
+	text-align: center;
+	}
+	.b-pages .inner {
+		display: inline-block;
+		margin-left: -5px;
+		padding: 0 15px 0 10px;
+		background: #FFF;
+		}
+		.b-pages .link {
+			display: inline-block;
+			margin: 0 0 9px 5px;
+			padding: 3px 6px;
+			border: 1px solid #999;
+			text-decoration: none;
+			}
+		.b-pages .arrow {
+			border: none;
+			font-size: 18px;
+			}
+		.b-pages .disabled {
+			color: #CCC;
 			}
 
 /* =Containers

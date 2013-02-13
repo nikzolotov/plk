@@ -6,4 +6,6 @@
 	<item key="persons" name="Команда" dir="true"/>
 	<item key="news" name="Новости" dir="true"/>
 	<item key="vacancies" name="Вакансии" dir="true"/>
+	<item key="articles" name="Статьи" dir="true"/>
+	<item key="definitions" name="Глоссарий" dir="true"/>
 </navigation>

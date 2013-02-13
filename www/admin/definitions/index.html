@@ -24,23 +24,16 @@
 			^if(^form:id.int(0)){
 				$Article[^article::article(^form:id.int(0))]
 				$Article.escape-xml(true)
-				^Article.xml-string[article-form]
+				^Article.xml-string[article-form;$.type[definition]]
 			}{
-				^article:xml-string[article-form]
+				^article:xml-string[article-form;$.type[definition]]
 			}
 		}
 		^case[DEFAULT]{
 			^if(!^form:id.int(0)){
-				$total(^article:count[
-					$.type[news]
-				])
-				$offset[^set_pages[10;$total;^form:page.int(-1)]]
-				$offset.xml
-				
 				$Article[^article::list[
-					$.type[news]
-					$.limit(10)
-					$.offset($offset.offset)
+					$.type[definition]
+					$.order[ASC]
 				]]
 				^Article.xml-string[article-list]
 			}{

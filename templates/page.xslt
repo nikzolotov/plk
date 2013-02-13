@@ -53,17 +53,17 @@
 	</xsl:template>
 	
 	<xsl:template name="title-text">
-		<xsl:value-of select="$txtres/title"/>
 		<xsl:choose>
 			<xsl:when test="string-length(/page/static-text/title/text()) != 0">
-				<xsl:text> — </xsl:text>
 				<xsl:apply-templates select="/page/static-text/title/* | /page/static-text/title/text()"/>
+				<xsl:text> — </xsl:text>
 			</xsl:when>
 			<xsl:when test="string-length(/page/navigation//item[@hit]/@name) != 0">
-				<xsl:text> — </xsl:text>
 				<xsl:value-of select="/page/navigation//item[@hit]/@name"/>
+				<xsl:text> — </xsl:text>
 			</xsl:when>
 		</xsl:choose>
+		<xsl:value-of select="$txtres/title"/>
 	</xsl:template>
 	
 	<xsl:template name="css-includes"/>

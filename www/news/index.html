@@ -15,35 +15,35 @@
 				$before[^date::create(^form:y.int(1);^form:m.int(0))]
 				^before.roll[month](1)
 				$ns[^article::list[
-					$.type[$form:type]
+					$.type[news]
 					$.published(1)
 					$.date-from[^date::create(^form:y.int(1);^form:m.int(0))]
 					$.date-before[$before]
 				]]
-				^ns.xml-string[news;$.type[$form:type]]
+				^ns.xml-string[news;$.type[news]]
 			}{
 				$ns[^article::list[
-					$.type[$form:type]
+					$.type[news]
 					$.published(1)
 					$.date-from[^date::create[^form:y.int(1)]]
 					$.date-before[^date::create[^eval(^form:y.int(1)+1)]]
 				]]
-				^ns.xml-string[news;$.type[$form:type]]
+				^ns.xml-string[news;$.type[news]]
 			}
 		}{
 			$ns[^article::list[
-				$.type[$form:type]
+				$.type[news]
 				$.limit(10)
 				$.published(1)
 			]]
-			^ns.xml-string[news;$.type[$form:type]]
+			^ns.xml-string[news;$.type[news]]
 		}
 	}
 	$cal[^article::calendar[
 		$.short(true)
-		$.type[$form:type]
+		$.type[news]
 		$.published(1)
 	]]
-	^cal.xml-string[calendar;$.type[$form:type]]
+	^cal.xml-string[calendar;$.type[news]]
 	
 	^Templates.add[news.xslt]
