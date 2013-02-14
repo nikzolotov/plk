@@ -1,5 +1,9 @@
 ﻿@main[][articles;definitions]
+	^useModule[doc]
 	^useModule[article]
+	
+	$docs[^doc::docs[]]
+	^docs.xmlString[docs]
 	
 	$articles[^article::list[
 		$.type[article]

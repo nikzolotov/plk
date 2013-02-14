@@ -286,5 +286,23 @@
 		<xsl:value-of select="substring($date, 6,2)"/>        
 		<xsl:value-of select="substring($date, 9,2)"/>        
 	</xsl:template>
+	
+	<!-- вывод размера файла -->
+	<xsl:decimal-format name="file-size" grouping-separator=' ' />
+	
+	<xsl:template match="text()" mode="file-size">
+		<xsl:variable name="kbytes" select="ceiling(number(.) div 1000)"/>
+		<xsl:choose>
+			<xsl:when test="$kbytes &gt; 1000">
+				<xsl:variable name="mbytes" select="ceiling($kbytes div 1000)"/>
+				<xsl:value-of select="format-number($mbytes, '### ###', 'file-size')"/>
+				<xsl:text>&#160;Мб</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$kbytes"/>
+				<xsl:text>&#160;Кб</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
 </xsl:stylesheet>
