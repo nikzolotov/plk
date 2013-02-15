@@ -1,0 +1,69 @@
+body {
+	width: 100%;
+}
+.l-main-section,
+.l-about-company {
+	width: 100%;
+	overflow: hidden;
+}
+.b-main-menu .item,
+.b-navigation-deployed .item,
+.b-navigation-deployed .link,
+.b-scroll-gallery .navigation .item,
+.b-wrapped-line .title,
+.b-calculation-cost .currencies .item,
+.b-movement .category .item,
+.b-tabs-compact .item,
+.b-tabs-docs .item {
+	display: inline !important;
+}
+.b-fields .item,
+.b-calculation-cost .field {
+	zoom: 1;
+}
+.b-navigation-deployed {
+	margin-bottom: 0;
+}
+
+.b-copyright {
+	display: inline;
+	margin-top: 100px;
+}
+
+.b-main-navigation .line {
+	display: none;
+}
+
+
+.b-scroll-gallery .common-title {
+	position: relative;
+	z-index: 999;
+}
+
+.b-scroll-gallery .title,
+.b-scroll-gallery .slide .title .text,
+.b-conditions .item {
+	display: inline !important;
+}
+.b-transition {
+	zoom: 1;
+}
+.b-fields .item .l-input-165 {
+	width: 150px;
+}
+.b-fields .field-right {
+	width: 150px;
+}
+
+.l-input-56 {
+	width: 50px;
+}
+.b-submit {
+	left: -100px;
+}
+.b-signpost {
+	display: none;
+}
+.b-events-calculation .item {
+	margin-left: 0;
+}

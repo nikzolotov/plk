@@ -94,6 +94,13 @@ BLOCKQUOTE, Q {
 }
 /* =Elements
 --------------------------------------- */
+HTML {
+	position: relative;
+}
+HTML, BODY {
+	min-height: 100%;
+	height: Auto !important;
+}
 BODY {
 	background-color: #393228; 
 	font: normal 16px/24px 'PFDindisplayPro Regular', arial, sans-serif;
@@ -136,6 +143,10 @@ H3 {
 	line-height: 34px;
 	margin-bottom: 10px;
 }
+H4 {
+	font: bold 18px/22px 'PFDindisplayPro LightItalic',arial,sans-serif;
+    margin-bottom: 5px;
+}
 P {
 	margin-bottom: 20px;
 }
@@ -164,6 +175,7 @@ OL {
 		margin-bottom: 9px;
 		}
 
+
 /* =Layout
 --------------------------------------- */
 .l-page {
@@ -173,8 +185,11 @@ OL {
 .l-main-section {
 	min-width: 1000px;
 	max-width: 100%;
-	background: url('../img/backgrounds/bg_cars_1.jpg') repeat-x fixed 50% 0;
+	background: url('../img/backgrounds/bg_cars_1.jpg') repeat fixed 50% 0;
 }
+	.l-main-section .l-content {
+		padding-bottom: 219px;
+	}
 #main_section {
 	position: relative;
 	top: 0;
@@ -182,13 +197,16 @@ OL {
 	max-width: 100%;
 	height: 1200px;
 }
+	#main_section .l-content {
+		padding: 0;
+	}
 .l-about-company {
 	
-	background: url('../img/backgrounds/bg_cars_2.jpg') repeat-x fixed 50% 0px;
+	background: url('../img/backgrounds/bg_cars_2.jpg') repeat fixed 50% 0px;
 }
 #about {
 	position: relative;
-	height: 2022px;
+	height: 1417px;
 	min-width: 1000px;
 	max-width: 100%;
 }
@@ -229,12 +247,12 @@ OL {
 }
 .l-external-content {
 	position: fixed;
-	top: 0;
+	top: 72px;
 	z-index: 9999;
 	width: 100%;
+	height: 0;
 	min-width: 1000px;
 	margin-top: 1200px;
-	padding-top: 72px;
 }
 .l-header {
 	margin: 0 18px;
@@ -242,8 +260,18 @@ OL {
 	background: url('../img/figuration/zigzag.png') repeat-x 0 bottom;
 }
 .l-footer {
-	padding-top: 50px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 219px;
+	margin-top: -219px;
 	text-align: center;
+}
+.l-page .l-footer {
+	position: static;
+	width: auto;
+	height: auto;
+	margin-top: 0;
 }
 .l-inner {
 	position: relative;
@@ -467,6 +495,7 @@ OL {
 	height: 90px;
 }
 	.b-icon-food B {
+		left: 0;
 		top: -299px;
 	}
 .b-icon-industrial {
@@ -509,6 +538,7 @@ OL {
 	height: 94px;
 }
 	.b-icon-about-n B {
+		left: 0;
 		top: -512px;
 	}
 .b-icon-special-technics-n {
@@ -558,6 +588,7 @@ OL {
 	height: 122px;
 }
 	.b-icon-special-technics B {
+		left: 0;
 		top: -611px;
 	}
 .b-icon-motor-vehicles {
@@ -591,6 +622,7 @@ OL {
 	height: 122px;	
 }
 	.b-icon-calendar B {
+		left: 0;
 		top: -389px;
 	}
 .b-icon-graph {
@@ -650,6 +682,7 @@ OL {
 	height: 106px;
 }
 	.b-icon-passenger B {
+		left: 0;
 		top: -194px;
 	}
 .b-icon-commercial {
@@ -683,6 +716,7 @@ OL {
 	height: 133px;
 }
 	.b-icon-lift-truck B {
+		left: 0;
 		top: -61px;
 	}
 .b-icon-excavator {
@@ -716,6 +750,7 @@ OL {
 	height: 166px;
 }
 	.b-icon-big-book B {
+		left: 0;
 		top: -744px;
 	}
 
@@ -725,6 +760,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-big-clock B {
+		left: 0;
 		top: -913px;
 	}
 .b-icon-big-castle {
@@ -756,7 +792,7 @@ OL {
 		position: relative;
 		width: 473px;
 		margin: 28px 0 0 278px;
-		padding: 14px 18px;
+		padding: 14px 18px 14px 19px;
 		background-color: #eeedeb;
 		font: 18px/22px 'PFSquareSans ProItalic', arial, sans-serif;
 		color: #393228;
@@ -766,7 +802,7 @@ OL {
 	.b-logo .summary:before {
 		content: ' ';
 		position: absolute;
-		top: -13px;
+		top: -12px;
 		left: 0;
 		display: block;
 		width: 20px;
@@ -777,6 +813,7 @@ OL {
     	-o-transform: skew(0deg, 52deg);
     	-webkit-transform: skew(0deg, 52deg);
     	-moz-transform: skew(0deg, 52deg);
+    	-ms-transform: skew(0deg, 52deg);
 	}
 .b-zigzag-design {
 	position: relative;
@@ -1169,7 +1206,16 @@ OL {
 		-o-transform: skew(-13deg, 0deg);
 		-webkit-transform: skew(-13deg, 0deg);
 		-moz-transform: skew(-13deg, 0deg);
+		-ms-transform: skew(-13deg, 0deg);
 	}
+		.b-wrapped-line .text {
+			display: block;
+			transform: skew(13deg, 0deg);
+			-o-transform: skew(13deg, 0deg);
+			-webkit-transform: skew(13deg, 0deg);
+			-moz-transform: skew(13deg, 0deg);
+			-ms-transform: skew(13deg, 0deg);
+		}
 	.b-wrapped-line .content {
 		margin-top: -33px;
 		text-align: left;
@@ -1376,9 +1422,18 @@ z-index: 333;
 	.b-calculation-cost .field-currencies .item {
 		margin-left: 22px;
 	}
-		.b-movement-currencies .currency {
-
-		}
+.b-calculation-cost .category-usd {
+	margin-left: -35px !important;
+}
+	.b-calculation-cost .category-usd .item {
+		margin-left: 35px;
+	}
+.b-calculation-cost .category-eur {
+	margin-left: -35px !important;
+}
+	.b-calculation-cost .category-eur .item {
+		margin-left: 35px
+	}
 .b-calculation-cost .field-advance .category {
 	margin-left: -91px;
 }
@@ -1390,8 +1445,8 @@ z-index: 333;
 	margin-left: -44px;
 }
 	.b-calculation-cost .field-years .item {
-		width: 26px;
-		margin-left: 44px;
+		width: 29px;
+		margin-left: 41px;
 	}
 
 .b-calculation {
@@ -1416,6 +1471,7 @@ z-index: 333;
 
 .b-tabs-compact {
 	margin-left: -26px;
+	margin-bottom: 15px;
 	font: 23px/23px 'PFDinTextCompPro Italic', arial, sans-serif;
 }
 	.b-tabs-compact .item {
@@ -1505,6 +1561,7 @@ z-index: 333;
 		}
 
 .b-team {
+	padding-top: 6px;
 }
 	.b-team .item {
 		overflow: hidden;
@@ -1535,17 +1592,19 @@ z-index: 333;
 			line-height: 24px;
 		}
 .b-signpost {
-	position: relative;
+	position: absolute;
+	left: 50%;
 	bottom: 0;
 	display: inline-block;
 	height: 169px;
+	margin-left: -40px;
 	text-transform: uppercase;
 	font: 18px/22px 'PFDinTextCompPro Italic', arial, sans-serif;
 }
 	.b-signpost .signpost {
 		position: relative;
 		z-index: 999;
-		display: inline-block;
+		display: block;
 		width: 80px;
 		height: 169px;
 		background: url('../img/containers/signpost.png') no-repeat 0 bottom;
@@ -1630,6 +1689,10 @@ z-index: 333;
 		.b-yandex-map #YMapsID .ymaps-map {
 			border-radius: 10px;
 		}
+.b-map-title {
+	font-size: 25px;
+    line-height: 25px;
+}
 .b-map-title,
 .b-map-content {
 	width: 266px;
@@ -1681,17 +1744,13 @@ z-index: 333;
 		}
 
 .b-events {
-	margin-top: -18px;
 	font: 16px;
 	line-height: 20px;
 }
 	.b-events .item {
-		padding: 30px 0 20px 0;
+		padding: 22px 0 15px;
 		margin: 0;
 		background: url('../img/containers/gray-zigzag.png') repeat-x 9px bottom;
-	}
-	.b-events .item {
-		background-position: 11px bottom;
 	}
 	.b-events .sub-content .title {
 		font: normal 16px/24px 'PFDindisplayPro Regular', arial, sans-serif;
@@ -1710,12 +1769,8 @@ z-index: 333;
 		position: relative;
 		margin-top: -2px;
 		margin-left: -36px;
-		padding: 32px 33px 20px 36px;
+		padding: 24px 33px 9px 36px;
 		background: #79705d;
-	}
-	.b-events-calculation .item-selected {
-		margin-left: -49px;
-		padding-left: 49px;
 	}
 		.b-events .item-selected .zigzag {
 			position: absolute;
@@ -1741,6 +1796,17 @@ z-index: 333;
 		.b-events .title {
 			font: 22px/30px 'PFSquareSans ProItalic', arial, sans-serif;
 		} 
+.b-events-calculation .item {
+	padding-top: 15px;
+	padding-bottom: 20px;
+	background-position: 11px bottom;
+}
+.b-events-calculation .item-selected {
+	margin-left: -49px;
+	padding-left: 49px;
+	padding-top: 17px;
+	padding-bottom: 20px;
+}
 
 .b-title-square {
 	margin-bottom: 5px;
@@ -1851,10 +1917,12 @@ z-index: 333;
 			.b-scroll-gallery .slide .desc {
 				position: relative;
     			top: -30px;
-				font: 24px/32px arial, sans-serif;
+    			margin-bottom: 0;
+				font-size: 23px;
+				line-height: 32px;
 			}
 			.b-scroll-gallery .slide .content {
-				width: 524px;
+				width: 483px;
 				margin: 0 auto;
 			}
 	.b-scroll-gallery .common-content {
@@ -1919,6 +1987,17 @@ z-index: 333;
 					-moz-transform: skew(10deg, 0deg);
 					-ms-transform: skew(10deg, 0deg);
 				}
+.b-scroll-gallery-fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding-top: 72px;
+}
+.b-scroll-gallery-absolute {
+	position: absolute;
+	width: 100%;
+	bottom: 143px;
+}
 
 	
 
@@ -1989,7 +2068,7 @@ z-index: 333;
 					line-height: 12px;
 					color: #7f7f7f;
 				}
-.l-input-66 {
+.input-slider {
 	float: right;
 	width: 66px;
 }
@@ -1997,13 +2076,13 @@ z-index: 333;
 	position: relative;
 	float: right;
 }
-	.b-field-sign .l-input-66 {
+	.b-field-sign .input-slider {
 		float: none;
 	}
 	.b-field-sign .sign {
 		position: absolute;
 		top: 5px;
-		right: -11px;
+		left: 76px;
 		display: block;
 		font: italic 14px/14px 'PFDindisplayPro Regular',arial,sans-serif;
 	}

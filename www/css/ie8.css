@@ -1,0 +1,4 @@
+.b-logo .summary:before {
+	top: -20px;
+	background: none url('../img/figuration/triangle.png') no-repeat !important;
+}

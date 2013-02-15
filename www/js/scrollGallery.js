@@ -10,11 +10,14 @@
 			firstItemHtml: '<div class="item"><a href="?" class="link"><span class="text">',
 			endItemHtml: '</span></a></div>',
 			titleItems: '.title',
+			containerFixed: 'b-scroll-gallery-fixed',
+			containerAbsolute: 'b-scroll-gallery-absolute',
 			minSlidesWidth: 1070,
 			animationTime: 200,
 			animationHiddenContent: 200,
-			scrollChangeSlides: 100,
-			existenceNavigation: false
+			scrollChangeSlides: 500,
+			existenceNavigation: false,
+			heightForParrallax: '#about'
 		};
 
 		return this.each(function(){
@@ -28,12 +31,13 @@
 				navigation = $(OPTIONS.navigation, container),
 				hiddenContent = $(OPTIONS.hiddenContent, container),
 				slidesCount = slides.length,
-				galleryTop = Math.ceil(container.offset().top) - 150,
+				heightForParrallax = $(OPTIONS.heightForParrallax),
+				galleryTop = Math.ceil(container.offset().top) - 144,
 				currentPage = 0,
-				prevSlide = 0,
 				slideWidth = 0,
 				maxFixed = (slidesCount * OPTIONS.scrollChangeSlides) - OPTIONS.scrollChangeSlides -1;
 
+			if($.browser.opera || $.browser.firefox) galleryTop = Math.ceil(container.offset().top) - 72;
 
 			if(!OPTIONS.existenceNavigation && slidesCount > 1){
 				var linkNavigation;
@@ -67,6 +71,7 @@
 				navigation.html(itemHtml);
 
 				linkNavigation = $(OPTIONS.linkSelector, navigation);
+				heightForParrallax.height( heightForParrallax.height() + maxFixed );
 
 			}
 
@@ -84,24 +89,22 @@
 
 			function fixedGallery(){
 				scrollTop = $(window).scrollTop();
-
 				if(scrollTop >= galleryTop){
 					valuePadding = scrollTop-galleryTop;
 					if(valuePadding < maxFixed){
-						container.css('padding-top',scrollTop-galleryTop);
+						
+						container.removeClass(OPTIONS.containerAbsolute).addClass(OPTIONS.containerFixed);
 						changeSlide(scrollTop-galleryTop);
 					}
 					else {
-						container.css('padding-top', maxFixed);
-						prevSlide = currentPage;
+						container.removeClass(OPTIONS.containerFixed).addClass(OPTIONS.containerAbsolute);
 						currentPage = slidesCount - 1;
 						switchSlide();
 					}
 					
 				}
 				else {
-					container.css('padding-top',0);
-					prevSlide = currentPage;
+					container.removeClass(OPTIONS.containerFixed).removeClass(OPTIONS.containerAbsolute);
 					currentPage = 0;
 					switchSlide();
 				}
@@ -124,7 +127,6 @@
 
 					if( thisIndex != currentPage ){
 
-						prevSlide = currentPage;
 						currentPage = thisIndex;
 
 						newScroll = galleryTop + (OPTIONS.scrollChangeSlides * currentPage);
@@ -138,7 +140,6 @@
 			function changeSlide(positionScroll){
 				numberSlide = Math.floor(positionScroll/OPTIONS.scrollChangeSlides);
 				if(numberSlide < slidesCount){
-					prevSlide = currentPage;
 					currentPage = numberSlide;
 					switchSlide(positionScroll);
 				}
@@ -146,7 +147,6 @@
 
 			function switchSlide(positionScroll){
 				valueMargin = parseInt(slidesContainer.css('margin-right')),
-				oldMargin = prevSlide * slideWidth * -1,
 				newMargin = currentPage * slideWidth * -1;
 
 				if(newMargin != valueMargin){

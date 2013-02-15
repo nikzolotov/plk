@@ -34,13 +34,14 @@
 			<xsl:call-template name="include-css">
 				<xsl:with-param name="name" select="'main'"/>
 			</xsl:call-template>
+			<xsl:comment><xsl:text disable-output-escaping="yes"><![CDATA[[if lte IE 8]><link rel="stylesheet" type="text/css" href="/css/ie8.css"/><![endif]]]></xsl:text></xsl:comment>
 			<xsl:comment><xsl:text disable-output-escaping="yes"><![CDATA[[if lte IE 7]><link rel="stylesheet" type="text/css" href="/css/ie7.css"/><![endif]]]></xsl:text></xsl:comment>
 			<xsl:call-template name="css-includes"/>
 			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'jquery-1.8.3.min'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
-				<xsl:with-param name="name" select="'jquery-ui-1.9.2.custom'"/>
+				<xsl:with-param name="name" select="'jquery-ui-1.9.2.custom.min'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'scrollGallery'"/>

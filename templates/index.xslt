@@ -57,69 +57,8 @@
 							</i>
 						</div>
 					</div>
-					<div class="b-scroll-gallery">
-						<h2 class="common-title">В своей работе мы придерживаемся семи простых правил</h2>
-						<div class="slides">
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Оперативность</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Доступность</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Удобство</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Содействие</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Компетентность</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Лидерство</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-							<div class="slide">
-								<div class="content">
-									<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<h3 class="title"><span class="text">Надежность</span></h3>
-									<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-								</div>
-							</div>
-						</div>
-						<div class="common-content">
-							<i class="circ">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</i>
-							<div class="navigation">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</div>
-						</div>
-					</div>
 				</div>
+				<xsl:call-template name="company-features"/>
 				<div class="b-transition">
 					<i class="zigzag">
 						<xsl:text><![CDATA[]]></xsl:text>
@@ -422,16 +361,19 @@
 																	<li class="item">
 																		<a class="link selected">
 																			<span class="text">РУБ</span>
+																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																	<li class="item">
 																		<a class="link">
 																			<span class="text">USD</span>
+																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																	<li class="item">
 																		<a class="link">
 																			<span class="text">EUR</span>
+																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																</ul>
@@ -440,20 +382,32 @@
 																<label for="cost" class="label l-label-190">Общая стоимость</label>
 																<div class="b-movement">
 																	<ul class="category">
-																		<li class="item">100&#160;000&#160;<span class="currency">р</span></li>
-																		<li class="item">500&#160;000&#160;<span class="currency">р</span></li>
-																		<li class="item">1&#160;000&#160;000&#160;<span class="currency">р</span></li>
-																		<li class="item">10&#160;000&#160;000&#160;<span class="currency">р</span></li>
+																		<li class="item">
+																			<span class="number">100&#160;000</span>
+																			<span class="currency">р</span>
+																		</li>
+																		<li class="item">
+																			<span class="number">500&#160;000</span>
+																			<span class="currency">р</span>
+																		</li>
+																		<li class="item">
+																			<span class="number">1&#160;000&#160;000</span>
+																			<span class="currency">р</span>
+																		</li>
+																		<li class="item">
+																			<span class="number">10&#160;000&#160;000</span>
+																			<span class="currency">р</span>
+																		</li>
 																	</ul>
 																	<div class="movement"><xsl:text><![CDATA[]]></xsl:text></div>
 																</div>
 																<div class="b-field-sign">
-																	<input id="cost" name="cost" type="text" class="input l-input-66"/>
+																	<input id="cost" name="cost" type="text" class="input input-slider"/>
 																	<span class="sign">р</span>
 																</div>
 															</div>
 															<div class="field field-advance">
-																<label for="advance" class="label l-label-190">Авансовый платеж,&#160;%</label>
+																<label for="advance" class="label l-label-190">Авансовый платеж</label>
 																<div class="b-movement">
 																	<ul class="category">
 																		<li class="item">0%</li>
@@ -464,22 +418,28 @@
 																		<xsl:text><![CDATA[]]></xsl:text>
 																	</div>
 																</div>
-																<input id="advance" name="advance" type="text" class="input l-input-66"/>
+																<div class="b-field-sign">
+																	<input id="advance" name="advance" type="text" class="input input-slider"/>
+																	<span class="sign">%</span>
+																</div>
 															</div>
 															<div class="field field-years">
-																<label for="years" class="label l-label-190">Срок, лет</label>
+																<label for="years" class="label l-label-190">Срок</label>
 																<div class="b-movement">
 																	<ul class="category">
-																		<li class="item">1 год</li>
-																		<li class="item">2 года</li>
-																		<li class="item">3 года</li>
-																		<li class="item">4 года</li>
+																		<li class="item">12 мес.</li>
+																		<li class="item">24 мес.</li>
+																		<li class="item">36 мес.</li>
+																		<li class="item">48 мес.</li>
 																	</ul>
 																	<div class="movement">
 																		<xsl:text><![CDATA[]]></xsl:text>
 																	</div>
 																</div>
-																<input id="years" name="years" type="text" class="input l-input-66"/>
+																<div class="b-field-sign">
+																	<input id="years" name="years" type="text" class="input input-slider"/>
+																	<span class="sign">мес.</span>
+																</div>
 															</div>
 															<div class="b-calculation">Размер ежемесячного платежа: <span class="number">208 573</span>&#160;<span class="currency">р</span>*</div>
 														</div>
@@ -544,9 +504,76 @@
 		</ul>
 	</xsl:template>
 	
+	<xsl:template name="company-features">
+		<div class="b-scroll-gallery">
+			<h2 class="common-title">В своей работе мы придерживаемся семи простых правил</h2>
+			<div class="slides">
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Оперативность</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Доступность</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Удобство</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Содействие</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Компетентность</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Лидерство</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Надежность</span></h3>
+						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+					</div>
+				</div>
+			</div>
+			<div class="common-content">
+				<i class="circ">
+					<xsl:text><![CDATA[]]></xsl:text>
+				</i>
+				<div class="navigation">
+					<xsl:text><![CDATA[]]></xsl:text>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+	
 	<xsl:template name="conditions">
 		<div class="b-wrapped-line">
-			<h2 class="title">Базовые условия</h2>
+			<h2 class="title">
+				<span class="text">Базовые условия</span>
+			</h2>
 			<div class="content">
 				<ul class="b-conditions">
 					<li class="item">
