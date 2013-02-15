@@ -9,8 +9,8 @@
 				</div>
 				<div class="l-content">
 					<div class="b-logo">
-						<h1 class="title"> Первая лизинговая компания</h1>
-						<div class="summary">Первая лизинговая компания — универсальная лизинговая компания, созданная 29 октября 2001 года. Наша компания являлась и является 100% Тверской компанией, и мы, как никто другой, хорошо знакомы со спецификой бизнеса нашего региона.</div>
+						<h1 class="title"> Первая Лизинговая Компания</h1>
+						<div class="summary">Первая Лизинговая Компания — универсальная лизинговая компания, созданная 29 октября 2001 года. Наша компания являлась и является 100% Тверской компанией, и мы, как никто другой, хорошо знакомы со спецификой бизнеса нашего региона.</div>
 					</div>
 					<div class="b-zigzag-design">
 						<xsl:call-template name="service-menu-deployed"/>
@@ -31,7 +31,7 @@
 			<div id="about" class="l-about-company">
 				<div class="l-inner">
 					<div class="l-column-600">
-						<h1>Мы — Первая лизинговая компания</h1>
+						<h1>Мы — Первая Лизинговая Компания</h1>
 						<p class="b-big-line-height">В числе наших клиентов многие крупнейшие предприятия города Твери и Тверской области. В настоящий момент заключено более 1 500 договоров финансового лизинга с более чем 800 лизингополучателями. Численность персонала компании — 14 человек. В 2007 году было открыто представительство в г. Москва. Первая Лизинговая Компания имеет партнерские отношения с универсальнаядом крупнейших банков Тверского региона.</p>
 					</div>
 					<div class="b-moving-car">
@@ -59,18 +59,6 @@
 					</div>
 				</div>
 				<xsl:call-template name="company-features"/>
-				<div class="b-transition">
-					<i class="zigzag">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-					<div class="area-icon">
-						<b class="b-icon b-icon-special-technics-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-					</div>
-					<div class="text">Спецтехника</div>
-					<i class="decor">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-				</div>
 			</div>
 			<div id="special-technics" class="l-special-achinery">
 				<div class="l-inner">
@@ -112,18 +100,6 @@
 						<xsl:call-template name="conditions"/>
 					</div>
 				</div>
-				<div class="b-transition">
-					<i class="zigzag">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-					<div class="area-icon">
-						<b class="b-icon b-icon-motor-vehicles-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-					</div>
-					<div class="text">Автотранспорт</div>
-					<i class="decor">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-				</div>
 			</div>
 			<div id="motor-vehicles" class="l-motor-transport">
 				<div class="l-inner">
@@ -164,18 +140,6 @@
 						</div>
 						<xsl:call-template name="conditions"/>
 					</div>
-				</div>
-				<div class="b-transition">
-					<i class="zigzag">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-					<div class="area-icon">
-						<b class="b-icon b-icon-equipment-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-					</div>
-					<div class="text">Оборудование</div>
-					<i class="decor">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
 				</div>
 			</div>
 			<div id="equipment" class="l-equipment">
@@ -224,20 +188,6 @@
 						<xsl:call-template name="conditions"/>
 					</div>
 				</div>
-				<div class="b-transition">
-					<i class="zigzag">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-					<div class="request">
-						<div class="area-icon">
-							<b class="b-icon b-icon-request-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-						</div>
-						<div class="text">Заявка на лизинг</div>
-					</div>
-					<i class="decor">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-				</div>          
 			</div>
 			<div id="request" class="l-request">
 				<div class="l-inner">
