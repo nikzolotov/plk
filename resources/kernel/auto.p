@@ -48,8 +48,12 @@
 		$.omit-xml-declaration[yes]
 	]
 	
-#	Email для отправки сообщений
-	$ADMIN_EMAIL[admin@alexandrit.ru]
+#	Бот, отправляющий сообщения
+	$SYSTEM_EMAIL[robot@plkfinance.ru]
+	
+#	Email менеджера проекта
+	$MANAGER_EMAIL[manager@plkfinance.ru]
+
 
 # Метод соединения с БД
 @connect_db[code]

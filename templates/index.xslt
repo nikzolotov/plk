@@ -193,52 +193,56 @@
 						<h1>Заявка на лизинг</h1>
 						<div class="b-request">
 							<div class="b-paper">
-								<form method="post" action="index.html#request" class="b-general-form">
+								<form method="post" action="index.html" id="request_form" class="b-general-form">
 									<ol class="b-red-numbering">
 										<li class="item-numbering">
 											<div class="content">
 												<h2 class="title">Расскажите о своей компании</h2>
 												<ul class="b-fields">
 													<li class="item">
-														<div class="field">
-															<label for="name" class="label l-label-190">Наименования организации</label>
-															<input id="name" name="name" type="text" class="l-input-323"/>
-														</div>
+														<div class="content-left">
+															<label for="name" class="label label-left">Наименования организации</label>
+															<input id="name" name="name" type="text" class="l-input-323 required"/>
+														 </div>
 													</li>
 													<li class="item">
-														<div class="field field-left">
-															<label for="career" class="label l-label-190">Род деятельности</label>
-															<input id="career" name="career" type="text" class="l-input-165"/>
-														</div>
-														<div class="field field-right">
-															<label for="personnel" class="label l-label-90">Персонал, чел.</label>
-															<input id="personnel" name="personnel" type="text" class="l-input-43"/>
-														</div>
+														<div class="content-left">
+															<div class="field field-left">
+																<label for="career" class="label label-left">Род деятельности</label>
+																<input id="career" name="career" type="text" class="l-input-165"/>
+															</div>
+															<div class="field field-right">
+																<label for="personnel" class="label l-label-90">Персонал, чел.</label>
+																<input id="personnel" name="personnel" type="text" class="l-input-43"/>
+															</div>
+														 </div>
 													</li>
 													<li class="item">
-														<div class="field">
-															<label for="phone" class="label l-label-190">Контактное лицо, телефон</label>
-															<input id="phone" name="phone" type="text" class="input l-input-323"/>
-														</div>
+														<div class="content-left">
+															<label for="phone" class="label label-left">Контактное лицо, телефон</label>
+															<input id="phone" name="phone" type="text" class="input l-input-323 required"/>
+														 </div>
 													</li>
 													<li class="item">
-														<h3 class="title l-label-190">Реквизиты</h3>
-														<div class="field field-gray">
-															<label for="tin" class="label-1">ИНН</label>
-															<input id="tin" name="tin" type="text" class="l-input-98"/>
-														</div>
-														<div class="field field-gray">
-															<label for="ncoea" class="label">ОКВЭД</label>
-															<input id="ncoea" name="ncoea" type="text" class="l-input-56"/>
-														</div>
-														<div class="field field-gray">
-															<label for="ncoeо" class="label">ОКПО</label>
-															<input id="ncoeо" name="ncoeо" type="text" class="l-input-56"/>
-														</div>
+														<div class="content-left">
+															<h3 class="title label-left">Реквизиты</h3>
+															<div class="field field-gray">
+																<label for="tin" class="label-1">ИНН</label>
+																<input id="tin" name="tin" type="text" class="l-input-98"/>
+															</div>
+															<div class="field field-gray">
+																<label for="ncoea" class="label">ОКВЭД</label>
+																<input id="ncoea" name="ncoea" type="text" class="l-input-56"/>
+															</div>
+															<div class="field field-gray">
+																<label for="ncoeо" class="label">ОКПО</label>
+																<input id="ncoeо" name="ncoeо" type="text" class="l-input-56"/>
+															</div>
+														 </div>
 													</li>
 													<li class="item">
-														<div class="field">
-															<label for="know" class="label l-label-190">Откуда вы узнали о нас</label>
+														<div class="content-left">
+															<label for="know" class="label label-left">Откуда вы узнали о нас</label>
 															<select id="know" name="know" class="l-input-323">
 																<option value="Газета">Прочитали в газете</option>
 																<option value="Телевизор">Увидели на телевидении</option>
@@ -256,20 +260,20 @@
 												<h2 class="title">Сведения о поставщике</h2>
 												<ul class="b-fields">
 													<li class="item">
-														<div class="field">
-															<label for="name_supplier" class="label l-label-190">Наименование</label>
+														<div class="content-left">
+															<label for="name_supplier" class="label label-left">Наименование</label>
 															<input id="name_supplier" name="name_supplier" type="text" class="input l-input-323"/>
 														</div>
 													</li>
 													<li class="item">
-														<div class="field">
-															<label for="address" class="label l-label-190">Адрес</label>
+														<div class="content-left">
+															<label for="address" class="label label-left">Адрес</label>
 															<input id="address" name="address" type="text" class="input l-input-323"/>
 														</div>
 													</li>
 													<li class="item">
-														<div class="field">
-															<label for="contact_name" class="label l-label-190">Контактное лицо</label>
+														<div class="content-left">
+															<label for="contact_name" class="label label-left">Контактное лицо</label>
 															<input id="contact_name" name="contact_name" type="text" class="input l-input-323"/>
 														</div>
 													</li>
@@ -281,8 +285,8 @@
 												<h2 class="title">Сведения о предмете лизинга</h2>
 												<ul class="b-fields">
 													<li class="item">
-														<div class="field">
-															<label for="category" class="label l-label-190">Категория предмета лизинга</label>
+														<div class="content-left">
+															<label for="category" class="label label-left">Категория предмета лизинга</label>
 															<select id="category" name="category" class="l-input-323">
 																<option value="Спецтехника">Спецтехника</option>
 																<option value="Автотранспорт">Автотранспорт</option>
@@ -291,43 +295,43 @@
 														</div>
 													</li>
 													<li class="item">
-														<div class="field">
-															<div class="l-label-190">
-																<label for="name_supplier" class="label">Общие сведения лизинга</label>
+														<div class="content-left">
+															<div class="label-left">
+																<label for="desc" class="label">Общие сведения лизинга</label>
 																<span class="desc">Марка, модель, год, наименование производителя, страна производителя</span>
 															</div>
-															<textarea id="address" class="l-input-323" cols="30" rows="5" name="address">
+															<textarea id="desc" class="l-input-323 required" cols="30" rows="5" name="desc">
 																<xsl:text><![CDATA[]]></xsl:text>
 															</textarea>
 														</div>
 													</li>
 													<li class="item">
 														<div class="b-calculation-cost">
-															<div class="field">
-																<h3 class="title l-label-190">Валюта</h3>
+															<div class="content-left">
+																<h3 class="title label-left">Валюта</h3>
 																<ul class="currencies">
 																	<li class="item">
 																		<a class="link selected">
-																			<span class="text">РУБ</span>
+																			<span class="text text-rub">РУБ</span>
 																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																	<li class="item">
 																		<a class="link">
-																			<span class="text">USD</span>
+																			<span class="text text-usd">USD</span>
 																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																	<li class="item">
 																		<a class="link">
-																			<span class="text">EUR</span>
+																			<span class="text text-euro">EUR</span>
 																			<xsl:text><![CDATA[]]></xsl:text>
 																		</a>
 																	</li>
 																</ul>
 															</div>
-															<div class="field field-currencies">
-																<label for="cost" class="label l-label-190">Общая стоимость</label>
+															<div class="field-currencies content-left">
+																<label for="cost" class="label label-left">Общая стоимость</label>
 																<div class="b-movement">
 																	<ul class="category">
 																		<li class="item">
@@ -350,12 +354,12 @@
 																	<div class="movement"><xsl:text><![CDATA[]]></xsl:text></div>
 																</div>
 																<div class="b-field-sign">
-																	<input id="cost" name="cost" type="text" class="input input-slider"/>
+																	<input id="cost" name="cost" type="text" class="input required input-slider"/>
 																	<span class="sign">р</span>
 																</div>
 															</div>
-															<div class="field field-advance">
-																<label for="advance" class="label l-label-190">Авансовый платеж</label>
+															<div class="field-advance content-left">
+																<label for="advance" class="label label-left">Авансовый платеж</label>
 																<div class="b-movement">
 																	<ul class="category">
 																		<li class="item">0%</li>
@@ -367,12 +371,12 @@
 																	</div>
 																</div>
 																<div class="b-field-sign">
-																	<input id="advance" name="advance" type="text" class="input input-slider"/>
+																	<input id="advance" name="advance" type="text" class="input required input-slider"/>
 																	<span class="sign">%</span>
 																</div>
 															</div>
-															<div class="field field-years">
-																<label for="years" class="label l-label-190">Срок</label>
+															<div class="field-months content-left">
+																<label for="months" class="label label-left">Срок</label>
 																<div class="b-movement">
 																	<ul class="category">
 																		<li class="item">12 мес.</li>
@@ -385,7 +389,7 @@
 																	</div>
 																</div>
 																<div class="b-field-sign">
-																	<input id="years" name="years" type="text" class="input input-slider"/>
+																	<input id="months" name="months" type="text" class="input required input-slider"/>
 																	<span class="sign">мес.</span>
 																</div>
 															</div>
@@ -408,18 +412,6 @@
 							</i>
 							<div class="l-intercolumn-26-200">
 								<p class="b-desc"><sub>*</sub> Приблизительная оценка. Фактический размер ежемесячного платежа определяется после прохождения финансовой экспертизы. Заявка не является прохожденияубличной офертой.</p>
-							</div>
-						</div>
-						<div class="b-answer-request" style="display:none;">
-							<div class="b-thelargest-text">
-								<p>Ваша заявка на лизинг успешно отправлена. Спасибо! Мы свяжемся с вами <br/>в самое ближайшее время.</p>
-							</div>
-							<i class="b-letter">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</i>
-							<div class="b-text-icon">
-								<b class="b-icon b-icon-big-book"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								<p>Пока мы обрабатываем вашу заявку, самое время ознакомиться с документами, необходимыми для заключения договора лизинга.</p>
 							</div>
 						</div>
 					</div>

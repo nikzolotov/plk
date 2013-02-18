@@ -351,7 +351,8 @@ OL {
 }
 .b-fields .item .field:after,
 .b-fields .item:after,
-.b-docs .item:after {
+.b-docs .item:after,
+.b-general-form .content-left:after {
 	content: ".";
 	display: block;
 	height: 0;
@@ -445,7 +446,7 @@ OL {
 		position: absolute;
 		display: block;
 		width: 1505px;
-		height: 954px;
+		height: 1120px;
 		background: url('../img/icons.png') no-repeat 0 0;
 	}
 
@@ -762,7 +763,7 @@ OL {
 }
 	.b-icon-big-book B {
 		left: 0;
-		top: -744px;
+		top: -740px;
 	}
 
 /* 214x214 */
@@ -772,14 +773,14 @@ OL {
 }
 	.b-icon-big-clock B {
 		left: 0;
-		top: -740px;
+		top: -906px;
 	}
 .b-icon-big-castle {
 	width: 214px;
 	height: 214px;
 }
 	.b-icon-big-castle B {
-		top: -740px;
+		top: -906px;
 		left: -215px;
 	}
 .b-icon-convenience {
@@ -787,7 +788,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-convenience B {
-		top: -740px;
+		top: -906px;
 		left: -430px;
 	}
 .b-icon-promotion {
@@ -795,7 +796,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-promotion B {
-		top: -740px;
+		top: -906px;
 		left: -645px;
 	}
 .b-icon-competence {
@@ -803,7 +804,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-competence B {
-		top: -740px;
+		top: -906px;
 		left: -860px;
 	}
 .b-icon-leadership {
@@ -811,7 +812,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-leadership B {
-		top: -740px;
+		top: -906px;
 		left: -1075px;
 	}
 .b-icon-reliability {
@@ -819,7 +820,7 @@ OL {
 	height: 214px;
 }
 	.b-icon-reliability B {
-		top: -740px;
+		top: -906px;
 		left: -1290px;
 	}
 /* =Content blocks
@@ -1450,10 +1451,10 @@ z-index: 333;
 		width: 17px;
 		margin-left: 91px;
 	}
-.b-calculation-cost .field-years .category {
+.b-calculation-cost .field-months .category {
 	margin-left: -44px;
 }
-	.b-calculation-cost .field-years .item {
+	.b-calculation-cost .field-months .item {
 		width: 29px;
 		margin-left: 41px;
 	}
@@ -2033,13 +2034,9 @@ z-index: 333;
 			font-size: 24px;
 			line-height: 27px;
 		}
-			.b-fields .item .field .l-label-190 {
-				width: 190px;
-				float: left;
-			}
-			.b-fields .item .field .l-input-323 {
+			
+			.b-fields .l-input-323 {
 				width: 323px;
-				float: right;
 			}
 			.b-fields .item .field-left {
 				float: left;
@@ -2078,7 +2075,7 @@ z-index: 333;
 				.b-fields .item .field-gray .label-1 {
 					padding-right: 1px;
 				}
-				.b-fields .item .field .desc {
+				.b-fields .desc {
 					padding-right: 10px;
 					font-size: 12px;
 					line-height: 12px;
@@ -2097,6 +2094,7 @@ z-index: 333;
 	}
 	.b-field-sign .sign {
 		position: absolute;
+		z-index: 9999;
 		top: 5px;
 		left: 76px;
 		display: block;
@@ -2147,13 +2145,25 @@ z-index: 333;
 		background: -o-linear-gradient(top, #C6898D, #7b080e);
 		background: -ms-linear-gradient(top, #C6898D, #7b080e);
 	}
-	
-
-
-
-
-
-
-
-
-
+	.b-general-form .content-left {
+		padding-left: 190px;
+	}
+		.b-general-form .content-left .label-left {
+			float: left;
+			width: 190px;
+			margin-left: -190px;
+			overflow: hidden;
+		}
+	.b-general-form .error {
+		padding-top: 2px;
+		font: italic 12px/12px 'PFDindisplayPro Regular',arial,sans-serif;
+		color: #c00;
+	}
+	.b-general-form .error,
+	.b-general-form .error {
+		padding: 3px 2px;
+		border: #c00 solid 1px;
+	}
+.b-general-form label.error {
+	display: none !important;
+}

@@ -1,0 +1,110 @@
+﻿@main[]
+	^if(def $form:name){
+		^sendEmail[
+			$.name[$form:name]
+			$.career[$form:career]
+			$.personnel[$form:personnel]
+			$.phone[$form:phone]
+			$.tin[$form:tin]
+			$.ncoea[$form:ncoea]
+			$.ncoeо[$form:ncoeо]
+			$.know[$form:know]
+			
+			$.nameSupplier[$form:name_supplier]
+			$.address[$form:address]
+			$.contactName[$form:contact_name]
+			
+			$.category[$form:category]
+			$.desc[$form:desc]
+			$.cost[$form:cost]
+			$.advance[$form:advance]
+			$.months[$form:months]
+			
+			$.ip[$ip]
+		]
+		<success>
+			<title>Ваша заявка на лизинг успешно отправлена. Спасибо! Мы свяжемся с вами в самое ближайшее время.</title>
+			<desc>Пока мы обрабатываем вашу заявку, самое время ознакомиться с документами, необходимыми для заключения договора лизинга.</desc>
+		</success>
+	}{
+		<error>
+			<title>Заполните, пожалуйста, все поля формы.</title>
+		</error>
+	}
+	^Templates.add[request.xslt]
+
+@sendEmail[_params]
+	^if(def $_params && $_params is hash){
+		^try{
+			^mail:send[
+				$.from[$MAIN:SYSTEM_EMAIL]
+				$.to[$MAIN:MANAGER_EMAIL]
+				$.subject[Сайт Первой Лизинговой Компании: заявка на лизинг]
+				$.html{
+					<p>Привет, у нас новая заявка на лизинг:</p>
+					
+					<h2>Компания</h2>
+					^if(def $_params.name){
+						<p><strong>Наименования организации</strong>: $_params.name</p>
+					}
+					^if(def $_params.career){
+						<p><strong>Род деятельности</strong>: $_params.career</p>
+					}
+					^if(def $_params.personnel){
+						<p><strong>Персонал</strong>: $_params.personnel чел.</p>
+					}
+					^if(def $_params.phone){
+						<p><strong>Контактное лицо, телефон</strong>: $_params.phone</p>
+					}
+					^if(def $_params.tin){
+						<p><strong>ИНН</strong>: $_params.tin</p>
+					}
+					^if(def $_params.ncoea){
+						<p><strong>ОКВЭД</strong>: $_params.ncoea</p>
+					}
+					^if(def $_params.ncoeо){
+						<p><strong>ОКПО</strong>: $_params.ncoeо</p>
+					}
+					^if(def $_params.know){
+						<p><strong>Откуда узнали про нас</strong>: $_params.know</p>
+					}
+					
+					<h2>Поставщик</h2>
+					^if(def $_params.nameSupplier){
+						<p><strong>Наименование</strong>: $_params.nameSupplier</p>
+					}
+					^if(def $_params.address){
+						<p><strong>Адрес</strong>: $_params.address</p>
+					}
+					^if(def $_params.contactName){
+						<p><strong>Контактное лицо</strong>: $_params.contactName</p>
+					}
+					
+					<h2>Предмет лизинга</h2>
+					^if(def $_params.category){
+						<p><strong>Категория</strong>: $_params.category</p>
+					}
+					^if(def $_params.desc){
+						<p><strong>Общие сведения</strong>: ^replaceNewlinesByBr[$_params.desc]</p>
+					}
+					^if(def $_params.cost){
+						<p><strong>Общая стоимость</strong>: $_params.cost руб.</p>
+					}
+					^if(def $_params.advance){
+						<p><strong>Авансовый платеж</strong>: $_params.advance %</p>
+					}
+					^if(def $_params.months){
+						<p><strong>Срок</strong>: $_params.months мес.</p>
+					}
+					
+					<h2>Дополнительно</h2>
+					^if(def $_params.ip){
+						<p><strong>IP-адрес</strong>: $_params.ip</p>
+					}
+				}
+				$.text[]
+			]
+		}{
+			$exception.handled(true)
+		}
+	}

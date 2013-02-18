@@ -57,3 +57,14 @@ kernel.p
 		def $_email && $_email is string &&
 		^_email.match[^^(^[a-zA-Z0-9_\.\-^])+\@((^[a-zA-Z0-9\-^])+\.)+(^[a-zA-Z0-9^]{2,4})+^$][i]
 	)
+
+@replaceNewlinesByBr[_text]
+	^if(def $_text){
+		$result[^_text.match[\n][g]{<br/>}]
+	}
+
+@GET_ip[]
+	$result[$env:REMOTE_ADDR]
+	^if(def $env:HTTP_X_FORWARDED_FOR){
+		$result[$env:HTTP_X_FORWARDED_FOR]
+	}

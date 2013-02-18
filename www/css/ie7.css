@@ -18,7 +18,8 @@ body {
 	display: inline !important;
 }
 .b-fields .item,
-.b-calculation-cost .field {
+.b-calculation-cost .field,
+.b-general-form .content-left {
 	zoom: 1;
 }
 .b-navigation-deployed {

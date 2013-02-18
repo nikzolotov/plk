@@ -5,7 +5,43 @@ $(function(){
     $('#external_content .b-main-navigation, .b-navigation-deployed').smoothScrolling();
     
     $('.b-calculation-cost').calculationPayment();
-    $('.b-events .item').toggleLink(); 
+    $('.b-events .item').toggleLink();
+
+
+
+
+
+    /* Форма обратной связи */
+    var requestForm = $('#request_form');
+
+    var requestContainer = $('.b-request'),
+		requestInputs = $('input[type=text], textarea', request),
+		requestSubmit = $('input[type=submit]', request),
+		requestCloseButton = $('#request-close');
+
+    requestForm.validate({
+    	submitHandler: function(form) {
+			$.ajax({
+			  	type: 'post',
+				url: '/request.html',
+				data: requestForm.serializeArray(),
+				dataType: 'html',
+				success: function(response){
+				    if( typeof response === 'string' ){
+				     	requestContainer.hide().after(response);
+				 		$('#external_content .b-main-navigation a[href=#request]').click();
+				    }
+			    }
+			});
+		}
+    });
+    
+    requestCloseButton.live('click', function(event){
+		$(this).parent().remove();
+		requestContainer.show();
+		
+		event.preventDefault();
+	});
 });
 
 
@@ -59,7 +95,7 @@ $(function(){
 		var OPTIONS = {
 			containerCurrency: '.field-currencies',
 			containerAdvance: '.field-advance',
-			containerYears: '.field-years',
+			containerYears: '.field-months',
 			sliders: '.movement',
 			inputs: '.input-slider',
 			range: 'min',
@@ -97,32 +133,34 @@ $(function(){
         		currencies = $(OPTIONS.currencies, container),
         		symbolCurrencies = $(OPTIONS.symbolCurrencies, container),
         		selectedCurrencyContent = $(OPTIONS.selectedCurrencyContent, container),
-        		valueSC = selectedCurrencyContent.text(),
-        		category = $(OPTIONS.category, container)
+        		valueSC = 'RUB',
+        		category = $(OPTIONS.category, container),
 	
 				exchange = {
-					'РУБ': 1,
+					'RUB': 1,
         			'USD': 30,
         			'EUR': 40
 				},
         		rubsArray = [100000, 500000, 1000000, 10000000],
         		numbers = $(OPTIONS.numbers),
         		valueCurrencies = {
-        			'РУБ': rubsArray,
+        			'RUB': rubsArray,
         			'USD': $.map(rubsArray,function(n, i){return n/exchange['USD'];}),
         			'EUR': $.map(rubsArray,function(n, i){return n/exchange['EUR'];})
         		},
         		currencyLetters = {
-        			'РУБ': 'р',
+        			'RUB': 'р',
         			'USD': '$',
         			'EUR': '€'
         		},
         		reduction = {
-        			'РУБ': 'rub',
+        			'RUB': 'rub',
         			'USD': 'usd',
         			'EUR': 'eur'
         		},
         		_replaseSeparator = /(\d)(?=(\d\d\d)+([^\d]|$))/g;
+
+        	settingVar(selectedCurrencyContent.find('.text'))
 
         	inputs.val('');
         	changeCurrency();
@@ -130,22 +168,28 @@ $(function(){
         	workingCalculation();
         	runChangeCurrency();
 
+        	function settingVar(_text){
+        		if(_text.hasClass('text-rub')) valueSC = 'RUB';
+        		else if(_text.hasClass('text-usd')) valueSC = 'USD';
+        		else if(_text.hasClass('text-euro')) valueSC = 'EUR';
+        	}
+
         	function changeSliders(){
         		/* Run slider_ui for different sliders */
-        		runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true);
-        		runSlider(sliderAdvance, OPTIONS.valueAdvance[0], OPTIONS.valueAdvance[1], inputAdvance, false);
-        		runSlider(sliderYears, OPTIONS.valueMonth[0], OPTIONS.valueMonth[1], inputYears, false);
+        		runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true, false);
+        		runSlider(sliderAdvance, OPTIONS.valueAdvance[0], OPTIONS.valueAdvance[1], inputAdvance, false, false);
+        		runSlider(sliderYears, OPTIONS.valueMonth[0], OPTIONS.valueMonth[1], inputYears, false, false);
         		
         	}
 
-        	function runSlider(selector, _min, _max, input, formatting){
+        	function runSlider(selector, _min, _max, input, formatting, changeVar){
+
 
         		selector.slider({
 			        orientation: OPTIONS.orientationSlider,
 			        range: OPTIONS.range,
 			        min: _min,
 			        max: _max,
-			        value: 0,
 			        slide: function( event, ui ) {
 			        	var uiValue = ui.value;
 
@@ -153,16 +197,23 @@ $(function(){
 			        		uiValue = Math.round(ui.value / exchange[valueSC])
 			        		uiValue = replase(uiValue);
 			        	}
-			        	
+			        	input.removeClass('error');
 			        	input.val(uiValue);
 			        	workingCalculation();
 			        }
 			    });
+
+        		if(changeVar && input.val() != '') {
+        			value = selector.slider( "value");
+        			value = Math.round(value/exchange[valueSC]);
+        			input.val(replase(value));
+        		}
+			    
 			    
 			    input.change(function() {
 			    	inputValue = $(this).val();
 
-			    	if(formatting) {
+			    	if(formatting && inputValue != '') {
 			    		inputValue = parseInt(inputValue.replace(/\s+/g, ''));
 			    		inputValue = Math.round(inputValue*exchange[valueSC]);
 			    	}
@@ -192,8 +243,11 @@ $(function(){
 				if(valueCurrency == '' || valueAdvance == '' || valueMonth == '') calculation.hide();
 				else calculation.show();
 
-				if(valueCurrency >= 0 && valueAdvance >= 0 && valueMonth > 0)
-					valueCalculation.text(replase(Math.round(( valueCurrency*(1 - valueAdvance/100) )/valueMonth)));
+				if(valueCurrency >= 0 && valueAdvance >= 0 && valueMonth > 0) {
+					value = ( valueCurrency*(1 - valueAdvance/100) )/valueMonth;
+					valueCalculation.text(replase(Math.round(value*0.98))+'-'+replase(Math.round(value*1.02)));
+
+				}
 			}
 
 			function changeCurrency(){
@@ -204,8 +258,8 @@ $(function(){
 				symbolCurrencies.text(currencyLetters[valueSC]);
 				category.removeAttr('class').addClass('category').addClass('category-'+reduction[valueSC]);
 
-				inputCurrency.val('');
-				runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true);
+				
+				runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true, true);
 			}
 
 
@@ -217,13 +271,13 @@ $(function(){
 			function runChangeCurrency(){
 				currencies.click(function(event){
 					selectedCurrencyContent = $(this),
-					valueSC = selectedCurrencyContent.text();
+					settingVar(selectedCurrencyContent.find('.text'));
 
 					currencies.removeClass(OPTIONS.selectedCurrency);
 					selectedCurrencyContent.addClass(OPTIONS.selectedCurrency);
 					
 					changeCurrency();
-					calculation.hide();
+					workingCalculation();
 
 					event.preventDefault();
 				});

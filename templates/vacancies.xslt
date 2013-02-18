@@ -41,7 +41,7 @@
 					<h4 class="title">Тип занятости:</h4>
 					<xsl:apply-templates select="employment"/>
 				</xsl:if>
-				<a href="mailto:hire@plk.ru?subject=Отклик на вакансию: {title/text()}" class="b-transform-link">
+				<a href="mailto:hire@plkfinance.ru?subject=Отклик на вакансию: {title/text()}" class="b-transform-link">
 					<span class="text">Откликнуться на вакансию</span>
 				</a>
 			</div>

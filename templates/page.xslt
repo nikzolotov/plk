@@ -47,6 +47,9 @@
 				<xsl:with-param name="name" select="'scrollGallery'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
+				<xsl:with-param name="name" select="'jquery.validate'"/>
+			</xsl:call-template>
+			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'main'"/>
 			</xsl:call-template>
 			<xsl:call-template name="script-includes"/>

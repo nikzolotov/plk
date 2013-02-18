@@ -32,13 +32,13 @@
 				hiddenContent = $(OPTIONS.hiddenContent, container),
 				slidesCount = slides.length,
 				heightForParrallax = $(OPTIONS.heightForParrallax),
-				galleryTop = Math.ceil(container.offset().top) - 144,
+				galleryTop = Math.ceil(container.offset().top) - 72,
 				paddingTopGallery = 0,
 				currentPage = 0,
 				slideWidth = 0,
 				maxFixed = (slidesCount * OPTIONS.scrollChangeSlides) - OPTIONS.scrollChangeSlides/2 -1;
 
-			if($.browser.opera || $.browser.firefox) galleryTop = Math.ceil(container.offset().top) - 72;
+			if($.browser.opera || $.browser.firefox) galleryTop = Math.ceil(container.offset().top);
 
 			
 			installGallaryTop();
@@ -75,13 +75,13 @@
 				navigation.html(itemHtml);
 
 				linkNavigation = $(OPTIONS.linkSelector, navigation);
-				heightForParrallax.height( heightForParrallax.height() + maxFixed + 143 );
+				
 
 			}
 
 			function installGallaryTop(){
 
-				var mistake = 0;
+				var mistake = 0,
 					containerHeight = 538,
 					windowHeight = $(window).height();
 
@@ -95,7 +95,7 @@
 				paddingTopGallery = fixed;
 				maxFixed += paddingTopGallery;
 
-				
+				heightForParrallax.height( heightForParrallax.height() + maxFixed + 143 );
 			}
 
 			function installSizeSlides(){
