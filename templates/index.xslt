@@ -3,7 +3,7 @@
 	
 	<xsl:template name="html-body">
 		<div class="l-page">
-			<div id="main_section" class="l-main-section">
+			<div id="about" class="l-about-company">
 				<div class="l-header">
 					<xsl:call-template name="header"/>
 				</div>
@@ -21,14 +21,6 @@
 				<div class="l-footer">
 					<div class="b-copyright">© 2007—2012 ООО «Первая Лизинговая Компания»</div>
 				</div>
-			</div>
-			<div id="external_content" class="l-external-content">
-				<div class="l-column-1000">
-					<xsl:call-template name="logo"/>
-					<xsl:call-template name="service-menu"/>
-				</div>
-			</div>
-			<div id="about" class="l-about-company">
 				<div class="l-inner">
 					<div class="l-column-600">
 						<h1>Мы — Первая Лизинговая Компания</h1>
@@ -46,8 +38,8 @@
 						<p>Компания занимает достойную позицию на финансовом рынке Центрального федерального округа (24-е место по итогам 2009 года), а так же стабильно входит в сотню крупнейших 1-го полугодия 2010 года).</p>
 						<div class="b-zigzag-text">
 							<a class="link" href="?1">
-								<b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								<span class="text">Каталог <br/>лизинговых компаний</span>
+								<b class="b-icon b-icon-pusle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+								<span class="text">Наши <br/>партнеры</span>
 							</a>
 							<i class="zigzag-top">
 								<xsl:text><![CDATA[]]></xsl:text>
@@ -56,21 +48,27 @@
 								<xsl:text><![CDATA[]]></xsl:text>
 							</i>
 						</div>
+						<div class="b-link-icon">
+							<a href="?" target="_blank">
+								<b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+								<xsl:text>Мы в каталоге лизинговых компаний</xsl:text>
+							</a>
+						</div>
 					</div>
 				</div>
 				<xsl:call-template name="company-features"/>
+			</div>
+			<div id="external_content" class="l-external-content">
+				<div class="l-column-1000">
+					<xsl:call-template name="logo"/>
+					<xsl:call-template name="service-menu"/>
+				</div>
 			</div>
 			<div id="special-technics" class="l-special-achinery">
 				<div class="l-inner">
 					<div class="l-column-600">
 						<h1>Спецтехника в лизинге</h1>
 						<ul class="b-list-equipment">
-							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-lift-truck"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Автопогрузчики</div>
-							</li>
 							<li class="item">
 								<div class="area-icon">
 									<b class="b-icon b-icon-excavator"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
@@ -81,13 +79,25 @@
 								<div class="area-icon">
 									<b class="b-icon b-icon-tractor"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 								</div>
-								<div class="desc">Сельскохозяйственная <br/>техника</div>
+								<div class="desc">Сельско-<br/>хозяйственная <br/>техника</div>
+							</li>
+							<li class="item">
+								<div class="area-icon">
+									<b class="b-icon b-icon-municipal"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+								</div>
+								<div class="desc">Коммунальная <br/>техника</div>
 							</li>
 							<li class="item">
 								<div class="area-icon">
 									<b class="b-icon b-icon-machinery"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 								</div>
-								<div class="desc">Дорожно-строительная <br/> техника</div>
+								<div class="desc">Дорожно-<br/>строительная <br/> техника</div>
+							</li>
+							<li class="item">
+								<div class="area-icon">
+									<b class="b-icon b-icon-lift-truck"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+								</div>
+								<div class="desc">Автопогрузчики</div>
 							</li>
 						</ul>
 						<p class="b-big-text">Первая Лизинговая Компания готова предложить своим клиентам отличные условия лизинга машин различных марок при приобретении от одной машины до автопарка.</p>
@@ -111,12 +121,6 @@
 									<b class="b-icon b-icon-passenger"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 								</div>
 								<div class="desc">Легковой <br/>автотранспорт</div>
-							</li>
-							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-commercial"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Коммерческий <br/>автотранспорт</div>
 							</li>
 							<li class="item">
 								<div class="area-icon">
@@ -170,12 +174,6 @@
 									<b class="b-icon b-icon-trade"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 								</div>
 								<div class="desc">Торговое <br/>оборудование</div>
-							</li>
-							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-railways"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Подвижный <br/>состав РЖД</div>
 							</li>
 						</ul>
 						<p class="b-big-text">Первая Лизинговая Компания готова предложить своим клиентам отличные условия лизинга машин различных марок при приобретении от одной машины до автопарка.</p>

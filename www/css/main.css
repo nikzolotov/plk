@@ -106,9 +106,6 @@ BODY {
 	font: normal 16px/24px 'PFDindisplayPro Regular', arial, sans-serif;
 	color: #fff;
 }
-BODY .l-page {
-	font: normal 18px/27px 'PFDindisplayPro Regular', arial, sans-serif;
-}
 A:link {
 	color: #fff;
 }
@@ -179,6 +176,7 @@ OL {
 /* =Layout
 --------------------------------------- */
 .l-page {
+	font: normal 18px/27px 'PFDindisplayPro Regular', arial, sans-serif;
 	min-width: 1000px;
 	overflow: hidden;
 }
@@ -190,46 +188,36 @@ OL {
 	.l-main-section .l-content {
 		padding-bottom: 219px;
 	}
-#main_section {
-	position: relative;
-	top: 0;
-	min-width: 1000px;
-	max-width: 100%;
-	height: 1200px;
-}
-	#main_section .l-content {
-		padding: 0;
-	}
 .l-about-company {
 	
-	background: url('../img/backgrounds/bg_cars_2.jpg') repeat fixed 50% 0px;
+	background: url('../img/backgrounds/bg_cars_1.jpg') repeat fixed 50% 0;
 }
 #about {
 	position: relative;
-	height: 1417px;
+	height: 2580px;
 	min-width: 1000px;
 	max-width: 100%;
 }
 .l-special-achinery {
-	background: url('../img/backgrounds/sand.jpg') repeat-x fixed 50% 0;
+	background: url('../img/backgrounds/sand.jpg') #9b5a31 repeat-x fixed 50% 0;
 }
 #special-technics {
 	position: relative;
 	min-width: 1000px;
 	max-width: 100%;
-	height: 1768px;
+	height: 1707px;
 }
 .l-motor-transport {
-	background: url('../img/backgrounds/asphalt.jpg') repeat-x fixed 50% 0;
+	background: url('../img/backgrounds/asphalt.jpg') #353637 repeat-x fixed 50% 0;
 }
 #motor-vehicles {
 	position: relative;
 	min-width: 1000px;
 	max-width: 100%;
-	height: 1672px;
+	height: 1637px;
 }
 .l-equipment {
-	background: url('../img/backgrounds/rug.jpg') repeat-x fixed 50% 0;
+	background: url('../img/backgrounds/rug.jpg') #000000 repeat-x fixed 50% 0;
 }
 #equipment {
 	position: relative;
@@ -238,7 +226,7 @@ OL {
 	height: 1724px;
 }
 .l-request {
-	background: url('../img/backgrounds/request.jpg') repeat-x fixed 50% 0;
+	background: url('../img/backgrounds/request.jpg') #150a08 repeat-x fixed 50% 0;
 }
 #request {
 	position: relative;
@@ -271,7 +259,7 @@ OL {
 	position: static;
 	width: auto;
 	height: auto;
-	margin-top: 0;
+	margin: 0 0 174px;
 }
 .l-inner {
 	position: relative;
@@ -449,87 +437,178 @@ OL {
 .b-icon {
 	position: relative;
 	display: inline-block;
-	width: 61px;
-	height: 61px;
-	margin-top: 6px;
+	width: 27px;
+	height: 27px;
 	overflow: hidden;
 }
 	.b-icon B {
 		position: absolute;
 		display: block;
-		width: 850px;
-		height: 1140px;
+		width: 1505px;
+		height: 954px;
 		background: url('../img/icons.png') no-repeat 0 0;
 	}
-/* 61x61 */
-.b-icon-square {
-	float: left;
-	margin: 0;
-}
+
+/* 24x24 */
 .b-icon-map {
 	position: absolute;
-	top: 1px;
+	top: 2px;
 	left: 2px;
-	width: 25px;
-	height: 25px;
+	width: 24px;
+	height: 24px;
 	margin: 0;
 	z-index: 999;
 }
 	.b-icon-map B {
-		left: -62px;
+		top: 0;
+		left: 0;
 	}
+
+/* 27x27 */
+.b-icon-square {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 27px;
+	height: 27px;
+	margin: 0;
+}
+	.b-icon-square B {
+		top: -25px;
+		left: 0;
+	}
+
+/* ix54 */
+.b-icon-food {
+	width: 58px;
+	height: 54px;
+}
+	.b-icon-food B {
+		top: -53px;
+		left: 0;
+	}
+.b-icon-industrial {
+	width: 66px;
+	height: 54px;
+}
+	.b-icon-industrial B {
+		top: -53px;
+		left: -59px;
+	}
+.b-icon-printing {
+	width: 71px;
+	height: 54px;
+}
+	.b-icon-printing B {
+		top: -53px;
+		left: -126px;
+	}
+.b-icon-trade {
+	width: 54px;
+	height: 54px;
+}
+	.b-icon-trade B {
+		top: -53px;
+		left: -198px;
+	}
+
+/* 57x57 */
 .b-icon-doc {
 	top: 0;
 	left: 0;
-	width: 61px;
-	height: 61px;
+	width: 57px;
+	height: 57px;
 	margin-top: 0;
 }
 	.b-icon-doc B {
-		left: -88px;
+		top: -108px;
+		left: 0;
 	}
 
-/* ix90 */
-.b-icon-food {
-	width: 89px;
-	height: 90px;
+/* ix70 */
+.b-icon-passenger {
+	width: 69px;
+	height: 70px;
 }
-	.b-icon-food B {
+	.b-icon-passenger B {
 		left: 0;
-		top: -299px;
+		top: -166px;
 	}
-.b-icon-industrial {
+.b-icon-cargo {
+	width: 76px;
+	height: 70px;
+}
+	.b-icon-cargo B {
+		top: -166px;
+		left: -70px;
+	}
+.b-icon-bus {
+	width: 61px;
+	height: 70px;
+}
+	.b-icon-bus B {
+		top: -166px;
+		left: -147px;
+	}
+
+/* 72x72 */
+.b-icon-pusle {
+	position: absolute;
+	left: 12px;
+	width: 72px;
+	height: 72px;
+	margin: -8px 0 0;
+}
+	.b-icon-pusle B {
+		top: -237px;
+		left: 0;
+	}
+
+/* ix87 */
+.b-icon-lift-truck {
+	width: 70px;
+	height: 87px;
+}
+	.b-icon-lift-truck B {
+		top: -308px;
+		left: 0;
+	}
+.b-icon-excavator {
 	width: 86px;
-	height: 90px;
+	height: 87px;
 }
-	.b-icon-industrial B {
-		top: -299px;
-		left: -93px;
+	.b-icon-excavator B {
+		top: -308px;
+		left: -71px;
 	}
-.b-icon-printing {
-	width: 101px;
-	height: 90px;
+.b-icon-tractor {
+	width: 72px;
+	height: 87px;
 }
-	.b-icon-printing B {
-		top: -299px;
-		left: -183px;
+	.b-icon-tractor B {
+		top: -308px;
+		left: -158px;
 	}
-.b-icon-trade {
-	width: 83px;
-	height: 90px;
+.b-icon-machinery {
+	width: 84px;
+	height: 87px;
 }
-	.b-icon-trade B {
-		top: -299px;
-		left: -288px;
+	.b-icon-machinery B {
+		top: -308px;
+		left: -231px;
 	}
-.b-icon-railways {
-	width: 160px;
-	height: 90px;
+.b-icon-municipal {
+	width: 84px;
+	height: 87px;
 }
-	.b-icon-railways B {
-		top: -299px;
-		left: -374px;
+	.b-icon-municipal B {
+		top: -308px;
+		left: -320px;
 	}
+
+
+
+
 
 /* 169x94 */
 .b-icon-about-n {
@@ -538,8 +617,8 @@ OL {
 	height: 94px;
 }
 	.b-icon-about-n B {
-		left: 0;
-		top: -512px;
+		top: -397px;
+		left: -2px;
 	}
 .b-icon-special-technics-n {
 	z-index: -1;
@@ -547,7 +626,7 @@ OL {
 	height: 94px;
 }
 	.b-icon-special-technics-n B {
-		top: -512px;
+		top: -397px;
 		left: -170px;
 	}
 .b-icon-motor-vehicles-n {
@@ -556,7 +635,7 @@ OL {
 	height: 94px;
 }
 	.b-icon-motor-vehicles-n B {
-		top: -512px;
+		top: -397px;
 		left: -340px;
 	}
 .b-icon-equipment-n {
@@ -565,7 +644,7 @@ OL {
 	height: 94px;
 }
 .b-icon-equipment-n B {
-	top: -512px;
+		top: -397px;
 	left: -510px;
 }
 .b-icon-request-n {
@@ -575,7 +654,7 @@ OL {
 	height: 94px;
 }
 	.b-icon-request-n B {
-		top: -512px;
+		top: -397px;
 		left: -685px;	
 	}
 
@@ -597,12 +676,14 @@ OL {
 		left: -230px;
 	}
 .b-icon-equipment {
-	width: 108px;
+	position: relative;
+	left: 7px;
+	width: 133px;
 	height: 122px;
 }
 	.b-icon-equipment B {
 		top: -611px;
-		left: -473px;
+		left: -468px;
 	}
 .b-icon-request {
 	width: 148px;
@@ -613,133 +694,66 @@ OL {
 		left: -665px;
 	}
 
-/* ix122 */
+/* 115x115 */
 .b-icon-calendar {
-	width: 89px;
-	height: 122px;	
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-calendar B {
 		left: 0;
-		top: -389px;
+		top: -492px;
 	}
 .b-icon-graph {
-	width: 102px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-graph B {
-		top: -389px;
-		left: -93px;
+		top: -492px;
+		left: -116px;
 	}
 .b-icon-book {
-	width: 64px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-book B {
-		top: -389px;
-		left: -199px;
+		top: -492px;
+		left: -232px;
 	}
 .b-icon-clock {
-	width: 79px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-clock B {
-		top: -389px;
-		left: -267px;
+		top: -492px;
+		left: -348px;
 	}
 .b-icon-diagram {
-	width: 113px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-diagram B {
-		top: -389px;
-		left: -351px;
+		top: -492px;
+		left: -464px;
 	}
 .b-icon-arms {
-	width: 85px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-arms B {
-		top: -389px;
-		left: -467px;
+		top: -492px;
+		left: -580px;
 	}
 .b-icon-turnover {
-	width: 85px;
-	height: 122px;
+	width: 115px;
+	height: 115px;	
 }
 	.b-icon-turnover B {
-		top: -389px;
-		left: -553px;
+		top: -492px;
+		left: -696px;
 	}
 
 
 
-/* ix106 */
-.b-icon-passenger {
-	width: 103px;
-	height: 106px;
-}
-	.b-icon-passenger B {
-		left: 0;
-		top: -194px;
-	}
-.b-icon-commercial {
-	width: 104px;
-	height: 106px;
-}
-	.b-icon-commercial B {
-		top: -194px;
-		left: -109px;
-	}
-.b-icon-cargo {
-	width: 106px;
-	height: 106px;
-}
-	.b-icon-cargo B {
-		top: -194px;
-		left: -216px;
-	}
-.b-icon-bus {
-	width: 97px;
-	height: 106px;
-}
-	.b-icon-bus B {
-		top: -194px;
-		left: -327px;
-	}
-
-/* ix133 */
-.b-icon-lift-truck {
-	width: 109px;
-	height: 133px;
-}
-	.b-icon-lift-truck B {
-		left: 0;
-		top: -61px;
-	}
-.b-icon-excavator {
-	width: 136px;
-	height: 133px;
-}
-	.b-icon-excavator B {
-		top: -61px;
-		left: -113px;
-	}
-.b-icon-tractor {
-	width: 113px;
-	height: 133px;
-}
-	.b-icon-tractor B {
-		top: -61px;
-		left: -253px;
-	}
-.b-icon-machinery {
-	width: 138px;
-	height: 133px;
-}
-	.b-icon-machinery B {
-		top: -61px;
-		left: -370px;
-	}
 
 /* 166x166 */
 .b-icon-big-book {
@@ -758,17 +772,56 @@ OL {
 }
 	.b-icon-big-clock B {
 		left: 0;
-		top: -913px;
+		top: -740px;
 	}
 .b-icon-big-castle {
 	width: 214px;
 	height: 214px;
 }
 	.b-icon-big-castle B {
-		top: -913px;
+		top: -740px;
 		left: -215px;
 	}
-
+.b-icon-convenience {
+	width: 214px;
+	height: 214px;
+}
+	.b-icon-convenience B {
+		top: -740px;
+		left: -430px;
+	}
+.b-icon-promotion {
+	width: 214px;
+	height: 214px;
+}
+	.b-icon-promotion B {
+		top: -740px;
+		left: -645px;
+	}
+.b-icon-competence {
+	width: 214px;
+	height: 214px;
+}
+	.b-icon-competence B {
+		top: -740px;
+		left: -860px;
+	}
+.b-icon-leadership {
+	width: 214px;
+	height: 214px;
+}
+	.b-icon-leadership B {
+		top: -740px;
+		left: -1075px;
+	}
+.b-icon-reliability {
+	width: 214px;
+	height: 214px;
+}
+	.b-icon-reliability B {
+		top: -740px;
+		left: -1290px;
+	}
 /* =Content blocks
 --------------------------------------- */
 .b-logo {
@@ -824,7 +877,7 @@ OL {
 		background: url('../img/figuration/zigzag-line.png') repeat-x 0 0;
 	}
 	.b-zigzag-design .zigzag-top  {
-		top: -7px;
+		top: -8px;
 		height: 8px;
 	}
 	.b-zigzag-design .zigzag-bottom {
@@ -865,7 +918,7 @@ OL {
 	.b-navigation-deployed .item-equipment:after {
 		content: " ";
 		position: absolute;
-		right: -68px;
+		right: -62px;
 		top: 50%;
 	    display: inline-block;
 	    width: 17px;
@@ -904,7 +957,7 @@ OL {
 			}
 			.b-navigation-deployed .item-request .text {
 				position: absolute !important;
-				top: 67px !important;
+				top: 60px !important;
 				left: 15px;
 			}
 
@@ -972,7 +1025,7 @@ OL {
 		}
 			.b-main-navigation .area-icon {
 				display: block;
-				height: 67px;
+				height: 63px;
 				margin-left: -3px;
 				padding-top: 5px;
 			}
@@ -991,7 +1044,7 @@ OL {
 					display: none;
 				}
 		.b-main-navigation .item-equipment .area-icon {
-			padding-top: 13px;
+			padding: 13px 0 4px;
 		}
 			.b-main-navigation .item-equipment .b-icon {
 				margin: -13px 0 0 -5px;
@@ -1005,6 +1058,10 @@ OL {
 			margin-top: -2px;
     		padding-top: 2px;
     		background: #ae1d25;
+		}
+		.b-main-navigation .link:hover .text,
+		.b-main-navigation .link-active .text {
+			color: #fff !important;
 		}
 		.b-main-navigation .item:first-child .link:hover,
 		.b-main-navigation .item:first-child .link-active {
@@ -1085,6 +1142,7 @@ OL {
 .b-zigzag-text {
 	position: relative;
 	margin-bottom: 34px;
+	margin-left: -12px;
 	padding: 13px 13px 8px;
 	background-color: #D02A32;
 	font: italic 24px/27px 'pf_dindisplay_proregular', arial, sans-serif;
@@ -1095,25 +1153,26 @@ OL {
 		left: 0;
 		display: block;
 	    width: 100%;
-		background: url("../img/figuration/zigzag-line.png") repeat-x scroll 0 -24px transparent;
+		background: url("../img/figuration/zigzag-line-mini.png") repeat-x scroll -8px 0 transparent;
 	}
 	.b-zigzag-text .zigzag-top {
-		top: -8px;
-		height: 8px;
+		top: -6px;
+		height: 6px;
 	}
 	.b-zigzag-text .zigzag-bottom {
 		 bottom: -7px;
-		 height: 8px;
-		 background-position: 0 -31px;
+		 height: 7px;
+		 background-position: -8px -7px;
 	}
 	.b-zigzag-text .link {
 		display: inline-block;
+		margin-left: 84px;
+		padding: 5px 0 8px;
 		overflow: hidden;
 		text-decoration: none;
 	}
 		.b-zigzag-text .link .text {
 			display: inline-block;
-			padding: 2px 0 0 13px;
 			text-decoration: underline;
 		}
 		.b-zigzag-text .link .icon-square {
@@ -1127,6 +1186,7 @@ OL {
 	display: none;
 }
 .b-list-equipment {
+	margin-bottom: 12px;
 	overflow: hidden;
 	font: italic 14px/16px 'PFDindisplayPro Regular', arial, sans-serif;
 }
@@ -1140,10 +1200,10 @@ OL {
 			display: inline-block;
 		}
 .b-list-transport .item {
-	margin-right: 36px;
+	margin-right: 28px;
 }
 .b-list-equipment-different .item {
-	margin-right: 7px;
+	margin-right: 17px;
 }
 		
 
@@ -1153,11 +1213,11 @@ OL {
 .b-special-achinery {
 	position: relative;
 	z-index: -1;
-	height: 352px;
+	height: 317px;
 }
 	.b-special-achinery .image {
 		position: absolute;
-		top: -59px;
+		top: -39px;
 		left: -394px;
 	}
 .b-motor-transport {
@@ -1173,12 +1233,12 @@ OL {
 .b-equipment {
 	position: relative;
 	z-index: -1;
-	height: 366px;
+	height: 400px;
 }
 
 	.b-equipment .image {
 		position: absolute;
-		top: -47px;
+		top: -9px;
 		left: -318px;
 	}
 .b-wrapped-line {
@@ -1359,10 +1419,10 @@ z-index: 333;
 		.b-movement .movement .ui-slider-handle {
 			position: absolute;
 			display: block;
-			width: 21px;
-			height: 21px;
-			margin: -11px 0 0 -8px;
-			background: url('../img/containers/pointer.png');
+			width: 24px;
+			height: 24px;
+			margin: -14px 0 0 -8px;
+			background: url('../img/icons.png') -25px 0;
 			outline: none;
 		}
 .b-calculation-cost .field-currencies .category {
@@ -1697,7 +1757,7 @@ z-index: 333;
 	line-height: 20px;
 }
 	.b-events .item {
-		padding: 22px 0 15px;
+		padding: 23px 0 15px;
 		margin: 0;
 		background: url('../img/containers/gray-zigzag.png') repeat-x 9px bottom;
 	}
@@ -1716,7 +1776,7 @@ z-index: 333;
 	}
 	.b-events .item-selected {
 		position: relative;
-		margin-top: -2px;
+		margin-top: -1px;
 		margin-left: -36px;
 		padding: 24px 33px 9px 36px;
 		background: #79705d;
@@ -1730,7 +1790,7 @@ z-index: 333;
 			background: url('../img/containers/gray-color-zigzag.png') repeat-x 0 0;
 		}
 		.b-events .item-selected .zigzag-t {
-			top: -7px;
+			top: -6px;
 		}
 
 		.b-events .item-selected .zigzag-b {
@@ -1746,7 +1806,7 @@ z-index: 333;
 			font: 22px/30px 'PFSquareSans ProItalic', arial, sans-serif;
 		} 
 .b-events-calculation .item {
-	padding-top: 15px;
+	padding-top: 16px;
 	padding-bottom: 20px;
 	background-position: 11px bottom;
 }
@@ -1817,6 +1877,7 @@ z-index: 333;
 .b-scroll-gallery {
 	position: relative;
 	z-index: 999;
+	min-width: 1000px;
 	text-align: center;
 }
 	.b-scroll-gallery .common-title {
@@ -1938,16 +1999,22 @@ z-index: 333;
 				}
 .b-scroll-gallery-fixed {
 	position: fixed;
-	top: 0;
+	top: 72px;
 	width: 100%;
-	padding-top: 72px;
+	padding-top: 0;
 }
 .b-scroll-gallery-absolute {
 	position: absolute;
 	width: 100%;
-	bottom: 143px;
+	bottom: 115px;
 }
 
+.b-link-icon {
+	position: relative;
+	margin-bottom: 100px;
+	padding: 1px 0 0 42px;
+	font: 24px/24px 'PFSquareSans ProItalic',arial,sans-serif;
+}
 	
 
 /* =Form
