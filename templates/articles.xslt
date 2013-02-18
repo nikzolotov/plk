@@ -4,7 +4,7 @@
 	<xsl:import href="common/text.xslt"/>
 	
 	<xsl:template match="articles">
-		<div class="b-bottom-design">
+		<div id="articles" class="b-bottom-design">
 			<ul class="b-without-design">
 				<xsl:apply-templates select="article" mode="articles"/>
 			</ul>

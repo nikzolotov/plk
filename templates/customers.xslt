@@ -8,43 +8,26 @@
 	
 	<xsl:template name="content">
 		<h1>Информация для клиентов</h1>
+		<ul class="b-tabs-docs">
+			<li class="item">
+				<a href="#docs" class="link selected">
+					<span class="text">Документы</span>
+				</a>
+			</li>
+			<li class="item">
+				<a href="#articles" class="link">
+					<span class="text">Статьи</span>
+				</a>
+			</li>
+			<li class="item">
+				<a href="#glossary" class="link">
+					<span class="text">Глоссарий</span>
+				</a>
+			</li>
+		</ul>
 		<xsl:apply-templates select="docs"/>
 		<xsl:apply-templates select="articles"/>
 		<xsl:apply-templates select="definitions"/>
-	</xsl:template>
-	
-	<xsl:template name="docs">
-		<div class="b-bottom-design">
-			<ul class="b-docs">
-				<li class="item">
-					<h3 class="title">
-						<a href="?">
-							<b class="b-icon b-icon-doc"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-							<xsl:text>Документы юридического лица</xsl:text>
-						</a>
-					</h3>
-					<div class="desc">word 2007, 357 Кб</div>
-				</li>
-				<li class="item">
-					<h3 class="title">
-						<a href="?">
-							<b class="b-icon b-icon-doc"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-							<xsl:text>Документы юридического лица</xsl:text>
-						</a>
-					</h3>
-					<div class="desc">word 2007, 357 Кб</div>
-				</li>
-				<li class="item">
-					<h3 class="title">
-						<a href="?">
-							<b class="b-icon b-icon-doc"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-							<xsl:text>Документы юридического лица</xsl:text>
-						</a>
-					</h3>
-					<div class="desc">word 2007, 357 Кб</div>
-				</li>
-			</ul>
-		</div>
 	</xsl:template>
 
 </xsl:stylesheet>
