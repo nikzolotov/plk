@@ -1927,7 +1927,7 @@ z-index: 333;
 				}
 			.b-scroll-gallery .slide .desc {
 				position: relative;
-    			top: -30px;
+    			top: -36px;
     			margin-bottom: 0;
 				font-size: 23px;
 				line-height: 32px;
@@ -1935,6 +1935,7 @@ z-index: 333;
 			.b-scroll-gallery .slide .content {
 				width: 483px;
 				margin: 0 auto;
+				padding-top: 20px;
 			}
 	.b-scroll-gallery .common-content {
 		width: 488px;
@@ -1954,7 +1955,7 @@ z-index: 333;
 		}
 		.b-scroll-gallery .navigation .item {
 			display: inline-block;
-			margin-bottom: 7px;
+			margin-bottom: 12px;
 			padding: 0 8px;
 		}
 		.b-scroll-gallery .navigation .item:before {
