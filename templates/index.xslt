@@ -1,7 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<xsl:template name="script-includes">
+		<xsl:call-template name="include-script">
+			<xsl:with-param name="name" select="'px-loader'"/>
+		</xsl:call-template>
+	</xsl:template>
 	
 	<xsl:template name="html-body">
+		<div id="loader-modal" class="l-modal" style="display: block;">
+			<div class="l-modal-outer">
+				<div class="l-modal-inner">
+					<div class="l-modal-container">
+						<p id="loader-console">0%</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="l-page">
 			<div id="about" class="l-about-company">
 				<div class="l-header">
@@ -426,6 +441,60 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			<xsl:text disable-output-escaping="yes"><![CDATA[
+				document.documentElement.className = 'l-theater';
+				
+				var loader = new PxLoader(),
+					loaderModal = document.getElementById('loader-modal'),
+					loaderConsole = document.getElementById('loader-console'),
+					totalSize = 0,
+					currentSize = 0,
+					resources = [
+						{
+							url: '/img/backgrounds/bg_cars_1.jpg',
+							size: 362
+						},
+						{
+							url: '/img/backgrounds/sand.jpg',
+							size: 1147
+						},
+						{
+							url: '/img/backgrounds/asphalt.jpg',
+							size: 987
+						},
+						{
+							url: '/img/backgrounds/rug.jpg',
+							size: 312
+						},
+						{
+							url: '/img/backgrounds/request.jpg',
+							size: 468
+						}
+					];
+				
+				for( var i = 0; i < resources.length; i++ ){
+					var pxImage = new PxLoaderImage(resources[i].url);
+					
+					pxImage.size = resources[i].size;
+					totalSize += resources[i].size;
+					
+					loader.add(pxImage);
+				}
+				
+				loader.addProgressListener(function(e){
+					currentSize += e.resource.size;
+					loaderConsole.innerText = Math.round(currentSize / totalSize * 100) + '%';
+				});
+				
+				loader.addCompletionListener(function(){
+					loaderModal.style.display = 'none';
+					document.documentElement.className = '';
+				});
+				
+				loader.start();
+			]]></xsl:text>
+		</script>
 	</xsl:template>
 	
 	<xsl:template name="service-menu-deployed">

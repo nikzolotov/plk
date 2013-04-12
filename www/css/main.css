@@ -295,6 +295,40 @@ OL {
 	padding-bottom: 30px;
 }
 
+/* Modal overlay */
+.l-theater {
+	margin-right: 17px;
+	overflow: hidden;
+	}
+.l-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: auto;
+	background: #271B30;
+	background: #CCC;
+	}
+	.l-modal-outer {
+		display: table;
+		width: 100%;
+		height: 100%;
+		}
+		.l-modal-inner {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			}
+			.l-modal-container {
+				display: inline-block;
+				padding: 32px;
+				text-align: left;
+				}
+
 /* =Common blocks
 ----------------------------------------*/
 .b-main-menu,
