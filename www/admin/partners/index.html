@@ -1,0 +1,48 @@
+﻿@main[][partner;params;partnerId;partners]
+	^useModule[partner]
+	^useModule[tidy]
+	
+	<types>
+		<type id="light" title="Легковые автомобили"/>
+		<type id="heavy" title="Грузовые автомобили"/>
+		<type id="special" title="Спецтехника и оборудование"/>
+	</types>
+	
+	$cities[^partner::cities[]]
+	^cities.xmlString[cities]
+	
+	^switch[$form:action]{
+		^case[edit]{
+			<form type="$form:type" city="$form:city">
+				^if(^form:id.int(0)){
+					$partner[^partner::partners[
+						$.id($form:id)
+					]]
+					$partner.escapeXml(true)
+					^partner.xmlString[]
+				}
+			</form>
+		}
+		^case[update]{
+			$params[$form:fields]
+			$params.desc[^tidy[$form:desc]]
+			
+			$partnerId(^partner:updatePartner[$params])
+			
+			^throw[kernel.location;^request:uri.left(^request:uri.pos[?])?action=edit&id=$partnerId]
+		}
+		^case[delete]{
+			^if(^form:id.int(0)){
+				^partner:deletePartner($form:id)
+				
+				^throw[kernel.location;^request:uri.left(^request:uri.pos[?])]
+			}
+		}
+		^case[DEFAULT]{
+			$partners[^partner::partners[]]
+			^partners.xmlString[partners]
+		}
+	}
+	
+	$XSL-Params.use-fckeditor[true]
+	^Templates.add[admin/partners.xslt]

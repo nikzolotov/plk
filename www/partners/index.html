@@ -1,0 +1,12 @@
+@main[][persons]
+	^useModule[partner]
+	
+	$partners[^partner::partners[
+		$.type[$form:type]
+		$.published(1)
+	]]
+	^partners.xmlString[partners;$.type[$form:type]]
+	
+	^static-text[${XSL-Params.lang}.partners]
+	
+	^Templates.add[partners.xslt]	

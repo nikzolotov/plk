@@ -7,7 +7,14 @@
 	</item>
 	<item key="news" name="Новости" dir="true" module="news" long-name="Новости компании"/>
 	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
+	<!--
 	<item key="hire" name="Вакансии" dir="true" module="vacancies" long-name="Вакансии в&#160;компании"/>
+	-->
+	<item key="partners" name="Партнёры" dir="true" module="partners" long-name="Наши поставщики" skip="true">
+		<item key="light" name="Легковые автомобили" dir="true" module="partners"/>
+		<item key="heavy" name="Грузовые автомобили" dir="true" module="partners"/>
+		<item key="special" name="Спецтехника и оборудование" dir="true" module="partners"/>
+	</item>
 	<item key="customers" name="Клиентам" module="articles" long-name="Информация для&#160;клиентов">
 		<item key="articles" name="Статьи" dir="true"/>
 	</item>
