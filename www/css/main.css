@@ -1217,6 +1217,13 @@ OL {
 			height: 61px;
 			background: url("../img/icons/icon-square.png") no-repeat scroll 0 0 transparent;
 		}
+.b-zigzag-text-white {
+	margin: 0 -2px 0 -34px;
+	padding: 22px 34px 26px 34px;
+	background: #FFF;
+	font: normal 16px/24px 'PFDindisplayPro Regular', Arial, sans-serif;
+	color: #333;
+	}
 .b-gallery {
 	display: none;
 }
@@ -2051,7 +2058,55 @@ z-index: 333;
 	padding: 1px 0 0 42px;
 	font: 24px/24px 'PFSquareSans ProItalic',arial,sans-serif;
 }
-	
+
+/* Partners */
+.b-partners {
+	margin: 0 -34px;
+	}
+	.b-partners .item {
+		display: inline-block;
+		width: 131px;
+		margin: 0;
+		padding: 17px 14px 26px 14px;
+		vertical-align: top;
+		border-top: 3px solid #ECECEC;
+		text-align: center;
+		}
+	.b-partners .item:before {
+		content: none;
+		display: none;
+		}
+		.b-partners .title {
+			margin-bottom: 8px;
+			font-size: 21px;
+			line-height: 24px;
+			}
+			.b-partners .external-link {
+				color: #D22B34;
+				}
+			.b-partners .external-link:hover {
+				color: #EB686F;
+				}
+				.b-partners .image {
+					display: block;
+					margin: 0 auto;
+					}
+		.b-partners .desc {
+			font-size: 12px;
+			line-height: 14px;
+			}
+			.b-partners .desc P {
+				margin: 0;
+				}
+	.b-partners .item-1 {
+		padding-right: 491px;
+		}
+	.b-partners .item-2 {
+		padding-right: 332px;
+		}
+	.b-partners .item-3 {
+		padding-right: 173px;
+		}
 
 /* =Form
 --------------------------------------- */

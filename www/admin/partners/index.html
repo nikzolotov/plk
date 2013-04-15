@@ -26,6 +26,8 @@
 		^case[update]{
 			$params[$form:fields]
 			$params.desc[^tidy[$form:desc]]
+			$params.date[^date::create($form:year;$form:month;$form:day;$form:hour;$form:minute)]
+			$params.date[^params.date.sql-string[]]
 			
 			$partnerId(^partner:updatePartner[$params])
 			

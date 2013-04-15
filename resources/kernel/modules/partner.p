@@ -26,7 +26,9 @@ partner
 				`title`,
 				`desc`,
 				`image`,
+				`link`,
 				`type`,
+				`date`,
 				`published`
 			FROM
 				`${TABLES.PARTNER}`
@@ -44,6 +46,8 @@ partner
 				^if($_params.published){
 					AND `published` = ^_params.published.int(0)
 				}
+			ORDER BY
+				`date` DESC
 		}]
 	}
 
@@ -74,7 +78,9 @@ partner
 			`city_id` = ^_params.city_id.int(0),
 			`title` = ^if(def $_params.title){'$_params.title'}{NULL},
 			`desc` = ^if(def $_params.desc){'$_params.desc'}{NULL},
+			`link` = ^if(def $_params.link){'$_params.link'}{NULL},
 			^if(def $_params.type){`type` = '$_params.type',}
+			`date` = ^if(def $_params.date){'$_params.date'}{NOW()},
 			`published` = ^_params.published.int(0)
 		]
 		^db{
@@ -87,9 +93,6 @@ partner
 			}
 			^if(!$result){
 				$result(^int:sql{ SELECT LAST_INSERT_ID() FROM `${TABLES.PARTNER}` }[ $.limit(1) $.default{0} ])
-				^void:sql{
-					UPDATE `${TABLES.PARTNER}` SET `order` = `id` WHERE `id` = '$result'
-				}
 			}
 			^if(def $_params.image || def $_params.delete_image){
 				$extension[^string:sql{SELECT `image` FROM `${TABLES.PARTNER}` WHERE id = $result}]
@@ -133,9 +136,10 @@ partner
 	^if(def $__partners){
 		$result[
 			^__partners.menu{
-				<partner id="$__partners.id" city_id="$__partners.city_id" type="$__partners.type" ^if($__partners.published){ published="true"}>
+				<partner id="$__partners.id" city_id="$__partners.city_id" type="$__partners.type" date="$__partners.date" ^if($__partners.published){ published="true"}>
 					^if(def $__partners.title){<title>^toXml[$__partners.title]</title>}
 					^if(def $__partners.desc){<desc>^toXml[$__partners.desc]</desc>}
+					^if(def $__partners.link){<link>$__partners.link</link>}
 					^if(def $__partners.image){<image>$__partners.image</image>}
 				</partner>
 			}

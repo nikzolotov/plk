@@ -262,6 +262,7 @@ UL LI:before {
 		display: table-cell;
 		padding-right: 18px;
 		vertical-align: middle;
+		white-space: nowrap;
 		}
 	.b-image-upload .desc {
 		display: table-cell;

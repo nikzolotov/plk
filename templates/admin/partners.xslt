@@ -60,6 +60,13 @@
 						</textarea>
 					</div>
 				</div>
+				<div class="b-field">
+					<label class="b-label" for="f-link">Ссылка на сайт</label>
+					<div class="b-wide-input">
+						<input id="f-link" type="text" name="link" value="{partner/link/text()}"/>
+					</div>
+					<p class="b-tip">Пример: http://www.yandex.ru/</p>
+				</div>
 				<div class="b-field b-image-upload">
 					<xsl:if test="partner/image/text()">
 						<div class="image">
@@ -72,7 +79,7 @@
 					<div class="desc">
 						<label class="b-label" for="f-image">Логотип</label>
 						<input id="f-image" type="file" name="image"/>
-						<p class="b-tip">Загружайте, пожалуйста, логотипы на белом фоне.</p>
+						<p class="b-tip">Логотипы выводятся в оригинальном размере. Для лучшего результата загружайте изображения размером 120 × 80 на белом фоне.</p>
 					</div>
 				</div>
 				<div class="b-field">
@@ -100,6 +107,24 @@
 							</option>
 						</xsl:for-each>
 					</select>
+				</div>
+				<div class="b-field">
+					<label class="b-label">Дата</label>
+					<xsl:call-template name="dateForm">
+						<xsl:with-param name="date">
+							<xsl:choose>
+								<xsl:when test="partner/@date">
+									<xsl:value-of select="partner/@date" />
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="$date-now" />
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:with-param>
+						<xsl:with-param name="min-year">2006</xsl:with-param>
+						<xsl:with-param name="max-year"><xsl:value-of select="substring($date-now, 1, 4) + 1" /></xsl:with-param>
+						<xsl:with-param name="type">datetime</xsl:with-param>
+					</xsl:call-template>
 				</div>
 				<div class="b-field">
 					<input id="f-published" type="checkbox" name="published" value="1">
