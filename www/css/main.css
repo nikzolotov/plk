@@ -1217,13 +1217,33 @@ OL {
 			height: 61px;
 			background: url("../img/icons/icon-square.png") no-repeat scroll 0 0 transparent;
 		}
-.b-zigzag-text-white {
+
+/* White zigzag container */
+.b-white-zigzag {
+	position: relative;
 	margin: 0 -2px 0 -34px;
 	padding: 22px 34px 26px 34px;
 	background: #FFF;
-	font: normal 16px/24px 'PFDindisplayPro Regular', Arial, sans-serif;
 	color: #333;
 	}
+	.b-white-zigzag .zigzag-top,
+	.b-white-zigzag .zigzag-bottom {
+		position: absolute;
+		left: 0;
+		display: block;
+	    width: 100%;
+		background: url("../img/figuration/zigzag-line-mini-white.png") repeat-x -8px 0;
+		}
+	.b-white-zigzag .zigzag-top {
+		top: -6px;
+		height: 6px;
+		}
+	.b-white-zigzag .zigzag-bottom {
+		 bottom: -7px;
+		 height: 7px;
+		 background-position: -8px -7px;
+		}
+
 .b-gallery {
 	display: none;
 }
@@ -1568,6 +1588,52 @@ z-index: 333;
 	.b-tabs-compact-news .item {
 		margin-left: 15px;
 	}
+
+/* Simple tabs */
+.b-simple-tabs {
+	margin: 0 0 5px -12px;
+	font: normal 14px/16px 'PFSquareSans ProItalic', Arial, sans-serif;
+	}
+	.b-simple-tabs .item {
+		display: inline-block;
+		margin-left: 12px;
+		}
+	.b-simple-tabs .item:before {
+		content: none;
+		display: none;
+		}
+		.b-simple-tabs .link {
+			display: inline-block;
+			margin-top: -3px;
+			padding: 3px 5px;
+			text-decoration: none;
+			color: #333;
+			
+			transform: skew(-7deg, 0deg);
+			-o-transform: skew(-7deg, 0deg);
+			-webkit-transform: skew(-7deg, 0deg);
+			-moz-transform: skew(-7deg, 0deg);
+			-ms-transform: skew(-7deg, 0deg);
+			}
+			.b-simple-tabs .text {
+				display: block;
+				border-bottom: 1px dotted;
+				
+				transform: skew(7deg, 0deg);
+				-o-transform: skew(7deg, 0deg);
+				-webkit-transform: skew(7deg, 0deg);
+				-moz-transform: skew(7deg, 0deg);
+				-ms-transform: skew(7deg, 0deg);
+				}
+		.b-simple-tabs .link:hover,
+		.b-simple-tabs .selected {
+			background: #919191;
+			color: #FFF;
+			}
+			.b-simple-tabs .link:hover .text,
+			.b-simple-tabs .selected .text {
+				border: none;
+				}
 
 .b-tabs-docs {
 	margin: 0 0 20px -5px;

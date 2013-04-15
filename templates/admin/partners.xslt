@@ -83,11 +83,11 @@
 					</div>
 				</div>
 				<div class="b-field">
-					<label class="b-label" for="f-city-id">Город</label>
-					<select id="f-city-id" name="city_id">
+					<label class="b-label" for="f-city">Город</label>
+					<select id="f-city" name="city">
 						<xsl:for-each select="/page/cities/city">
 							<option value="{@id}">
-								<xsl:if test="/page/form/partner/@city_id = @id or /page/form/@city = @id">
+								<xsl:if test="/page/form/partner/@city = @id or /page/form/@city = @id">
 									<xsl:attribute name="selected">selected</xsl:attribute>
 								</xsl:if>
 								<xsl:value-of select="@title"/>

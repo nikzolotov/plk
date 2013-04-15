@@ -11,7 +11,6 @@ partner
 	$db[$MAIN:connect_db]
 	$TABLES[
 		$.PARTNER[${MAIN:TABLES_PREFIX}partner]
-		$.CITY[${MAIN:TABLES_PREFIX}city]
 	]
 	$IMG_PATH[/img/partners]
 	$escape-xml(false)
@@ -22,11 +21,11 @@ partner
 		$__partners[^table::sql{
 			SELECT
 				`id`,
-				`city_id`,
 				`title`,
 				`desc`,
 				`image`,
 				`link`,
+				`city`,
 				`type`,
 				`date`,
 				`published`
@@ -37,8 +36,8 @@ partner
 				^if(^_params.id.int(0)){
 					AND `id` = $_params.id
 				}
-				^if(^_params.cityId.int(0)){
-					AND `city_id` = $_params.cityId
+				^if(^_params.city.int(0)){
+					AND `city` = $_params.city
 				}
 				^if(def $_params.type){
 					AND `type` = '$_params.type'
@@ -48,20 +47,6 @@ partner
 				}
 			ORDER BY
 				`date` DESC
-		}]
-	}
-
-@cities[_params]
-	^db{
-		$__cities[^table::sql{
-			SELECT
-				`id`,
-				`key`,
-				`title`
-			FROM
-				`${TABLES.CITY}`
-			ORDER BY
-				`order`
 		}]
 	}
 
@@ -75,10 +60,10 @@ partner
 	^if(def $_params && $_params is hash){
 		$result(^_params.id.int(0))
 		$sql[
-			`city_id` = ^_params.city_id.int(0),
 			`title` = ^if(def $_params.title){'$_params.title'}{NULL},
 			`desc` = ^if(def $_params.desc){'$_params.desc'}{NULL},
 			`link` = ^if(def $_params.link){'$_params.link'}{NULL},
+			^if(def $_params.city){`city` = '$_params.city',}
 			^if(def $_params.type){`type` = '$_params.type',}
 			`date` = ^if(def $_params.date){'$_params.date'}{NOW()},
 			`published` = ^_params.published.int(0)
@@ -136,19 +121,12 @@ partner
 	^if(def $__partners){
 		$result[
 			^__partners.menu{
-				<partner id="$__partners.id" city_id="$__partners.city_id" type="$__partners.type" date="$__partners.date" ^if($__partners.published){ published="true"}>
+				<partner id="$__partners.id" city="$__partners.city" type="$__partners.type" date="$__partners.date" ^if($__partners.published){ published="true"}>
 					^if(def $__partners.title){<title>^toXml[$__partners.title]</title>}
 					^if(def $__partners.desc){<desc>^toXml[$__partners.desc]</desc>}
 					^if(def $__partners.link){<link>$__partners.link</link>}
 					^if(def $__partners.image){<image>$__partners.image</image>}
 				</partner>
-			}
-		]
-	}
-	^if(def $__cities){
-		$result[
-			^__cities.menu{
-				<city id="$__cities.id" key="$__cities.key" title="$__cities.title"/>
 			}
 		]
 	}
