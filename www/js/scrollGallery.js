@@ -7,8 +7,6 @@
 			hiddenContent: '.title, .desc',
 			linkSelector: '.link',
 			linkSelected: 'selected',
-			firstItemHtml: '<div class="item"><a href="?" class="link"><span class="text">',
-			endItemHtml: '</span></a></div>',
 			titleItems: '.title',
 			containerFixed: 'b-scroll-gallery-fixed',
 			containerAbsolute: 'b-scroll-gallery-absolute',
@@ -38,7 +36,7 @@
 				slideWidth = 0,
 				maxFixed = (slidesCount * OPTIONS.scrollChangeSlides) - OPTIONS.scrollChangeSlides/2 -1;
 
-			if($.browser.opera || $.browser.firefox) galleryTop = Math.ceil(container.offset().top) -72;
+			if($.browser.opera || $.browser.firefox) galleryTop = Math.ceil(container.offset().top) - 72;
 
 			
 			installGallaryTop();
@@ -65,13 +63,15 @@
 
 			
 
-			function prepareNavigation(){
+			function prepareNavigation(){			
 				var itemHtml = '',
-					title = '';
-				
+					title = '',
+					nextClass = '';
 				for( var i = 0; i < slidesCount; i++ ){
 					title = slides.eq(i).find(OPTIONS.titleItems).text();
-					itemHtml += OPTIONS.firstItemHtml+title+OPTIONS.endItemHtml;
+					if(slides.eq(i).hasClass('next-line')) nextClass = 'item-without-point'
+					else nextClass = ''
+					itemHtml += '<div class="item '+nextClass+'"><a href="?" class="link"><span class="text">'+title+'</span></a></div>';
 				}
 				navigation.html(itemHtml);
 
@@ -95,6 +95,8 @@
 				galleryTop -= fixed;
 				paddingTopGallery = fixed;
 				maxFixed += paddingTopGallery;
+
+				
 			}
 
 			function installSizeSlides(){

@@ -6,23 +6,6 @@
 	<xsl:template name="content">
 		<xsl:apply-templates select="static-text/title"/>
 		<xsl:apply-templates select="static-text/text"/>
-		<ul class="b-tabs-compact">
-			<xsl:for-each select="navigation/item[@key = 'team']/item">
-				<li class="item">
-					<a class="link">
-						<xsl:if test="/page/persons/@city = current()/@key">
-							<xsl:attribute name="class">link selected</xsl:attribute>
-						</xsl:if>
-						<xsl:attribute name="href">
-							<xsl:call-template name="navigation-item-path"/>
-						</xsl:attribute>
-						<span class="text">
-							<xsl:value-of select="@name"/>
-						</span>
-					</a>
-				</li>
-			</xsl:for-each>
-		</ul>
 		<xsl:if test="persons/person">
 			<ul class="b-team">
 				<xsl:apply-templates select="persons/person"/>

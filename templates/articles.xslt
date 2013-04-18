@@ -4,6 +4,8 @@
 	<xsl:import href="common/text.xslt"/>
 	
 	<xsl:template match="articles">
+		<h1>Статьи</h1>
+		<xsl:call-template name="sub-menu"/>
 		<div id="articles" class="b-bottom-design">
 			<ul class="b-without-design">
 				<xsl:apply-templates select="article" mode="articles"/>

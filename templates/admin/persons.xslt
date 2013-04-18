@@ -98,19 +98,6 @@
 					</div>
 				</div>
 				<div class="b-field">
-					<label class="b-label" for="f-city">Город</label>
-					<select id="f-city" name="city">
-						<xsl:for-each select="/page/cities/city">
-							<option value="{@id}">
-								<xsl:if test="/page/form/person/@city = @id or /page/form/@city = @id">
-									<xsl:attribute name="selected">selected</xsl:attribute>
-								</xsl:if>
-								<xsl:value-of select="@title"/>
-							</option>
-						</xsl:for-each>
-					</select>
-				</div>
-				<div class="b-field">
 					<label class="b-label">Дата добавления</label>
 					<xsl:call-template name="dateForm">
 						<xsl:with-param name="date">

@@ -16,16 +16,17 @@
 					</div>
 				</div>
 			</div>
+		</div>		
+		<div id="external_content" class="l-external-content">
+			<div class="l-header">
+				<xsl:call-template name="header"/>
+			</div>
 		</div>
 		<div class="l-page">
 			<div id="about" class="l-about-company">
-				<div class="l-header">
-					<xsl:call-template name="header"/>
-				</div>
 				<div class="l-content">
 					<div class="b-logo">
 						<h1 class="title"> Первая Лизинговая Компания</h1>
-						<div class="summary">Первая Лизинговая Компания — универсальная лизинговая компания, созданная 29 октября 2001 года. Наша компания являлась и является 100% Тверской компанией, и мы, как никто другой, хорошо знакомы со спецификой бизнеса нашего региона.</div>
 					</div>
 					<div class="b-zigzag-design">
 						<xsl:call-template name="service-menu-deployed"/>
@@ -40,6 +41,14 @@
 					<div class="l-column-600">
 						<h1>Мы — Первая Лизинговая Компания</h1>
 						<p class="b-big-line-height">В числе наших клиентов многие крупнейшие предприятия города Твери и Тверской области. В настоящий момент заключено более 1 500 договоров финансового лизинга с более чем 800 лизингополучателями. Численность персонала компании — 14 человек. В 2007 году было открыто представительство в г. Москва. Первая Лизинговая Компания имеет партнерские отношения с универсальнаядом крупнейших банков Тверского региона.</p>
+						<ul class="b-icon-list">
+							<li class="item">
+								<a href="?1" class="link"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
+							</li>
+							<li class="item">
+								<a href="?2" class="link"><b class="b-icon b-icon-sale"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Распродажа <br/>лизингового имущества</a>
+							</li>
+						</ul>
 					</div>
 					<div class="b-moving-car">
 						<i class="traffic-line">
@@ -51,33 +60,31 @@
 					</div>
 					<div class="l-column-600">
 						<p>Компания занимает достойную позицию на финансовом рынке Центрального федерального округа (24-е место по итогам 2009 года), а так же стабильно входит в сотню крупнейших 1-го полугодия 2010 года).</p>
-						<div class="b-zigzag-text">
-							<a class="link" href="?1">
-								<b class="b-icon b-icon-pusle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								<span class="text">Наши <br/>партнеры</span>
-							</a>
-							<i class="zigzag-top">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</i>
-							<i class="zigzag-bottom">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</i>
-						</div>
-						<div class="b-link-icon">
-							<a href="?" target="_blank">
-								<b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								<xsl:text>Мы в каталоге лизинговых компаний</xsl:text>
-							</a>
-						</div>
+						<ul class="b-icon-list b-icon-list-zigzag">
+							<li class="item">
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'team']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<b class="b-icon b-icon-mini-promotion"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<xsl:text> Руководство </xsl:text>
+									<br/>
+									<xsl:text>компании</xsl:text>
+								</a>
+							</li>
+							<li class="item">
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'hire']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<b class="b-icon b-icon-jobs"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<xsl:text> Вакансии</xsl:text>
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<xsl:call-template name="company-features"/>
-			</div>
-			<div id="external_content" class="l-external-content">
-				<div class="l-column-1000">
-					<xsl:call-template name="logo"/>
-					<xsl:call-template name="service-menu"/>
-				</div>
 			</div>
 			<div id="special-technics" class="l-special-achinery">
 				<div class="l-inner">
@@ -85,34 +92,59 @@
 						<h1>Спецтехника в лизинге</h1>
 						<ul class="b-list-equipment">
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-excavator"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Экскаваторы <br/>и бульдозеры</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-excavator"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Экскаваторы <br/>и бульдозеры</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-tractor"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Сельско-<br/>хозяйственная <br/>техника</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-tractor"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Сельско-<br/>хозяйственная <br/>техника</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-municipal"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Коммунальная <br/>техника</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-municipal"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Коммунальная <br/>техника</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-machinery"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Дорожно-<br/>строительная <br/> техника</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-machinery"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Дорожно-<br/>строительная <br/> техника</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-lift-truck"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Автопогрузчики</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-lift-truck"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Автопогрузчики</span>
+								</a>
 							</li>
 						</ul>
 						<p class="b-big-text">Первая Лизинговая Компания готова предложить своим клиентам отличные условия лизинга машин различных марок при приобретении от одной машины до автопарка.</p>
@@ -132,22 +164,37 @@
 						<h1>Автотранспорт в лизинг</h1>
 						<ul class="b-list-equipment b-list-transport">
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-passenger"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Легковой <br/>автотранспорт</div>
+								<a class="link" href="?">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'light']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-passenger"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Легковой <br/>автотранспорт</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-cargo"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Грузовой <br/>автотранспорт</div>
+								<a class="link" href="?">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'heavy']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-cargo"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Грузовой <br/>автотранспорт</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-bus"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Австобусы <br/>и микроавтобусы</div>
+								<a class="link" href="?">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'heavy']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-bus"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Автобусы <br/>и микроавтобусы</span>
+								</a>
 							</li>
 						</ul>
 						<p class="b-big-text">Первая Лизинговая Компания готова предложить своим клиентам отличные условия лизинга машин различных марок при приобретении от одной машины до автопарка.</p>
@@ -167,28 +214,48 @@
 						<h1>Оборудование в лизинг</h1>
 						<ul class="b-list-equipment b-list-equipment-different">
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-food"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Оборудование <br/>для пишевой <br/>промышленности</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-food"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Оборудование <br/>для пишевой <br/>промышленности</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-industrial"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Промышленное <br/>оборудование</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-industrial"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Промышленное <br/>оборудование</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-printing"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Полиграфическое <br/>оборудование</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-printing"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Полиграфическое <br/>оборудование</span>
+								</a>
 							</li>
 							<li class="item">
-								<div class="area-icon">
-									<b class="b-icon b-icon-trade"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-								</div>
-								<div class="desc">Торговое <br/>оборудование</div>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/item[@key = 'partners']/item[@key = 'special']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<span class="area-icon">
+										<b class="b-icon b-icon-trade"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									</span>
+									<span class="desc">Торговое <br/>оборудование</span>
+								</a>
 							</li>
 						</ul>
 						<p class="b-big-text">Первая Лизинговая Компания готова предложить своим клиентам отличные условия лизинга машин различных марок при приобретении от одной машины до автопарка.</p>
@@ -204,7 +271,7 @@
 			</div>
 			<div id="request" class="l-request">
 				<div class="l-inner">
-					<div class="l-column-600">
+					<div class="l-column-620">
 						<h1>Заявка на лизинг</h1>
 						<div class="b-request">
 							<div class="b-paper">
@@ -218,42 +285,37 @@
 														<div class="content-left">
 															<label for="name" class="label label-left">Наименования организации</label>
 															<input id="name" name="name" type="text" class="l-input-323 required"/>
-														 </div>
+														</div>
+													</li>
+													<li class="item">
+														<div class="content-left">
+															<label for="town" class="label label-left">Выш город</label>
+															<select id="town" name="town" class="l-input-323">
+																<option value="Тверь">Тверь</option>
+																<option value="Москва">Москва</option>
+																<option value="Санкт-Петербург">Санкт-Петербург</option>
+																<option value="Бежецк">Бежецк</option>
+																<option value="Другой">Другой</option>
+															</select>
+														</div>
 													</li>
 													<li class="item">
 														<div class="content-left">
 															<div class="field field-left">
-																<label for="career" class="label label-left">Род деятельности</label>
-																<input id="career" name="career" type="text" class="l-input-165"/>
+																<label for="person" class="label label-left">Контактное лицо</label>
+																<input id="person" name="person" type="text" class="l-input-145"/>
 															</div>
 															<div class="field field-right">
-																<label for="personnel" class="label l-label-90">Персонал, чел.</label>
-																<input id="personnel" name="personnel" type="text" class="l-input-43"/>
+																<label for="phone" class="label l-label-90">Телефон</label>
+																<input id="phone" name="phone" type="text" class="l-input-100"/>
 															</div>
-														 </div>
+														</div>
 													</li>
 													<li class="item">
 														<div class="content-left">
-															<label for="phone" class="label label-left">Контактное лицо, телефон</label>
-															<input id="phone" name="phone" type="text" class="input l-input-323 required"/>
-														 </div>
-													</li>
-													<li class="item">
-														<div class="content-left">
-															<h3 class="title label-left">Реквизиты</h3>
-															<div class="field field-gray">
-																<label for="tin" class="label-1">ИНН</label>
-																<input id="tin" name="tin" type="text" class="l-input-98"/>
-															</div>
-															<div class="field field-gray">
-																<label for="ncoea" class="label">ОКВЭД</label>
-																<input id="ncoea" name="ncoea" type="text" class="l-input-56"/>
-															</div>
-															<div class="field field-gray">
-																<label for="ncoeо" class="label">ОКПО</label>
-																<input id="ncoeо" name="ncoeо" type="text" class="l-input-56"/>
-															</div>
-														 </div>
+															<label for="email" class="label label-left">Электронная почта</label>
+															<input id="email" name="email" type="text" class="l-input-323 required"/>
+														</div>
 													</li>
 													<li class="item">
 														<div class="content-left">
@@ -272,148 +334,35 @@
 										</li>
 										<li class="item-numbering">
 											<div class="content">
-												<h2 class="title">Сведения о поставщике</h2>
-												<ul class="b-fields">
-													<li class="item">
-														<div class="content-left">
-															<label for="name_supplier" class="label label-left">Наименование</label>
-															<input id="name_supplier" name="name_supplier" type="text" class="input l-input-323"/>
-														</div>
-													</li>
-													<li class="item">
-														<div class="content-left">
-															<label for="address" class="label label-left">Адрес</label>
-															<input id="address" name="address" type="text" class="input l-input-323"/>
-														</div>
-													</li>
-													<li class="item">
-														<div class="content-left">
-															<label for="contact_name" class="label label-left">Контактное лицо</label>
-															<input id="contact_name" name="contact_name" type="text" class="input l-input-323"/>
-														</div>
-													</li>
-												</ul>
-											</div>
-										</li>
-										<li class="item-numbering">
-											<div class="content">
 												<h2 class="title">Сведения о предмете лизинга</h2>
 												<ul class="b-fields">
-													<li class="item">
+													<li class="item item-category">
 														<div class="content-left">
 															<label for="category" class="label label-left">Категория предмета лизинга</label>
 															<select id="category" name="category" class="l-input-323">
-																<option value="Спецтехника">Спецтехника</option>
-																<option value="Автотранспорт">Автотранспорт</option>
-																<option value="Оборудование">Оборудование</option>
+																<option value="motor_transport">Автотранспорт</option>
+																<option value="special">Спецтехника</option>
+																<option value="equipment">Оборудование</option>
 															</select>
 														</div>
 													</li>
 													<li class="item">
 														<div class="content-left">
 															<div class="label-left">
-																<label for="desc" class="label">Общие сведения лизинга</label>
+																<label for="name_supplier" class="label">Общие сведения лизинга</label>
 																<span class="desc">Марка, модель, год, наименование производителя, страна производителя</span>
 															</div>
-															<textarea id="desc" class="l-input-323 required" cols="30" rows="5" name="desc">
+															<textarea id="address" class="l-input-323 required" cols="30" rows="5" name="address">
 																<xsl:text><![CDATA[]]></xsl:text>
 															</textarea>
 														</div>
 													</li>
-													<li class="item">
-														<div class="b-calculation-cost">
-															<div class="content-left">
-																<h3 class="title label-left">Валюта</h3>
-																<ul class="currencies">
-																	<li class="item">
-																		<a class="link selected">
-																			<span class="text text-rub">РУБ</span>
-																			<xsl:text><![CDATA[]]></xsl:text>
-																		</a>
-																	</li>
-																	<li class="item">
-																		<a class="link">
-																			<span class="text text-usd">USD</span>
-																			<xsl:text><![CDATA[]]></xsl:text>
-																		</a>
-																	</li>
-																	<li class="item">
-																		<a class="link">
-																			<span class="text text-euro">EUR</span>
-																			<xsl:text><![CDATA[]]></xsl:text>
-																		</a>
-																	</li>
-																</ul>
-															</div>
-															<div class="field-currencies content-left">
-																<label for="cost" class="label label-left">Общая стоимость</label>
-																<div class="b-movement">
-																	<ul class="category">
-																		<li class="item">
-																			<span class="number">100&#160;000</span>
-																			<span class="currency">р</span>
-																		</li>
-																		<li class="item">
-																			<span class="number">500&#160;000</span>
-																			<span class="currency">р</span>
-																		</li>
-																		<li class="item">
-																			<span class="number">1&#160;000&#160;000</span>
-																			<span class="currency">р</span>
-																		</li>
-																		<li class="item">
-																			<span class="number">10&#160;000&#160;000</span>
-																			<span class="currency">р</span>
-																		</li>
-																	</ul>
-																	<div class="movement"><xsl:text><![CDATA[]]></xsl:text></div>
-																</div>
-																<div class="b-field-sign">
-																	<input id="cost" name="cost" type="text" class="input required input-slider"/>
-																	<span class="sign">р</span>
-																</div>
-															</div>
-															<div class="field-advance content-left">
-																<label for="advance" class="label label-left">Авансовый платеж</label>
-																<div class="b-movement">
-																	<ul class="category">
-																		<li class="item">0%</li>
-																		<li class="item">50%</li>
-																		<li class="item">100%</li>
-																	</ul>
-																	<div class="movement">
-																		<xsl:text><![CDATA[]]></xsl:text>
-																	</div>
-																</div>
-																<div class="b-field-sign">
-																	<input id="advance" name="advance" type="text" class="input required input-slider"/>
-																	<span class="sign">%</span>
-																</div>
-															</div>
-															<div class="field-months content-left">
-																<label for="months" class="label label-left">Срок</label>
-																<div class="b-movement">
-																	<ul class="category">
-																		<li class="item">12 мес.</li>
-																		<li class="item">24 мес.</li>
-																		<li class="item">36 мес.</li>
-																		<li class="item">48 мес.</li>
-																	</ul>
-																	<div class="movement">
-																		<xsl:text><![CDATA[]]></xsl:text>
-																	</div>
-																</div>
-																<div class="b-field-sign">
-																	<input id="months" name="months" type="text" class="input required input-slider"/>
-																	<span class="sign">мес.</span>
-																</div>
-															</div>
-															<div class="b-calculation">Размер ежемесячного платежа: <span class="number">208 573</span>&#160;<span class="currency">р</span>*</div>
-														</div>
+													<li class="item item-calculation">
+														<xsl:call-template name="calculator"/>
 													</li>
 													<li class="item">
 														<div class="b-submit">
-															<input type="submit" value="Подать заявку!" class="submit"/>
+														<input type="submit" value="Подать заявку!" class="submit"/>
 														</div>
 													</li>
 												</ul>
@@ -421,10 +370,8 @@
 										</li>
 									</ol>
 								</form>
+								<a href="contacts.html" class="cutaway"><xsl:text><![CDATA[]]></xsl:text></a>
 							</div>
-							<i class="cutaway">
-								<xsl:text><![CDATA[]]></xsl:text>
-							</i>
 							<div class="l-intercolumn-26-200">
 								<p class="b-desc"><sub>*</sub> Приблизительная оценка. Фактический размер ежемесячного платежа определяется после прохождения финансовой экспертизы. Заявка не является прохожденияубличной офертой.</p>
 							</div>
@@ -432,12 +379,7 @@
 					</div>
 				</div>
 				<div class="b-cup">
-					<i class="cup">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
-					<i class="cutaway-2" style="display:none;">
-						<xsl:text><![CDATA[]]></xsl:text>
-					</i>
+					<a href="http://vodka-group.ru/" class="cup"><xsl:text><![CDATA[]]></xsl:text></a>
 				</div>
 			</div>
 		</div>
@@ -515,55 +457,57 @@
 	
 	<xsl:template name="company-features">
 		<div class="b-scroll-gallery">
-			<h2 class="common-title">В своей работе мы придерживаемся семи простых правил</h2>
+			<div class="l-column-600">
+				<h2 class="b-title-gallery">В своей работе мы придерживаемся<br/> семи простых правил:</h2>
+			</div>
 			<div class="slides">
 				<div class="slide">
 					<div class="content">
 						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Оперативность</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — ваше время.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+						<p class="desc">Для нас одна из самых больших ценностей — это время наших клиентов. Если сделку нужно было заключить «ещё вчера», вы пришли в правильное место!</p>
 					</div>
 				</div>
 				<div class="slide">
 					<div class="content">
 						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Доступность</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+						<p class="desc">Работая с рядом крупных банков Твери и Тверской области, а также принимая участия в различных федеральных программах, мы обладаем возможностью предлагать нашим клиентам самые выгодные условия финансирования проектов без лишних запросов и обременений</p>
 					</div>
 				</div>
 				<div class="slide">
 					<div class="content">
-						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<b class="b-icon b-icon-convenience"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Удобство</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+						<p class="desc">Мы делаем все для комфорта наших клиентов:  до минимума сокращены перечни требующихся документов, в любое время можно получить консультацию по интересующему вопросу, предлагается ряд дополнительных услуг</p>
 					</div>
 				</div>
 				<div class="slide">
 					<div class="content">
-						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-						<h3 class="title"><span class="text">Содействие</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-					</div>
-				</div>
-				<div class="slide">
-					<div class="content">
-						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-						<h3 class="title"><span class="text">Компетентность</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-					</div>
-				</div>
-				<div class="slide">
-					<div class="content">
-						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-						<h3 class="title"><span class="text">Лидерство</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
-					</div>
-				</div>
-				<div class="slide">
-					<div class="content">
-						<b class="b-icon b-icon-big-clock"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<b class="b-icon b-icon-reliability"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Надежность</span></h3>
-						<p class="desc">Одна из самых больших ценностей для нас — доступность.  Если сделку нужно было заключить «еще вчера», вы пришли в правильное место!</p>
+						<p class="desc">ООО «Первая лизинговая компания» старейшая лизинговая компания Тверского региона. Мы горды тем, что за все время нашего существования мы не подвели ни одного нашего партнера</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-promotion"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Содействие</span></h3>
+						<p class="desc">Что один в поле не воин, известно давно. Мы всегда адекватно воспринимаем сложности наших клиентов и на многое готовы пойти, чтобы помочь им пережить непростые времена</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-competence"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Компетентность</span></h3>
+						<p class="desc">За время нашей работы мы смогли сформировать команду с профессиональным руководством и высококвалифицированными специалистами. Сотрудники компании готовы оказать клиентам любую помощь для решения возникающих задач</p>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="content">
+						<b class="b-icon b-icon-leadership"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<h3 class="title"><span class="text">Лидерство</span></h3>
+						<p class="desc">На Тверском рынке лизинговых услуг! Своему успеху мы, конечно же, обязаны нашим партнерам, ведь именно успешность их бизнеса сделала нас первыми</p>
 					</div>
 				</div>
 			</div>
@@ -581,7 +525,9 @@
 	<xsl:template name="conditions">
 		<div class="b-wrapped-line">
 			<h2 class="title">
-				<span class="text">Базовые условия</span>
+				<a href="?" class="link">
+					<span class="text">Базовые условия</span>
+				</a>
 			</h2>
 			<div class="content">
 				<ul class="b-conditions">
@@ -620,12 +566,6 @@
 							<b class="b-icon b-icon-arms"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						</div>
 						<div class="desc">Страхование всех рисков, связанных с предметом лизинга, на весь срок лизинга в согласованной с лизингодателем страховой компании</div>
-					</li>
-					<li class="item">
-						<div class="area-icon">
-							<b class="b-icon b-icon-turnover"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-						</div>
-						<div class="desc">Обеспечение сделки предмет лизинга</div>
 					</li>
 				</ul>
 			</div>

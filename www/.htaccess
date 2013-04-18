@@ -4,7 +4,6 @@ RewriteBase	/
 
 RewriteRule	^share/(.+)/(.*)$				share/$2 [L,NC]
 
-RewriteRule ^team/(tver|moscow)/$		/team/?city=$1 [QSA,L,NC]
 RewriteRule ^partners/(light|heavy|special)/$		/partners/?type=$1 [QSA,L,NC]
 
 RewriteRule ^news/(\d+)\.html$		/news/?id=$1 [QSA,L,NC]

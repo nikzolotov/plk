@@ -2,11 +2,11 @@
 	^useModule[person]
 	
 	$persons[^person::persons[
-		$.city[$form:city]
+		$.city[tver]
 		$.published(1)
 	]]
 	^persons.xmlString[persons;$.city[$form:city]]
 	
 	^static-text[${XSL-Params.lang}.team]
 	
-	^Templates.add[persons.xslt]	
+	^Templates.add[persons.xslt]

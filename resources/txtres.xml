@@ -4,7 +4,8 @@
 		<language>Русский</language>
 		<title>Первая Лизинговая Компания</title>
 		<phones>
-			<main>+7 (4822) 390-111</main>
+			<tver>+7 (4822) 390-111</tver>
+			<moscow>+7 (4822) 490-222</moscow>
 		</phones>
 		<email>test@test.ru</email>
 		<monthes>

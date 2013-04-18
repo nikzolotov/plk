@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <navigation>
 	<item name="Главная страница" long-name="В начало &lt;br&gt;сайта"/>
-	<item key="team" name="Команда" long-name="Персонал компании" skip="true">
-		<item key="tver" name="В Твери" dir="true" module="person"/>
-		<item key="moscow" name="В Москве" dir="true" module="person"/>
+	<item key="customers" name="Клиентам" module="articles" long-name="Информация для&#160;клиентов" skip="true">
+		<item key="docs" name="Документы" dir="true"/>
+		<item key="articles" name="Статьи" dir="true"/>
+		<item key="glossary" name="Глоссарий" dir="true"/>
 	</item>
 	<item key="news" name="Новости" dir="true" module="news" long-name="Новости компании"/>
-	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
-	<!--
-	<item key="hire" name="Вакансии" dir="true" module="vacancies" long-name="Вакансии в&#160;компании"/>
-	-->
 	<item key="partners" name="Партнёры" dir="true" module="partners" long-name="Наши поставщики" skip="true">
 		<item key="light" name="Легковые автомобили" dir="true" module="partners"/>
 		<item key="heavy" name="Грузовые автомобили" dir="true" module="partners"/>
 		<item key="special" name="Спецтехника и оборудование" dir="true" module="partners"/>
 	</item>
-	<item key="customers" name="Клиентам" module="articles" long-name="Информация для&#160;клиентов">
-		<item key="articles" name="Статьи" dir="true"/>
-	</item>
+	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
 	<group id="service">
 		<item key="about" name="Компания"/>
 		<item key="special-technics" name="Спецтехника"/>
@@ -26,5 +21,9 @@
 	</group>
 	<group id="request">
 		<item key="request" name="Заявка на лизинг"/>
+	</group>
+	<group id="rest">
+		<item key="team" name="Команда" dir="true" long-name="Персонал компании"/>
+		<item key="hire" name="Вакансии" dir="true" module="vacancies" long-name="Вакансии в&#160;компании"/>
 	</group>
 </navigation>

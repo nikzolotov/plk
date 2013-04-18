@@ -15,4 +15,5 @@ ymaps.ready(function(){
 
     myMap.geoObjects
         .add(myPlacemark);
+    myMap.controls.add('smallZoomControl', {left: 10, top: 10});
 });

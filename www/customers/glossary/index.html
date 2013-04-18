@@ -1,0 +1,12 @@
+﻿@main[][definitions]
+	^useModule[article]
+	
+	$definitions[^article::list[
+		$.type[definition]
+		$.with-body(true)
+		$.published(1)
+		$.order[ASC]
+	]]
+	^definitions.xml-string[definitions]
+	
+	^Templates.add[definitions.xslt]

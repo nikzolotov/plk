@@ -4,6 +4,8 @@
 	<xsl:import href="common/text.xslt"/>
 	
 	<xsl:template match="docs">
+		<h1>Документы</h1>
+		<xsl:call-template name="sub-menu"/>
 		<div id="docs" class="b-bottom-design">
 			<ul class="b-docs">
 				<xsl:apply-templates select="doc" mode="doc"/>
