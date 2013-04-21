@@ -7,7 +7,7 @@
 		<xsl:apply-templates select="static-text/title"/>
 		<xsl:apply-templates select="static-text/text"/>
 		<xsl:if test="persons/person">
-			<ul class="b-team">
+			<ul class="b-objects">
 				<xsl:apply-templates select="persons/person"/>
 			</ul>
 		</xsl:if>

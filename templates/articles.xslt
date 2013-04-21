@@ -6,17 +6,15 @@
 	<xsl:template match="articles">
 		<h1>Статьи</h1>
 		<xsl:call-template name="sub-menu"/>
-		<div id="articles" class="b-bottom-design">
-			<ul class="b-without-design">
-				<xsl:apply-templates select="article" mode="articles"/>
-			</ul>
-		</div>
+		<ul class="b-events b-events-art">
+			<xsl:apply-templates select="article" mode="articles"/>
+		</ul>
 	</xsl:template>
 	
 	<xsl:template match="article" mode="articles">
 		<li class="item">
 			<h3 class="title">
-				<a>
+				<a class="link">
 					<xsl:attribute name="href">
 						<xsl:apply-templates select="/page/navigation/item[@key = 'customers']/item[@key = 'articles']" mode="navigation-item-path"/>
 						<xsl:value-of select="@id"/>
@@ -25,9 +23,24 @@
 					<xsl:value-of select="title/text()"/>
 				</a>
 			</h3>
-			<p>
-				<xsl:value-of select="lead"/>
-			</p>
+			<div class="sub-content">
+				<xsl:choose>
+					<xsl:when test="not(body/*)">
+						<p>
+							<xsl:apply-templates select="body/text()" mode="text"/>
+						</p>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:apply-templates select="body/*|body/text()" mode="text"/>
+					</xsl:otherwise>
+				</xsl:choose>
+				<i class="zigzag zigzag-t">
+					<xsl:text><![CDATA[]]></xsl:text>
+				</i>
+				<i class="zigzag zigzag-b">
+					<xsl:text><![CDATA[]]></xsl:text>
+				</i>
+			</div>
 		</li>
 	</xsl:template>
 	

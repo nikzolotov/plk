@@ -14,7 +14,9 @@ body {
 .b-calculation-cost .currencies .item,
 .b-movement .category .item,
 .b-tabs-compact .item,
-.b-tabs-docs .item {
+.b-tabs-docs .item,
+.b-switch-phone .item,
+.b-icon-list .item {
 	display: inline !important;
 }
 .b-fields .item,

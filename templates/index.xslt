@@ -39,7 +39,7 @@
 				</div>
 				<div class="l-inner">
 					<div class="l-column-600">
-						<h1>Мы — Первая Лизинговая Компания</h1>
+						<h1 class="b-hidden-title">Мы — Первая лизинговая компания</h1>
 						<p class="b-big-line-height">В числе наших клиентов многие крупнейшие предприятия города Твери и Тверской области. В настоящий момент заключено более 1 500 договоров финансового лизинга с более чем 800 лизингополучателями. Численность персонала компании — 14 человек. В 2007 году было открыто представительство в г. Москва. Первая Лизинговая Компания имеет партнерские отношения с универсальнаядом крупнейших банков Тверского региона.</p>
 						<ul class="b-icon-list">
 							<li class="item">
@@ -89,7 +89,7 @@
 			<div id="special-technics" class="l-special-achinery">
 				<div class="l-inner">
 					<div class="l-column-600">
-						<h1>Спецтехника в лизинге</h1>
+						<h1 class="b-hidden-title">Спецтехника в лизинге</h1>
 						<ul class="b-list-equipment">
 							<li class="item">
 								<a class="link">
@@ -161,7 +161,7 @@
 			<div id="motor-vehicles" class="l-motor-transport">
 				<div class="l-inner">
 					<div class="l-column-600">
-						<h1>Автотранспорт в лизинг</h1>
+						<h1 class="b-hidden-title">Автотранспорт в лизинг</h1>
 						<ul class="b-list-equipment b-list-transport">
 							<li class="item">
 								<a class="link" href="?">
@@ -211,7 +211,7 @@
 			<div id="equipment" class="l-equipment">
 				<div class="l-inner">
 					<div class="l-column-600">
-						<h1>Оборудование в лизинг</h1>
+						<h1 class="b-hidden-title">Оборудование в лизинг</h1>
 						<ul class="b-list-equipment b-list-equipment-different">
 							<li class="item">
 								<a class="link">
@@ -272,7 +272,7 @@
 			<div id="request" class="l-request">
 				<div class="l-inner">
 					<div class="l-column-620">
-						<h1>Заявка на лизинг</h1>
+						<h1 class="b-hidden-title">Заявка на лизинг</h1>
 						<div class="b-request">
 							<div class="b-paper">
 								<form method="post" action="index.html" id="request_form" class="b-general-form">
@@ -379,7 +379,9 @@
 					</div>
 				</div>
 				<div class="b-cup">
-					<a href="http://vodka-group.ru/" class="cup"><xsl:text><![CDATA[]]></xsl:text></a>
+					<a href="http://vodka-group.ru/" class="cup">
+						<i class="lear"><xsl:text><![CDATA[]]></xsl:text></i>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -470,7 +472,7 @@
 				</div>
 				<div class="slide">
 					<div class="content">
-						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<b class="b-icon b-icon-availability"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Доступность</span></h3>
 						<p class="desc">Работая с рядом крупных банков Твери и Тверской области, а также принимая участия в различных федеральных программах, мы обладаем возможностью предлагать нашим клиентам самые выгодные условия финансирования проектов без лишних запросов и обременений</p>
 					</div>
@@ -484,7 +486,7 @@
 				</div>
 				<div class="slide">
 					<div class="content">
-						<b class="b-icon b-icon-reliability"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+						<b class="b-icon b-icon-big-castle"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						<h3 class="title"><span class="text">Надежность</span></h3>
 						<p class="desc">ООО «Первая лизинговая компания» старейшая лизинговая компания Тверского региона. Мы горды тем, что за все время нашего существования мы не подвели ни одного нашего партнера</p>
 					</div>

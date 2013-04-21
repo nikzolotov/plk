@@ -2,10 +2,10 @@ $(function(){
     $('.b-moving-car').movingCar();
     $('.b-scroll-gallery').scrollGallery();
     $('#external_content .b-main-navigation').parallaxScroll();
-    $('#external_content .b-main-navigation, .b-navigation-deployed, .b-modal-calculation .submit').smoothScrolling();
+    $('#external_content .b-main-navigation, .b-navigation-deployed, .l-page .b-modal-calculation .submit').smoothScrolling();
     
     $('.b-calculation-cost').calculationPayment();
-    $('.b-events .item').toggleLink();
+    $('.b-events').toggleLink();
 
 
 
@@ -37,6 +37,15 @@ $(function(){
       independentToggle.init();   
     }
 
+    var _tabs = $('.b-tab');
+    if(_tabs.length > 0) {
+      $('.l-main-section').tabs({
+        linkSelector: '.b-switch-phone .link',
+        tabSelector: '.b-tab'
+      });
+     
+    }
+
     var switchPhone = $('.b-switch-phone'),
         items = $('.item', switchPhone),
         links = $('.link', switchPhone),
@@ -44,10 +53,15 @@ $(function(){
     installPhone(links.filter('.selected').find('.phone').text())
     links.click(function(event){
       var _this = $(this);
+      if(_tabs.length > 0){
+        installPhone(links.filter('.selected').find('.phone').text())
+      }
+      else {
       if(!_this.hasClass('selected')){
         installPhone(_this.find('.phone').text());
         links.removeClass('selected');
         _this.addClass('selected');
+      }
       }
       event.preventDefault();
     });
@@ -58,14 +72,6 @@ $(function(){
     $('.b-wrapped-line').switchConditions();
     
 });
-
-
-
-
-
-
-
-
 
 
 /* Plugins */
@@ -152,6 +158,7 @@ var independentToggle = (function(){
 	$.fn.toggleLink = function(userOptions) {
 		var OPTIONS = {
              subContent: '.sub-content',
+             items: '.item',
              links: '.link',
              selectedClass: 'item-selected',
              commonContainer: ''
@@ -162,25 +169,31 @@ var independentToggle = (function(){
 		    }
 		    var container = $(this),
 		    	subContent = $(OPTIONS.subContent,container),
+              items = $(OPTIONS.items,container),
 		    	links = $(OPTIONS.links,container);
 
 		    links.data('selected', false);
 
 		    links.click(function(event){
-		    	if(!links.data('selected')){
-		    		container.addClass(OPTIONS.selectedClass);
-		    		links.data('selected', true);
-		    		subContent.slideDown(100);
-		    	}
-		    	else {
-		    		subContent.slideUp(100,function(){
-		    			container.removeClass(OPTIONS.selectedClass);
-		    		});
-		    		links.data('selected', false);
-		    	}
-		    	event.preventDefault();
-		    });
+            _this = $(this);
+  		    	if(!_this.data('selected')){
+              hideContent(links.not(_this))
+  		    		_this.parents(OPTIONS.items).addClass(OPTIONS.selectedClass);
+  		    		_this.data('selected', true);
+  		    		_this.parents(OPTIONS.items).find(OPTIONS.subContent).slideDown(100);
+  		    	}
+  		    	else {
+  		    		hideContent(_this);
+  		    	}
+  		    	event.preventDefault();
+  		    });
         	
+          function hideContent(link){
+            link.parents(OPTIONS.items).find(OPTIONS.subContent).slideUp(100,function(){
+              link.parents(OPTIONS.items).removeClass(OPTIONS.selectedClass);
+            });
+            link.data('selected', false);
+          }
         });
      };
 
@@ -194,7 +207,7 @@ var independentToggle = (function(){
 			range: 'min',
 			orientationSlider: "horizontal",
       valueCurrency: [100000, 10000000],
-      valueAdvance: [0, 100],
+      valueAdvance: [10, 49],
       valueMonth: [12, 48],
       calculation: '.b-calculation',
       valueCalculation: '.b-calculation .calc-month .number',
@@ -205,7 +218,8 @@ var independentToggle = (function(){
       selectedCurrencyContent: '.currencies .selected',
       numbers: '.b-movement .number',
       category: '.field-currencies .category',
-      categoryLeasedAsset: '#category'
+      categoryLeasedAsset: '#category',
+      cookieLink: '.b-modal-calculation .submit .link'
     };
     return this.each(function(){
     	if(userOptions) {
@@ -231,113 +245,169 @@ var independentToggle = (function(){
     		selectedCurrencyContent = $(OPTIONS.selectedCurrencyContent, container),
         categoryLeasedAsset = $(OPTIONS.categoryLeasedAsset),
     		valueSC = 'RUB',
-    		category = $(OPTIONS.category, container),
+    		category = $(OPTIONS.category),
+        cookieLink = $(OPTIONS.cookieLink),
 
         valueCategoryPS = {
-          'motor_transport': [0.17, 0.20],
-          'special': [0.17, 0.21],
-          'equipment': [0.19, 0.22]
-        }
+          'motor_transport': [0.17, 0.20, 700000, 25, 12],
+          'special': [0.17, 0.21, 4000000, 30, 18],
+          'equipment': [0.19, 0.22, 1000000, 30, 12]
+        },
 
-  		  exchange = {
-  		    'RUB': 1,
-    			'USD': 30,
-    			'EUR': 40
-  		  },
-    		rubsArray = [100000, 500000, 1000000, 10000000],
+       change = {
+          'currency': false,
+          'advance': false,
+          'month': false
+        },
+
     		numbers = $(OPTIONS.numbers),
-    		valueCurrencies = {
-    			'RUB': rubsArray,
-    			'USD': $.map(rubsArray,function(n, i){return n/exchange['USD'];}),
-    			'EUR': $.map(rubsArray,function(n, i){return n/exchange['EUR'];})
-    		},
-    		currencyLetters = {
-    			'RUB': 'р',
-    			'USD': '$',
-    			'EUR': '€'
-    		},
-    		reduction = {
-    			'RUB': 'rub',
-    			'USD': 'usd',
-    			'EUR': 'eur'
-    		},
-    		_replaseSeparator = /(\d)(?=(\d\d\d)+([^\d]|$))/g;
-
-      	settingVar(selectedCurrencyContent.find('.text'))
+    		_replaseSeparator = /(\d)(?=(\d\d\d)+([^\d]|$))/g,
+        _cookieName = 'calculation';
 
       	inputs.val('');
-      	changeCurrency();
+        
       	changeSliders();
-      	workingCalculation();
-      	runChangeCurrency();
+        rememberCookies();
+        if($.cookie('category')) categoryLeasedAsset.find('option[value*='+$.cookie("category")+']').attr('selected', 'selected');
 
         categoryLeasedAsset.change(function() {
-           workingCalculation();
+          changeSliders();
         });
 
-      	function settingVar(_text){
-      		if(_text.hasClass('text-rub')) valueSC = 'RUB';
-      		else if(_text.hasClass('text-usd')) valueSC = 'USD';
-      		else if(_text.hasClass('text-euro')) valueSC = 'EUR';
-      	}
 
       	function changeSliders(){
-      		/* Run slider_ui for different sliders */
-      		runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true, false);
-      		runSlider(sliderAdvance, OPTIONS.valueAdvance[0], OPTIONS.valueAdvance[1], inputAdvance, false, false);
-      		runSlider(sliderYears, OPTIONS.valueMonth[0], OPTIONS.valueMonth[1], inputYears, false, false);
+          if(!change['currency']){
+            if(!isNaN($.cookie('cost')) && $.cookie('cost') > 0) {
+              _valueCurrency = $.cookie('cost');
+              inputCurrency.val(replase(_valueCurrency));
+            }
+            else {
+              _valueCurrency = valueCategoryPS[categoryLeasedAsset.val()][2];
+              inputCurrency.val(replase(_valueCurrency));
+            }
+          }
+
+          if(!change['advance']){
+            if(!isNaN($.cookie('advance')) && $.cookie('advance') > 0) {
+              _valueAdvance = $.cookie('advance');
+              inputAdvance.val(_valueAdvance);
+            }
+            else {
+              _valueAdvance = valueCategoryPS[categoryLeasedAsset.val()][3]
+              inputAdvance.val(_valueAdvance);
+            }
+          }
+
+          if(!change['month']){
+            if(!isNaN($.cookie('month')) && $.cookie('month') > 0) {
+              _valueMonth = $.cookie('month');
+              inputYears.val(_valueMonth);
+            }
+            else {
+              _valueMonth = valueCategoryPS[categoryLeasedAsset.val()][4];
+              inputYears.val(_valueMonth);
+            }
+          }
+
+      		runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true, false, _valueCurrency, 'currency');
+      		runSlider(sliderAdvance, OPTIONS.valueAdvance[0], OPTIONS.valueAdvance[1], inputAdvance, false, false, _valueAdvance, 'advance');
+      		runSlider(sliderYears, OPTIONS.valueMonth[0], OPTIONS.valueMonth[1], inputYears, false, false, _valueMonth, 'month');
+
+
+          workingCalculation();
       		
       	}
 
-        function runSlider(selector, _min, _max, input, formatting, changeVar){
-      		selector.slider({
-  	        orientation: OPTIONS.orientationSlider,
-  	        range: OPTIONS.range,
-  	        min: _min,
-  	        max: _max,
-  	        slide: function( event, ui ) {
-  	        	var uiValue = ui.value;
+        function rememberCookies(){
+          cookieLink.click(function(){
+            $.cookie('category', categoryLeasedAsset.val(), {expires: 7, path: '/'});
+            $.cookie('cost', parseInt(inputCurrency.val().replace(/\s+/g, '')), {expires: 7, path: '/'});
+            $.cookie('advance', inputAdvance.val(), {expires: 7, path: '/'});
+            $.cookie('month', inputYears.val(), {expires: 7, path: '/'});
+          });
+        }
 
-  	        	if(formatting){
-  	        		uiValue = Math.round(ui.value / exchange[valueSC])
-  	        		uiValue = replase(uiValue);
-  	        	}
-  	        	input.removeClass('error');
-  	        	input.val(uiValue);
-  	        	workingCalculation();
-  	        }
-  	      });
+        function runSlider(selector, _min, _max, input, formatting, changeVar, _value, _field){
+          if(!change[_field]){
+        		selector.slider({
+    	        orientation: OPTIONS.orientationSlider,
+    	        range: OPTIONS.range,
+    	        min: _min,
+    	        max: _max,
+              value: _value,
+    	        slide: function( event, ui ) {
+                change[_field] = true;
+    	        	var uiValue = ui.value;
+
+    	        	if(formatting){
+    	        		uiValue = Math.round(ui.value)
+    	        		uiValue = replase(uiValue);
+    	        	}
+    	        	input.removeClass('error');
+    	        	input.val(uiValue);
+    	        	workingCalculation();
+
+    	        }
+    	      });
+          }
+          else {
+            selector.slider({
+              orientation: OPTIONS.orientationSlider,
+              range: OPTIONS.range,
+              min: _min,
+              max: _max,
+              slide: function( event, ui ) {
+                change[_field] = true;
+                var uiValue = ui.value;
+
+                if(formatting){
+                  uiValue = Math.round(ui.value)
+                  uiValue = replase(uiValue);
+                }
+                input.removeClass('error');
+                input.val(uiValue);
+                workingCalculation();
+
+              }
+            });
+          }
 
       		if(changeVar && input.val() != '') {
       			value = selector.slider( "value");
-      			value = Math.round(value/exchange[valueSC]);
+      			value = Math.round(value);
       			input.val(replase(value));
       		}
   		    
   		    input.change(function() {
+            _this = $(this);
   		    	inputValue = $(this).val();
 
-  		    	if(formatting && inputValue != '') {
+            fieldInput = _this.parents('.content-left');
+
+            if(fieldInput.hasClass('field-currencies')) change['currency'] = true;
+            if(fieldInput.hasClass('field-advance')) change['advance'] = true;
+            if(fieldInput.hasClass('field-years')) change['month'] = true;
+
+  		    	if(formatting && inputValue != ''){
   		    		inputValue = parseInt(inputValue.replace(/\s+/g, ''));
-  		    		inputValue = Math.round(inputValue*exchange[valueSC]);
+  		    		inputValue = Math.round(inputValue);
   		    	}
   		    	
   		    	selector.slider( "value", inputValue);
   		    	workingCalculation();
   		    });
 
-
-
   		    input.focusout(function(){
   		    	_this = $(this);
   		    	_this.val(replase(_this.val()));
   		    });
-
         }
 
         function replase(value){
-      		value += ''; 
-      		return value.replace(_replaseSeparator, '$1 ');
+          if(value != null){
+        		value += ''; 
+        		return value.replace(_replaseSeparator, '$1 ');
+          }
         }
 
         function workingCalculation(){
@@ -361,37 +431,9 @@ var independentToggle = (function(){
   				}
   			}
 
-  			function changeCurrency(){
-  				numbers.each(function(index, element){ 
-  					installNumbers($(element), valueCurrencies[valueSC], index);
-  				});
-
-  				symbolCurrencies.text(currencyLetters[valueSC]);
-  				category.removeAttr('class').addClass('category').addClass('category-'+reduction[valueSC]);
-
-  				
-  				runSlider(sliderCurrency, OPTIONS.valueCurrency[0], OPTIONS.valueCurrency[1], inputCurrency, true, true);
-  			}
-
 
   			function installNumbers(element, array, index){
   				element.text(replase(Math.round(array[index])));
-  			}
-
-
-  			function runChangeCurrency(){
-  				currencies.click(function(event){
-  					selectedCurrencyContent = $(this),
-  					settingVar(selectedCurrencyContent.find('.text'));
-
-  					currencies.removeClass(OPTIONS.selectedCurrency);
-  					selectedCurrencyContent.addClass(OPTIONS.selectedCurrency);
-  					
-  					changeCurrency();
-  					workingCalculation();
-
-  					event.preventDefault();
-  				});
   			}
       });
     };
@@ -447,8 +489,10 @@ var independentToggle = (function(){
                request: '#request',
                links: '.item .link, .item-request .link',
                external_selector: '#external_content',
-               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation',
-               all_links: '.link'
+               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation, #external_content .b-title',
+               all_links: '.link',
+               fadingTitle: '.b-title .text',
+               titles: '.b-hidden-title'
           };
           return this.each(function(){
           	if(userOptions) {
@@ -463,7 +507,8 @@ var independentToggle = (function(){
           		container = $(this),
           		external_content = $(OPTIONS.external_content),
           		external_selector = $(OPTIONS.external_selector),
-  				distance_ex_cont = 1170,
+              fadingTitle = $(OPTIONS.fadingTitle),
+      				distance_ex_cont = 1300,
   				scrolled_top = $(window).scrollTop(),
   				links = $(OPTIONS.links, container),
   				all_links = $(OPTIONS.all_links, container),
@@ -517,9 +562,9 @@ var independentToggle = (function(){
 
   				var external_content_top = distance_ex_cont - scrolled_top;
   				if(external_content_top >= 0)
-  					external_content.css('marginTop',external_content_top+'px');
+  					external_content.css('top',external_content_top+'px');
   				else
-  					external_content.css('marginTop','0px');
+  					external_content.css('top','0px');
 
   				/* About company */
   				if(scrolled_top >= 0 && scrolled_top <= height_about_company){
@@ -527,7 +572,7 @@ var independentToggle = (function(){
   						about_company.css('background-position','50% '+(-(scrolled_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.about_company, 0, height_about_company-300);
-  				changeBg(scrolled_top, 'brown-gr', 0, height_about_company+30, '#919191');
+  				changeBg(scrolled_top, 'brown-gr', 0, height_about_company+30, '#919191', about_company.find(OPTIONS.titles));
 
   				/* Special achinery */
   				_top = height_about_company - 1000;
@@ -536,7 +581,7 @@ var independentToggle = (function(){
   					special_achinery.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.special_achinery, _bottom-(height_special_achinery+301), _bottom-300);
-  				changeBg(scrolled_top, 'orange-gr', _top+950, _bottom+30, '#B37F52');
+  				changeBg(scrolled_top, 'orange-gr', _top+950, _bottom+30, '#B37F52', special_achinery.find(OPTIONS.titles));
 
   				/* Motor transport */
   				_top = _bottom - 1000;
@@ -545,7 +590,7 @@ var independentToggle = (function(){
   					motor_transport.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.motor_transport, _bottom-(height_motor_transport+301), _bottom-300);
-  				changeBg(scrolled_top, 'gray-gr', _top+1030, _bottom+100, '#5C5C5C');
+  				changeBg(scrolled_top, 'gray-gr', _top+1030, _bottom+100, '#5C5C5C', motor_transport.find(OPTIONS.titles));
 
   				/* Equement */
   				_top = _bottom - 1000;
@@ -555,7 +600,7 @@ var independentToggle = (function(){
   					equipment.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.equipment, _bottom-(height_equipment+301), _bottom-300);
-  				changeBg(scrolled_top, 'black-gr', _top+1100, _bottom+30, '#343434');
+  				changeBg(scrolled_top, 'black-gr', _top+1100, _bottom+30, '#343434', equipment.find(OPTIONS.titles));
 
   				/* Request */
   				_top = _bottom - 900;
@@ -564,7 +609,7 @@ var independentToggle = (function(){
   					request.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.request, _bottom-(height_request+301), _bottom);
-  				changeBg(scrolled_top, 'brown-2-gr', _top+1030, _bottom+30, '#523B3B');
+  				changeBg(scrolled_top, 'brown-2-gr', _top+1030, _bottom+30, '#523B3B', request.find(OPTIONS.titles));
   			}
 
   			function activationMenu(scrolled_top,link,start,end){
@@ -581,7 +626,7 @@ var independentToggle = (function(){
   				}
   			}
 
-  			function changeBg(scrolled_top, new_bg, start, end, color){
+  			function changeBg(scrolled_top, new_bg, start, end, color, title){
   				if(scrolled_top >= start && scrolled_top < end){
   					if(external_selector.data('value_bg') != new_bg){
   						external_selector.data('value_bg', new_bg);
@@ -589,6 +634,7 @@ var independentToggle = (function(){
 
               colorPhone = color;
               switchPhone.find('.selected').css('background', color);
+                fadingTitle.text(title.text());         
   					}
   				}
   			}

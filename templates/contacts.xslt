@@ -14,15 +14,27 @@
 
 	<xsl:template name="content">
 		<xsl:apply-templates select="static-text/title"/>
+		<ul class="b-tabs-compact">
+			<li class="item">
+				<a class="link" href="#moscow">
+					<span class="text">Москва</span>
+				</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#tver">
+					<span class="text">Тверь</span>
+				</a>
+			</li>
+		</ul>
 		<xsl:apply-templates select="static-text/text"/>
-		<div class="b-yandex-map">
-			<div class="inner">
-				<h3 class="title">Схема проезда</h3>
-				<div id="YMapsID">
-					<xsl:text><![CDATA[]]></xsl:text>
-				</div>
-			</div>
-		</div>
+		<script type="text/javascript">
+			<xsl:text><![CDATA[
+				$('.l-main-section').tabs({
+					linkSelector: '.b-tabs-compact .link',
+					tabSelector: '.b-tab'
+				});
+			]]></xsl:text>
+		</script>
 	</xsl:template>
 	
 </xsl:stylesheet>

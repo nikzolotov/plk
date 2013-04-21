@@ -44,18 +44,24 @@
 				<xsl:with-param name="name" select="'jquery-ui-1.9.2.custom.min'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
+				<xsl:with-param name="name" select="'jquery.cookie.min'"/>
+			</xsl:call-template>
+			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'scrollGallery'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'jquery.validate'"/>
 			</xsl:call-template>
 			<xsl:call-template name="include-script">
-				<xsl:with-param name="name" select="'main'"/>
-			</xsl:call-template>
-			<xsl:call-template name="include-script">
 				<xsl:with-param name="name" select="'modal'"/>
 			</xsl:call-template>
+			<xsl:call-template name="include-script">
+				<xsl:with-param name="name" select="'tabs'"/>
+			</xsl:call-template>
 			<xsl:call-template name="script-includes"/>
+			<xsl:call-template name="include-script">
+				<xsl:with-param name="name" select="'main'"/>
+			</xsl:call-template>
 			<!--
 			<link href="/favicon.ico" rel="shortcut icon"/>
 			-->
@@ -96,73 +102,76 @@
 	</xsl:template>
 	
 	<xsl:template name="header">
-		<div class="l-column-1000">
-			<xsl:call-template name="main-menu"/>
-			<ul class="b-switch-phone">
-				<li class="item">
-					<a href="?" class="link">
-						<span class="text">Москва</span>
-						<span class="phone">
-							<xsl:value-of select="$txtres/phones/moscow/text()"/>
-						</span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="?" class="link selected">
-						<span class="text">Тверь</span>
-						<span class="phone">
-							<xsl:value-of select="$txtres/phones/tver/text()"/>
-						</span>
-					</a>
-				</li>
-				<li class="item item-phones">
-					<xsl:text><![CDATA[]]></xsl:text>
-				</li>
-			</ul>
-			<div class="b-right-text">
-				<a href="#calculation" class="js-modal">Лизинговый калькулятор</a>
-			</div>
-			<div id="calculation" class="b-modal-content">
-				<div class="l-column-620">
-					<div class="b-modal-calculation">
-						<h2 class="title-main">Лизинговый калькулятор</h2>
-						<div class="content">
-							<i class="t-zigzag"><xsl:text><![CDATA[]]></xsl:text></i>
-							<i class="b-zigzag"><xsl:text><![CDATA[]]></xsl:text></i>
-							<form class="b-general-form">
-								<div class="content-left">
-									<label for="category" class="label label-left">Категория предмета лизинга</label>
-									<xsl:if test="not($index)">
-										<select id="category" name="category" class="l-input-323">
-											<option value="motor_transport">Автотранспорт</option>
-											<option value="special">Спецтехника</option>
-											<option value="equipment">Оборудование</option>
-										</select>
-									</xsl:if>
-								</div>
+		<xsl:call-template name="main-menu"/>
+		<ul class="b-switch-phone">
+			<li class="item">
+				<a href="#moscow" class="link selected">
+					<span class="text">Москва</span>
+					<span class="phone">
+						<xsl:value-of select="$txtres/phones/moscow/text()"/>
+					</span>
+				</a>
+			</li>
+			<li class="item">
+				<a href="#tver" class="link">
+					<span class="text">Тверь</span>
+					<span class="phone">
+						<xsl:value-of select="$txtres/phones/tver/text()"/>
+					</span>
+				</a>
+			</li>
+			<li class="item item-phones">
+				<xsl:text><![CDATA[]]></xsl:text>
+			</li>
+		</ul>
+		<div class="b-right-text">
+			<a href="#calculation" class="js-modal">Лизинговый калькулятор</a>
+		</div>
+		<div id="calculation" class="b-modal-content">
+			<div class="l-column-620">
+				<div class="b-modal-calculation">
+					<h2 class="title-main">Лизинговый калькулятор</h2>
+					<div class="content">
+						<i class="t-zigzag"><xsl:text><![CDATA[]]></xsl:text></i>
+						<i class="b-zigzag"><xsl:text><![CDATA[]]></xsl:text></i>
+						<form class="b-general-form">
+							<div class="content-left">
+								<label for="category" class="label label-left">Категория предмета лизинга</label>
 								<xsl:if test="not($index)">
-									<xsl:call-template name="calculator"/>
+									<select id="category" name="category" class="l-input-323">
+										<option value="motor_transport">Автотранспорт</option>
+										<option value="special">Спецтехника</option>
+										<option value="equipment">Оборудование</option>
+									</select>
 								</xsl:if>
-							</form>
-						</div>
-						<div class="submit">
-							<a class="link link-reload">
-								<xsl:attribute name="href">
-									<xsl:apply-templates select="navigation/item[not(@key)]" mode="navigation-item-path"/>
-									<xsl:text>#request</xsl:text>
-								</xsl:attribute>
-								<span class="text">Оформить заявку!</span>
-							</a>
-						</div>
-						<a class="b-close-modal">
-							<span class="text">Закрыть</span>
+							</div>
+							<xsl:if test="not($index)">
+								<xsl:call-template name="calculator"/>
+							</xsl:if>
+						</form>
+					</div>
+					<div class="submit">
+						<a class="link link-reload">
+							<xsl:attribute name="href">
+								<xsl:apply-templates select="navigation/item[not(@key)]" mode="navigation-item-path"/>
+								<xsl:text>#request</xsl:text>
+							</xsl:attribute>
+							<span class="text">Перейти к оформлению заявки!</span>
 						</a>
 					</div>
+					<a class="b-close-modal">
+						<span class="text">Закрыть</span>
+					</a>
 				</div>
 			</div>
 		</div>
 		<div class="l-column-1000">
 			<xsl:call-template name="logo"/>
+			<xsl:if test="$index">
+				<h1 class="b-title">
+					<span class="text">Мы — Первая лизинговая компания</span>
+				</h1>
+			</xsl:if>
 			<xsl:call-template name="service-menu"/>
 		</div>
 	</xsl:template>
@@ -317,7 +326,7 @@
 	
 	<xsl:template name="calculator">
 		<div class="b-calculation-cost">
-			<div class="content-left">
+			<!--div class="content-left">
 				<h3 class="title label-left">Валюта</h3>
 				<ul class="currencies">
 					<li class="item">
@@ -340,7 +349,7 @@
 					</li>
 					<xsl:text><![CDATA[]]></xsl:text>
 				</ul>
-			</div>
+			</div-->
 			<div class="field-currencies content-left">
 				<label for="cost" class="label label-left">Общая стоимость</label>
 				<div class="b-movement">
@@ -351,12 +360,7 @@
 							<span class="currency">р</span>
 						</li>
 						<li class="item">
-							<span class="number">500&#160;000</span>
-							<xsl:text> </xsl:text>
-							<span class="currency">р</span>
-						</li>
-						<li class="item">
-							<span class="number">1&#160;000&#160;000</span>
+							<span class="number">5&#160;000&#160;000</span>
 							<xsl:text> </xsl:text>
 							<span class="currency">р</span>
 						</li>
@@ -380,9 +384,9 @@
 				<label for="advance" class="label label-left">Авансовый платеж</label>
 				<div class="b-movement">
 					<ul class="category">
-						<li class="item">0%</li>
-						<li class="item">50%</li>
-						<li class="item">100%</li>
+						<li class="item">10%</li>
+						<li class="item">25%</li>
+						<li class="item">49%</li>
 						<xsl:text><![CDATA[]]></xsl:text>
 					</ul>
 					<div class="movement">
