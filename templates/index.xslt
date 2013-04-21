@@ -46,7 +46,15 @@
 								<a href="?1" class="link"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
 							</li>
 							<li class="item">
-								<a href="?2" class="link"><b class="b-icon b-icon-sale"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Распродажа <br/>лизингового имущества</a>
+								<a class="link">
+									<xsl:attribute name="href">
+										<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'sale']" mode="navigation-item-path"/>
+									</xsl:attribute>
+									<b class="b-icon b-icon-sale"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+									<xsl:text> Распродажа </xsl:text>
+									<br/>
+									<xsl:text>лизингового имущества</xsl:text>
+								</a>
 							</li>
 						</ul>
 					</div>

@@ -23,6 +23,7 @@
 		<item key="request" name="Заявка на лизинг"/>
 	</group>
 	<group id="rest">
+		<item key="sale" name="Распродажа" dir="true" long-name="Распродажа лизингового имущества"/>
 		<item key="team" name="Команда" dir="true" long-name="Персонал компании"/>
 		<item key="hire" name="Вакансии" dir="true" module="vacancies" long-name="Вакансии в&#160;компании"/>
 	</group>
