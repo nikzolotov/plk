@@ -156,7 +156,7 @@
 								<xsl:apply-templates select="navigation/item[not(@key)]" mode="navigation-item-path"/>
 								<xsl:text>#request</xsl:text>
 							</xsl:attribute>
-							<span class="text">Перейти к оформлению заявки!</span>
+							<span class="text">Перейти к оформлению заявки</span>
 						</a>
 					</div>
 					<a class="b-close-modal">

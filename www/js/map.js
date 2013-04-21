@@ -13,36 +13,37 @@ function init () {
 }
 
 function param(){
-    var myMapTver = new ymaps.Map("map_tver", {
-        center: [56.845871, 35.895134],
-        zoom: 14,
-        type: "yandex#map"
-    });
-
-    myPlacemarkTver = new ymaps.Placemark([56.843871, 35.895134], {
+    var myPlacemarkTver = new ymaps.Placemark([56.85646115670938, 35.91733099892737], {
         iconContent: '<b class="b-icon b-icon-map"><b></b></b>',
         balloonContentHeader: '<h3 class="b-map-title">Первая Лизинговая Компания</h3>',
         balloonContentBody: '<p class="b-map-content">Россия, Тверь, 170100 <br>улица Володарского, дом 34 (здание ОАО «Тверьуниверсалбанк», 3 этаж).</p>'
     }, {
         preset: 'twirl#blueStretchyIcon'
     });
+    
+    var myMapTver = new ymaps.Map("map_tver", {
+        center: myPlacemarkTver.geometry.getCoordinates(),
+        zoom: 15,
+        type: "yandex#map"
+    });
+
 
     myMapTver.geoObjects
         .add(myPlacemarkTver);
     myMapTver.controls.add('smallZoomControl', {left: 10, top: 10});
 
-    var myMapMoscow = new ymaps.Map("map_moscow", {
-        center: [55.755773, 37.617761],
-        zoom: 14,
-        type: "yandex#map"
-    });
-
-    myPlacemarkMoscow = new ymaps.Placemark([55.755773, 37.617761], {
+    var myPlacemarkMoscow = new ymaps.Placemark([55.788390105635685, 37.508867997676155], {
         iconContent: '<b class="b-icon b-icon-map"><b></b></b>',
         balloonContentHeader: '<h3 class="b-map-title">Первая Лизинговая Компания</h3>',
         balloonContentBody: '<p class="b-map-content">Россия, Москва, 170100 <br>улица Володарского, дом 34 (здание ОАО «Тверьуниверсалбанк», 3 этаж).</p>'
     }, {
         preset: 'twirl#blueStretchyIcon'
+    });
+	
+    var myMapMoscow = new ymaps.Map("map_moscow", {
+        center: myPlacemarkMoscow.geometry.getCoordinates(),
+        zoom: 15,
+        type: "yandex#map"
     });
 
     myMapMoscow.geoObjects

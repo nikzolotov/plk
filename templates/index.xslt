@@ -43,7 +43,7 @@
 						<p class="b-big-line-height">В числе наших клиентов многие крупнейшие предприятия города Твери и Тверской области. В настоящий момент заключено более 1 500 договоров финансового лизинга с более чем 800 лизингополучателями. Численность персонала компании — 14 человек. В 2007 году было открыто представительство в г. Москва. Первая Лизинговая Компания имеет партнерские отношения с универсальнаядом крупнейших банков Тверского региона.</p>
 						<ul class="b-icon-list">
 							<li class="item">
-								<a href="?1" class="link"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
+								<a href="http://finefinance.ru/lizingovye-kompanii/pervaya-lizingovaya-kompaniya-tver" class="link" target="_blank"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
 							</li>
 							<li class="item">
 								<a class="link">
