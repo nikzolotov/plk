@@ -387,8 +387,9 @@
 					</div>
 				</div>
 				<div class="b-cup">
-					<a href="http://vodka-group.ru/" class="cup">
-						<i class="lear"><xsl:text><![CDATA[]]></xsl:text></i>
+					<i class="cup"><xsl:text><![CDATA[]]></xsl:text></i>
+					<a href="http://vodka-group.ru/" class="link">
+						<span class="text">Дизайн - <span class="develop">VCG</span></span>
 					</a>
 				</div>
 			</div>

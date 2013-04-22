@@ -14,7 +14,7 @@
 
 	<xsl:template name="content">
 		<xsl:apply-templates select="static-text/title"/>
-		<ul class="b-tabs-compact">
+		<ul class="b-tabs-compact b-tabs-contact">
 			<li class="item">
 				<a class="link" href="#moscow">
 					<span class="text">Москва</span>

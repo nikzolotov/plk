@@ -23,7 +23,7 @@ $(function(){
       	submitHandler: function(form) {
   			$.ajax({
   			  	type: 'post',
-  				url: 'request_form.html',
+  				url: '/request.html',
   				data: requestForm.serializeArray(),
   				dataType: 'html',
   				success: function(response){
@@ -37,14 +37,6 @@ $(function(){
       independentToggle.init();   
     }
 
-    var _tabs = $('.b-tab');
-    if(_tabs.length > 0) {
-      $('.l-main-section').tabs({
-        linkSelector: '.b-switch-phone .link',
-        tabSelector: '.b-tab'
-      });
-     
-    }
 
     var switchPhone = $('.b-switch-phone'),
         items = $('.item', switchPhone),
@@ -508,7 +500,7 @@ var independentToggle = (function(){
           		external_content = $(OPTIONS.external_content),
           		external_selector = $(OPTIONS.external_selector),
               fadingTitle = $(OPTIONS.fadingTitle),
-      				distance_ex_cont = 1300,
+      				distance_ex_cont = 1250,
   				scrolled_top = $(window).scrollTop(),
   				links = $(OPTIONS.links, container),
   				all_links = $(OPTIONS.all_links, container),

@@ -4,7 +4,7 @@ function init () {
     var identification_map = true;
     param();
     
-    $(".b-switch-phone .link").click(function (event, ui){
+    $(".b-tabs-contact .link").click(function (event, ui){
         if(!$(this).hasClass('selected')){
             if(identification_map) param();
             identification_map = false;
