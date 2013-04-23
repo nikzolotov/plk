@@ -489,10 +489,10 @@ var independentToggle = (function(){
                request: '#request',
                links: '.item .link, .item-request .link',
                external_selector: '#external_content',
-               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation, .b-title',
+               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation',
                all_links: '.link',
-               fadingTitle: '.b-title .text',
-               titles: '.b-hidden-title'
+               fixingTitles: '.b-title',
+               areaFixingTitles: '.b-area-title'
           };
           return this.each(function(){
           	if(userOptions) {
@@ -507,7 +507,6 @@ var independentToggle = (function(){
           		container = $(this),
           		external_content = $(OPTIONS.external_content),
           		external_selector = $(OPTIONS.external_selector),
-              fadingTitle = $(OPTIONS.fadingTitle),
       				distance_ex_cont = 1250,
   				scrolled_top = $(window).scrollTop(),
   				links = $(OPTIONS.links, container),
@@ -526,6 +525,32 @@ var independentToggle = (function(){
   				height_motor_transport = motor_transport.height(),
   				height_equipment = equipment.height(),
   				height_request = request.height();
+
+        /* Fixing title */
+        var title_about_company = $(OPTIONS.fixingTitles, about_company),
+            title_special_achinery = $(OPTIONS.fixingTitles, special_achinery),
+            title_motor_transport = $(OPTIONS.fixingTitles, motor_transport),
+            title_equipment = $(OPTIONS.fixingTitles, equipment),
+            title_request = $(OPTIONS.fixingTitles, request);
+
+        /* Area fixing title */
+        var area_title_about_company = $(OPTIONS.areaFixingTitles, about_company),
+            area_title_special_achinery = $(OPTIONS.areaFixingTitles, special_achinery),
+            area_title_motor_transport = $(OPTIONS.areaFixingTitles, motor_transport),
+            area_title_equipment = $(OPTIONS.areaFixingTitles, equipment),
+            area_title_request = $(OPTIONS.areaFixingTitles, request);
+
+        var title_about_company_top = Math.round(area_title_about_company.offset().top),
+            title_special_achinery_top = Math.round(area_title_special_achinery.offset().top),
+            title_motor_transport_top = Math.round(area_title_motor_transport.offset().top),
+            title_equipment_top = Math.round(area_title_equipment.offset().top),
+            title_request_top = Math.round(area_title_request.offset().top);
+
+          title_about_company.data('selected',false);
+          title_special_achinery.data('selected',false);
+          title_motor_transport.data('selected',false);
+          title_equipment.data('selected',false);
+          title_request.data('selected',false);
 
 
         var linksLine = $('.b-wrapped-line .title .link');
@@ -548,6 +573,16 @@ var independentToggle = (function(){
           }
           event.preventDefault();
         });
+        $('.b-wrapped-line .title .link').click(function(){
+          setTimeout(function(){
+            title_about_company_top = Math.round(area_title_about_company.offset().top),
+            title_special_achinery_top = Math.round(area_title_special_achinery.offset().top),
+            title_motor_transport_top = Math.round(area_title_motor_transport.offset().top),
+            title_equipment_top = Math.round(area_title_equipment.offset().top),
+            title_request_top = Math.round(area_title_request.offset().top);
+          },100);
+          
+        })
 
   			parallaxScroll(scrolled_top);
   			$(window).bind('scroll',function(event){
@@ -572,7 +607,8 @@ var independentToggle = (function(){
   						about_company.css('background-position','50% '+(-(scrolled_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.about_company, 0, height_about_company-300);
-  				changeBg(scrolled_top, 'brown-gr', 0, height_about_company+30, '#919191', about_company.find(OPTIONS.titles));
+  				changeBg(scrolled_top, 'brown-gr', 0, height_about_company+30, '#919191');
+          
 
   				/* Special achinery */
   				_top = height_about_company - 1000;
@@ -581,7 +617,8 @@ var independentToggle = (function(){
   					special_achinery.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.special_achinery, _bottom-(height_special_achinery+301), _bottom-300);
-  				changeBg(scrolled_top, 'orange-gr', _top+950, _bottom+30, '#B37F52', special_achinery.find(OPTIONS.titles));
+  				changeBg(scrolled_top, 'orange-gr', _top+950, _bottom+30, '#B37F52');
+
 
   				/* Motor transport */
   				_top = _bottom - 1000;
@@ -590,7 +627,9 @@ var independentToggle = (function(){
   					motor_transport.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.motor_transport, _bottom-(height_motor_transport+301), _bottom-300);
-  				changeBg(scrolled_top, 'gray-gr', _top+1030, _bottom+100, '#5C5C5C', motor_transport.find(OPTIONS.titles));
+  				changeBg(scrolled_top, 'gray-gr', _top+1030, _bottom+100, '#5C5C5C');
+
+
 
   				/* Equement */
   				_top = _bottom - 1000;
@@ -600,7 +639,8 @@ var independentToggle = (function(){
   					equipment.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.equipment, _bottom-(height_equipment+301), _bottom-300);
-  				changeBg(scrolled_top, 'black-gr', _top+1100, _bottom+30, '#343434', equipment.find(OPTIONS.titles));
+  				changeBg(scrolled_top, 'black-gr', _top+1100, _bottom+30, '#343434');
+
 
   				/* Request */
   				_top = _bottom - 900;
@@ -609,10 +649,30 @@ var independentToggle = (function(){
   					request.css('background-position','50% '+(-(scrolled_top-_top)*0.2)+'px')
   				}
   				activationMenu(scrolled_top,OPTIONS.request, _bottom-(height_request+301), _bottom);
-  				changeBg(scrolled_top, 'brown-2-gr', _top+1030, _bottom+30, '#523B3B', request.find(OPTIONS.titles));
+  				changeBg(scrolled_top, 'brown-2-gr', _top+1030, _bottom+30, '#523B3B');
+
+          fixedTitles(scrolled_top, title_about_company_top-84, Math.round(special_achinery.offset().top)-140, title_about_company);
+          fixedTitles(scrolled_top, title_special_achinery_top-84, Math.round(motor_transport.offset().top)-140, title_special_achinery);
+          fixedTitles(scrolled_top, title_motor_transport_top-84, Math.round(equipment.offset().top)-140, title_motor_transport);
+          fixedTitles(scrolled_top, title_equipment_top-84, Math.round(request.offset().top)-140, title_equipment);
+          fixedTitles(scrolled_top, title_request_top-84, Math.round(_bottom)+30, title_request);
+
   			}
 
-  			function activationMenu(scrolled_top,link,start,end){
+        function fixedTitles(scrolled_top, _top, _end, _title){
+          if(scrolled_top > _top && scrolled_top < _end){
+            if(!_title.data('selected')){
+              _title.addClass('b-title-fixed');
+              _title.data('selected',true);
+            }
+          }
+          else {
+            _title.removeClass('b-title-fixed');
+            _title.data('selected',false)
+          }
+        }
+
+  			function activationMenu(scrolled_top,link,start,end,start){
   				link = all_links.filter('[href*='+link+']')
   				if(scrolled_top >= start && scrolled_top <= end){
   					if(!link.data('selected')){
@@ -626,7 +686,7 @@ var independentToggle = (function(){
   				}
   			}
 
-  			function changeBg(scrolled_top, new_bg, start, end, color, title){
+  			function changeBg(scrolled_top, new_bg, start, end, color){
   				if(scrolled_top >= start && scrolled_top < end){
   					if(external_selector.data('value_bg') != new_bg){
   						external_selector.data('value_bg', new_bg);
@@ -634,7 +694,6 @@ var independentToggle = (function(){
 
               colorPhone = color;
               switchPhone.find('.selected').css('background', color);
-                fadingTitle.text(title.text());         
   					}
   				}
   			}

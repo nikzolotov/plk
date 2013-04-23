@@ -38,8 +38,10 @@
 					<div class="b-copyright">© 2007—2012 ООО «Первая Лизинговая Компания»</div>
 				</div>
 				<div class="l-inner">
+					<div class="b-area-title">
+						<h1 class="b-title"><span class="text">Мы — Первая лизинговая компания</span></h1>
+					</div>
 					<div class="l-column-600">
-						<h1 class="b-hidden-title">Мы — Первая лизинговая компания</h1>
 						<p class="b-big-line-height">В числе наших клиентов многие крупнейшие предприятия города Твери и Тверской области. В настоящий момент заключено более 1 500 договоров финансового лизинга с более чем 800 лизингополучателями. Численность персонала компании — 14 человек. В 2007 году было открыто представительство в г. Москва. Первая Лизинговая Компания имеет партнерские отношения с универсальнаядом крупнейших банков Тверского региона.</p>
 						<ul class="b-icon-list">
 							<li class="item">
@@ -96,8 +98,10 @@
 			</div>
 			<div id="special-technics" class="l-special-achinery">
 				<div class="l-inner">
+					<div class="b-area-title">
+						<h1 class="b-title"><span class="text">Спецтехника в лизинге</span></h1>
+					</div>
 					<div class="l-column-600">
-						<h1 class="b-hidden-title">Спецтехника в лизинге</h1>
 						<ul class="b-list-equipment">
 							<li class="item">
 								<a class="link">
@@ -168,8 +172,10 @@
 			</div>
 			<div id="motor-vehicles" class="l-motor-transport">
 				<div class="l-inner">
+					<div class="b-area-title">
+						<h1 class="b-title"><span class="text">Автотранспорт в лизинг</span></h1>
+					</div>
 					<div class="l-column-600">
-						<h1 class="b-hidden-title">Автотранспорт в лизинг</h1>
 						<ul class="b-list-equipment b-list-transport">
 							<li class="item">
 								<a class="link" href="?">
@@ -218,8 +224,10 @@
 			</div>
 			<div id="equipment" class="l-equipment">
 				<div class="l-inner">
+					<div class="b-area-title">
+						<h1 class="b-title"><span class="text">Оборудование в лизинг</span></h1>
+					</div>
 					<div class="l-column-600">
-						<h1 class="b-hidden-title">Оборудование в лизинг</h1>
 						<ul class="b-list-equipment b-list-equipment-different">
 							<li class="item">
 								<a class="link">
@@ -279,8 +287,10 @@
 			</div>
 			<div id="request" class="l-request">
 				<div class="l-inner">
+					<div class="b-area-title">
+						<h1 class="b-title"><span class="text">Заявка на лизинг</span></h1>
+					</div>
 					<div class="l-column-620">
-						<h1 class="b-hidden-title">Заявка на лизинг</h1>
 						<div class="b-request">
 							<div class="b-paper">
 								<form method="post" action="index.html" id="request_form" class="b-general-form">

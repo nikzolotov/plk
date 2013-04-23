@@ -167,11 +167,6 @@
 		</div>
 		<div class="l-column-1000">
 			<xsl:call-template name="logo"/>
-			<xsl:if test="$index">
-				<h1 class="b-title">
-					<span class="text">Мы — Первая лизинговая компания</span>
-				</h1>
-			</xsl:if>
 			<xsl:call-template name="service-menu"/>
 		</div>
 	</xsl:template>
