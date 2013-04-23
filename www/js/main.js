@@ -672,7 +672,7 @@ var independentToggle = (function(){
           }
         }
 
-  			function activationMenu(scrolled_top,link,start,end,start){
+  			function activationMenu(scrolled_top,link,start,end){
   				link = all_links.filter('[href*='+link+']')
   				if(scrolled_top >= start && scrolled_top <= end){
   					if(!link.data('selected')){
