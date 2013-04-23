@@ -1,3 +1,13 @@
-@main[]
+@main[][vacancies]
+	^useModule[vacancy]
+	
+	$vacancies[^vacancy::vacancies[
+		$.published(1)
+	]]
+	
+	^if(^vacancies.table.count[] > 0){
+		<hiring/>
+	}
+	
 	$XSL-Params.index[true]
 	^Templates.add[index.xslt]

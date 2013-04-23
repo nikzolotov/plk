@@ -82,15 +82,17 @@
 									<xsl:text>компании</xsl:text>
 								</a>
 							</li>
-							<li class="item">
-								<a class="link">
-									<xsl:attribute name="href">
-										<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'hire']" mode="navigation-item-path"/>
-									</xsl:attribute>
-									<b class="b-icon b-icon-jobs"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-									<xsl:text> Вакансии</xsl:text>
-								</a>
-							</li>
+							<xsl:if test="hiring">
+								<li class="item">
+									<a class="link">
+										<xsl:attribute name="href">
+											<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'hire']" mode="navigation-item-path"/>
+										</xsl:attribute>
+										<b class="b-icon b-icon-jobs"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+										<xsl:text> Вакансии</xsl:text>
+									</a>
+								</li>
+							</xsl:if>
 						</ul>
 					</div>
 				</div>
