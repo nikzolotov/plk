@@ -2431,14 +2431,14 @@ z-index: 333;
 		-ms-border-radius: 7px;
 		border-radius: 7px;
 		}
+.b-hidden-title {
+	display: none;
+}
 .b-title {
-	position: absolute;
 	display: inline-block;
   margin-left: 200px;
   padding-top: 13px;
-}
-.b-hidden-title {
-	display: none;
+  position: absolute;
 }
 
 /* Partners */

@@ -37,6 +37,14 @@ $(function(){
       independentToggle.init();   
     }
 
+    var _tabs = $('.b-tab');
+   if(_tabs.length > 0) {
+       $('.l-main-section').tabs({
+        linkSelector: '.b-switch-phone .link',       
+        tabSelector: '.b-tab'      
+      });
+      
+     }
 
     var switchPhone = $('.b-switch-phone'),
         items = $('.item', switchPhone),
@@ -481,7 +489,7 @@ var independentToggle = (function(){
                request: '#request',
                links: '.item .link, .item-request .link',
                external_selector: '#external_content',
-               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation, #external_content .b-title',
+               external_content: '#external_content .b-mini-logo, #external_content .b-main-navigation, .b-title',
                all_links: '.link',
                fadingTitle: '.b-title .text',
                titles: '.b-hidden-title'
