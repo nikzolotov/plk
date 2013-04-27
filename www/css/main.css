@@ -340,6 +340,57 @@ OL {
 				padding: 32px;
 				text-align: left;
 				}
+#loader-modal {
+	background: #767676 url('../img/backgrounds/loader.jpg') repeat;
+}
+.b-circle-loaded {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	padding: 3px;
+}
+	.b-circle-loaded .circle-loader {
+		position: absolute;
+		width: 246px;
+		height: 246px;
+		border-radius: 125px;
+		background: #919191;
+	}
+	.b-circle-loaded .wrapper-loader-1,
+	.b-circle-loaded .wrapper-loader-2 {
+		display: none;
+		position: absolute;
+    overflow: hidden;
+    width: 125px;
+	}
+	.b-circle-loaded .wrapper-loader-1 {
+		top: 0;
+		right: 0;
+		height: 246px;
+	}
+	.b-circle-loaded .wrapper-loader-2 {
+		bottom: 0;
+		left: 0;
+		height: 246px;
+	}
+		.b-circle-loaded .circle {
+			position: relative;
+			z-index: 999;
+			width: 240px;
+			height: 240px;
+			background: #767676;
+
+			border-radius: 120px;
+		}
+		.b-circle-loaded .wrapper-loader-1 .circle-loader {
+			right: 0;
+		}
+		.b-circle-loaded .wrapper-loader-2 .circle-loader {
+			bottom: 0;
+		}
+	.b-circle-loaded .circle .image {
+		padding: 85px 0 0 34px;
+	}
 
 /* =Common blocks
 ----------------------------------------*/
@@ -2317,8 +2368,9 @@ z-index: 333;
 				position: relative;
 	    		top: -30px;
 	    		margin-bottom: 0;
-				font-size: 23px;
-				line-height: 32px;
+	    		padding: 0 50px;
+				font-size: 18px;
+				line-height: 22px;
 				color: #D22B34;
 			}
 			.b-scroll-gallery .slide .content {

@@ -12,11 +12,21 @@
 			<div class="l-modal-outer">
 				<div class="l-modal-inner">
 					<div class="l-modal-container">
-						<p id="loader-console">0%</p>
+						<div class="b-circle-loaded">
+							<div id="loader-percent-1" class="wrapper-loader-1">
+								<div class="circle-loader"><xsl:text><![CDATA[]]></xsl:text></div>
+							</div>
+							<div id="loader-percent-2" class="wrapper-loader-2">
+								<div class="circle-loader"><xsl:text><![CDATA[]]></xsl:text></div>
+							</div>
+							<div class="circle">
+								<img src="/img/elements/logo-loader.png" class="image" />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 		<div id="external_content" class="l-external-content">
 			<div class="l-header">
 				<xsl:call-template name="header"/>
@@ -408,11 +418,45 @@
 		</div>
 		<script type="text/javascript">
 			<xsl:text disable-output-escaping="yes"><![CDATA[
+			
+			
+            (function( $ ){
+                $.fn.preloader = function(userOptions) {
+                    var OPTIONS = {
+                         part_loader_1: '.wrapper-loader-1',
+                         part_loader_2: '.wrapper-loader-2',
+                         persent: 0,
+                         max_height_part: 246
+                    };
+                    return this.each(function(){
+                      if(userOptions) {
+                        $.extend( OPTIONS, userOptions );
+                      }
+                      var container = $(this),
+                          part_loader_1 = $(OPTIONS.part_loader_1,container),
+                          part_loader_2 = $(OPTIONS.part_loader_2,container),
+                          persent = OPTIONS.persent;
+                      if(persent <= 50){
+                        value = Math.round(((persent*2)/100)*OPTIONS.max_height_part);
+                        part_loader_2.height(0).show();
+                        part_loader_1.height(value).show();
+                      }
+                      else {
+                        value = Math.round(((persent - 50)*2/100)*OPTIONS.max_height_part);
+                        part_loader_1.height(OPTIONS.max_height_part).show();
+                        part_loader_2.height(value).show();
+                      }
+                    });
+                 };
+            })( jQuery );
+				
+            var circleLoaded = $('.b-circle-loaded');
+            circleLoaded.preloader();
+			
 				document.documentElement.className = 'l-theater';
 				
 				var loader = new PxLoader(),
 					loaderModal = document.getElementById('loader-modal'),
-					loaderConsole = document.getElementById('loader-console'),
 					totalSize = 0,
 					currentSize = 0,
 					resources = [
@@ -449,7 +493,11 @@
 				
 				loader.addProgressListener(function(e){
 					currentSize += e.resource.size;
-					loaderConsole.innerText = Math.round(currentSize / totalSize * 100) + '%';
+					//loaderConsole.innerText = Math.round(currentSize / totalSize * 100) + '%';
+					
+					circleLoaded.preloader({
+	                    persent: Math.round(currentSize / totalSize * 100)
+	                }); 
 				});
 				
 				loader.addCompletionListener(function(){
@@ -458,6 +506,8 @@
 				});
 				
 				loader.start();
+				
+				
 			]]></xsl:text>
 		</script>
 	</xsl:template>
