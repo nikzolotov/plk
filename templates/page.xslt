@@ -105,18 +105,18 @@
 		<xsl:call-template name="main-menu"/>
 		<ul class="b-switch-phone">
 			<li class="item">
-				<a href="#moscow" class="link selected">
-					<span class="text">Москва</span>
+				<a href="#tver" class="link selected">
+					<span class="text">Тверь</span>
 					<span class="phone">
-						<xsl:value-of select="$txtres/phones/moscow/text()"/>
+						<xsl:value-of select="$txtres/phones/tver/text()"/>
 					</span>
 				</a>
 			</li>
 			<li class="item">
-				<a href="#tver" class="link">
-					<span class="text">Тверь</span>
+				<a href="#moscow" class="link">
+					<span class="text">Москва</span>
 					<span class="phone">
-						<xsl:value-of select="$txtres/phones/tver/text()"/>
+						<xsl:value-of select="$txtres/phones/moscow/text()"/>
 					</span>
 				</a>
 			</li>
@@ -260,24 +260,39 @@
 	</xsl:template>
 	
 	<xsl:template name="footer">
-		<xsl:if test="navigation/item[@in]">
-			<div class="b-signpost">
-				<xsl:apply-templates select="navigation/item[@in]/preceding-sibling::item[1]" mode="sibling-page">
-					<xsl:with-param name="preceding" select="true()"/>
-				</xsl:apply-templates>
-				<xsl:apply-templates select="navigation/item[@in]/following-sibling::item[1]" mode="sibling-page">
-					<xsl:with-param name="preceding" select="false()"/>
-				</xsl:apply-templates>
-				<xsl:if test="navigation/item[@in and position() = last()]">
-					<xsl:apply-templates select="navigation/item[not(@key)]" mode="sibling-page">
+		<xsl:choose>
+			<xsl:when test="navigation/item[@in]">
+				<div class="b-signpost">
+					<xsl:apply-templates select="navigation/item[@in]/preceding-sibling::item[1]" mode="sibling-page">
+						<xsl:with-param name="preceding" select="true()"/>
+					</xsl:apply-templates>
+					<xsl:apply-templates select="navigation/item[@in]/following-sibling::item[1]" mode="sibling-page">
 						<xsl:with-param name="preceding" select="false()"/>
 					</xsl:apply-templates>
-				</xsl:if>
-				<i class="signpost">
-					<xsl:text><![CDATA[]]></xsl:text>
-				</i>
-			</div>
-		</xsl:if>
+					<xsl:if test="navigation/item[@in and position() = last()]">
+						<xsl:apply-templates select="navigation/item[not(@key)]" mode="sibling-page">
+							<xsl:with-param name="preceding" select="false()"/>
+						</xsl:apply-templates>
+					</xsl:if>
+					<i class="signpost">
+						<xsl:text><![CDATA[]]></xsl:text>
+					</i>
+				</div>
+			</xsl:when>
+			<xsl:when test="navigation//item[@in]">
+				<div class="b-signpost">
+					<xsl:apply-templates select="navigation/item[not(@key)]" mode="sibling-page">
+						<xsl:with-param name="preceding" select="true()"/>
+					</xsl:apply-templates>
+					<xsl:apply-templates select="navigation/item[@key = 'contacts']" mode="sibling-page">
+						<xsl:with-param name="preceding" select="false()"/>
+					</xsl:apply-templates>
+					<i class="signpost">
+						<xsl:text><![CDATA[]]></xsl:text>
+					</i>
+				</div>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="item" mode="sibling-page">
@@ -417,6 +432,26 @@
 				<div class="calc calc-total">Общая сумма платежей: <span class="number">208 573</span> <span class="currency">р</span>*</div>
 			</div>
 		</div>
+	</xsl:template>
+	
+	<xsl:template name="breadcrumbs-title">
+		<xsl:param name="title"/>
+		<ul class="b-breadcrumbs">
+			<li class="item">
+				<a class="link-back">
+					<xsl:attribute name="href">
+						<xsl:apply-templates select="navigation/item[not(@key)]" mode="navigation-item-path"/>
+						<xsl:text>#about-title</xsl:text>
+					</xsl:attribute>
+					<b class="b-icon b-icon-back"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+				</a>
+			</li>
+			<li class="item">
+				<h1 class="title">
+					<xsl:value-of select="$title"/>
+				</h1>
+			</li>
+		</ul>
 	</xsl:template>
 
 </xsl:stylesheet>

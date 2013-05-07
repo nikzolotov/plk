@@ -47,7 +47,7 @@
 				<div class="l-footer">
 					<div class="b-copyright">© 2007—2012 ООО «Первая Лизинговая Компания»</div>
 				</div>
-				<div class="l-inner">
+				<div id="about-title" class="l-inner">
 					<div class="b-area-title">
 						<h1 class="b-title"><span class="text">Мы — Первая лизинговая компания</span></h1>
 					</div>

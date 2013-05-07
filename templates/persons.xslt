@@ -4,7 +4,9 @@
 	<xsl:import href="static-text.xslt"/>
 
 	<xsl:template name="content">
-		<xsl:apply-templates select="static-text/title"/>
+		<xsl:call-template name="breadcrumbs-title">
+			<xsl:with-param name="title">Руководство компании</xsl:with-param>
+		</xsl:call-template>
 		<xsl:apply-templates select="static-text/text"/>
 		<xsl:if test="persons/person">
 			<ul class="b-objects">

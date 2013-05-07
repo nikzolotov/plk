@@ -507,7 +507,7 @@ var independentToggle = (function(){
           		container = $(this),
           		external_content = $(OPTIONS.external_content),
           		external_selector = $(OPTIONS.external_selector),
-      				distance_ex_cont = 1250,
+      				distance_ex_cont = 1143,
   				scrolled_top = $(window).scrollTop(),
   				links = $(OPTIONS.links, container),
   				all_links = $(OPTIONS.all_links, container),
@@ -555,12 +555,21 @@ var independentToggle = (function(){
 
         var linksLine = $('.b-wrapped-line .title .link');
 
+        var scrolling_bg = {
+          'about_company': false,
+          'special_achinery': false,
+          'motor_transport': false,
+          'equipment': false
+        };
+
         
   			/* bg */
   			external_selector.data('value_bg','brown-gr');
 
         
         var colorPhone = '#919191';
+
+        var tempScrollTop = 0, scroll_down = true;
 
         /* Switch phone */
         var switchPhone = $('.b-switch-phone'),
@@ -657,9 +666,24 @@ var independentToggle = (function(){
           fixedTitles(scrolled_top, title_equipment_top-84, Math.round(request.offset().top)-140, title_equipment);
           fixedTitles(scrolled_top, title_request_top-84, Math.round(_bottom)+30, title_request);
 
+
+          if (tempScrollTop < scrolled_top ){
+            scroll_down = true;
+          }
+          else if (tempScrollTop > scrolled_top ){
+            scroll_down = false;
+          }
+          
+
+          tempScrollTop = scrolled_top;
+          scrollingBg(scrolled_top, Math.round(special_achinery.offset().top)-140, Math.round(special_achinery.offset().top), 'about_company', scroll_down);
+          scrollingBg(scrolled_top, Math.round(motor_transport.offset().top)-140, Math.round(motor_transport.offset().top), 'special_achinery', scroll_down);
+          scrollingBg(scrolled_top, Math.round(equipment.offset().top)-140, Math.round(equipment.offset().top), 'motor_transport', scroll_down);
+          scrollingBg(scrolled_top, Math.round(request.offset().top)-140, Math.round(request.offset().top), 'equipment', scroll_down);
+
   			}
 
-        function fixedTitles(scrolled_top, _top, _end, _title){
+        function fixedTitles(scrolled_top, _top, _end, _title, scroll_down){
           if(scrolled_top > _top && scrolled_top < _end){
             if(!_title.data('selected')){
               _title.addClass('b-title-fixed');
@@ -669,6 +693,21 @@ var independentToggle = (function(){
           else {
             _title.removeClass('b-title-fixed');
             _title.data('selected',false)
+          }
+        }
+
+        function scrollingBg(scrolled_top, start, end, _bg, _down){
+          if(_down){
+            if(scrolled_top > start && scrolled_top < end){
+              if(!scrolling_bg[_bg]){
+                scrolling_bg[_bg] = true;
+                if($.browser.safari || $.browser.webkit) $('body').animate( { scrollTop: end }, 200 );
+                else $('html').animate( { scrollTop: end }, 200 );
+              }
+            }
+            else {
+              scrolling_bg[_bg] = false;
+            }
           }
         }
 
@@ -719,7 +758,12 @@ var independentToggle = (function(){
   			function smoothScrolling(){
   				all_links.click(function (event) { 
   				    elementClick = $(this).attr("href");
+              if(elementClick == '#about'){
+                destination = $(elementClick).find('.b-area-title').offset().top - 85;
+              }
+              else {
   				    destination = $(elementClick).offset().top;
+              }
   				    if($.browser.safari || $.browser.webkit) $('body').animate( { scrollTop: destination }, OPTIONS.animateTime );
   				    else $('html').animate( { scrollTop: destination }, OPTIONS.animateTime );
 

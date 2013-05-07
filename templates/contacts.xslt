@@ -16,13 +16,13 @@
 		<xsl:apply-templates select="static-text/title"/>
 		<ul class="b-tabs-compact b-tabs-contact">
 			<li class="item">
-				<a class="link" href="#moscow">
-					<span class="text">Москва</span>
+				<a class="link" href="#tver">
+					<span class="text">Тверь</span>
 				</a>
 			</li>
 			<li class="item">
-				<a class="link" href="#tver">
-					<span class="text">Тверь</span>
+				<a class="link" href="#moscow">
+					<span class="text">Москва</span>
 				</a>
 			</li>
 		</ul>

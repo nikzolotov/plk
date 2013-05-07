@@ -14,15 +14,15 @@
 					<xsl:value-of select="title/text()"/>
 				</p>
 			</div>
-			<i class="b-letter">
-				<xsl:text><![CDATA[]]></xsl:text>
-			</i>
+			<i class="b-letter"><xsl:text><![CDATA[]]></xsl:text></i>
 			<div class="b-text-icon">
 				<b class="b-icon b-icon-big-book"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 				<p>
-					<xsl:value-of select="desc/text()"/>
+					<xsl:copy-of select="desc/text() | desc/*"/>
 				</p>
 			</div>
+			<a class="b-cutaway-2-link" href="contacts.html"><xsl:text><![CDATA[]]></xsl:text></a>
+			<i class="b-cutaway-2"><xsl:text><![CDATA[]]></xsl:text></i>
 		</div>
 	</xsl:template>
 	

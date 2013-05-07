@@ -198,7 +198,7 @@ OL {
 }
 #about {
 	position: relative;
-	height: 2830px;
+	height: 2700px;
 	min-width: 1000px;
 	max-width: 100%;
 }
@@ -268,7 +268,7 @@ OL {
 	position: static;
 	max-width: 1200px;
   min-width: 1000px;
-	margin: 0 auto 174px;
+	margin: 0 auto 70px;
 }
 .l-inner {
 	padding-top: 85px;
@@ -293,7 +293,6 @@ OL {
 }
 .l-column-620 {
 	position: relative;
-	z-index: 10;
 	width: 620px;
 	margin: 0 auto;
 }
@@ -306,6 +305,8 @@ OL {
 /*Holders*/
 .h-bottom-30 {
 	padding-bottom: 30px;
+	font-size: 17px;
+  line-height: 25px;
 }
 /* Modal overlay */
 .l-theater {
@@ -653,7 +654,14 @@ OL {
 		top: -62px;
 		left: -414px;
 	}
-
+.b-icon-back {
+	width: 35px;
+	height: 35px;
+}
+	.b-icon-back B {
+		top: -66px;
+		left: -507px;
+	}
 
 
 /* ix54 */
@@ -1002,6 +1010,40 @@ OL {
 	}
 /* =Content blocks
 --------------------------------------- */
+.b-breadcrumbs {
+	margin-bottom: 19px;
+}
+	.b-breadcrumbs .item:before {
+		display: none;
+		content: none;
+	}
+	.b-breadcrumbs .item {
+		display: inline-block;
+		margin: 0 25px 0 0;
+		vertical-align: top;
+		position: relative;
+	}
+	.b-breadcrumbs .item:after {
+		content: "";
+		position: absolute;
+		top: 18px;
+		right: -19px;
+		display: block;
+		width: 10px;
+		height: 16px;
+		background: url('../img/elements/arrow.png') no-repeat;
+	}
+	.b-breadcrumbs .item:last-child:after {
+		display: none;
+	}
+		.b-breadcrumbs .title {
+			margin-bottom: 0;
+		}
+		.b-breadcrumbs .link-back {
+			display: inline-block;
+			text-decoration: none;
+			margin-top: 10px;
+		}
 .b-logo {
 	width: 630px;
 	margin: 0 auto 167px;
@@ -1406,6 +1448,7 @@ OL {
 		text-align: center;
 	}
 		.b-list-equipment .item .link {
+			display: inline-block;
 			text-decoration: none;
 		}
 		.b-list-equipment .item .area-icon {
@@ -1416,6 +1459,7 @@ OL {
 				display: block;
 				text-decoration: underline;
 			}
+
 .b-list-transport .item {
 	margin-right: 28px;
 }
@@ -1567,7 +1611,7 @@ OL {
 		position: relative;
 		top: -33px;
 		display: none;
-		padding: 15px 0 15px 15px;
+		padding: 30px 0 15px 15px;
 		text-align: left;
 		border: 2px dotted #fff;
 
@@ -1657,16 +1701,25 @@ z-index: 333;
 					display: inline-block;
 					text-decoration: underline;
 				}
-	.b-cup .cutaway-2 {
+.b-cutaway-2 {
 		position: absolute;
-		top: 105px;
-		left: -13px;
+		bottom: -324px;
+		right: 0;
 		z-index: 2;
 		display: block;
 		width: 322px;
 		height: 228px;
 		background: url('../img/elements/cutaway_2.png') no-repeat 0 0;
 	}
+.b-cutaway-2-link {
+	bottom: -285px;
+  display: block;
+  height: 189px;
+  position: absolute;
+  right: 111px;
+  width: 200px;
+  z-index: 9999;
+}
 .b-calculation-cost {
 	padding-top: 20px;
 }

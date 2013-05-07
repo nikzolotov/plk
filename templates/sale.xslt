@@ -2,7 +2,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 	<xsl:template name="content">
-		<h1>Распродажа</h1>
+		<xsl:call-template name="breadcrumbs-title">
+			<xsl:with-param name="title">Распродажа</xsl:with-param>
+		</xsl:call-template>
 		<p>Что то про распродажу лизингово имущества, почему это так хорошо ну или плохо почему? По вопросам преобретения обращайтесь к Константинопольскому Ивану Сидоровичу по телефону 8 (920) 333-33-23.</p>
 		<ul class="b-objects b-objects-sale">
 			<li class="item">
