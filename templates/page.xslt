@@ -209,12 +209,30 @@
 			<xsl:for-each select="navigation/group[@id = 'service']/item">
 				<li class="item item-{@key}">
 					<a class="link" href="/#{@key}">
-						<xsl:if test="$index">
-							<xsl:attribute name="href">
-								<xsl:text>#</xsl:text>
-								<xsl:value-of select="@key"/>
-							</xsl:attribute>
-						</xsl:if>
+						<xsl:choose>
+							<xsl:when test="@scroll-key">
+								<xsl:attribute name="href">
+									<xsl:choose>
+										<xsl:when test="$index">
+											<xsl:text>#</xsl:text>
+											<xsl:value-of select="@key"/>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:text>/#</xsl:text>
+											<xsl:value-of select="@scroll-key"/>
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:attribute>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:if test="$index">
+									<xsl:attribute name="href">
+										<xsl:text>#</xsl:text>
+										<xsl:value-of select="@key"/>
+									</xsl:attribute>
+								</xsl:if>
+							</xsl:otherwise>
+						</xsl:choose>
 						<span class="area-icon">
 							<b class="b-icon b-icon-{@key}-n"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 						</span>

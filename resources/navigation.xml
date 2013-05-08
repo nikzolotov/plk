@@ -14,7 +14,7 @@
 	</item>
 	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
 	<group id="service">
-		<item key="about" name="Компания"/>
+		<item key="about" name="Компания" scroll-key="about-title"/>
 		<item key="special-technics" name="Спецтехника"/>
 		<item key="motor-vehicles" name="Автотранспорт"/>
 		<item key="equipment" name="Оборудование"/>
