@@ -676,10 +676,10 @@ var independentToggle = (function(){
           
 
           tempScrollTop = scrolled_top;
-          scrollingBg(scrolled_top, Math.round(special_achinery.offset().top)-140, Math.round(special_achinery.offset().top), 'about_company', scroll_down);
-          scrollingBg(scrolled_top, Math.round(motor_transport.offset().top)-140, Math.round(motor_transport.offset().top), 'special_achinery', scroll_down);
-          scrollingBg(scrolled_top, Math.round(equipment.offset().top)-140, Math.round(equipment.offset().top), 'motor_transport', scroll_down);
-          scrollingBg(scrolled_top, Math.round(request.offset().top)-140, Math.round(request.offset().top), 'equipment', scroll_down);
+          scrollingBg(scrolled_top, Math.round(special_achinery.offset().top)-380, Math.round(special_achinery.offset().top), 'about_company', scroll_down);
+          scrollingBg(scrolled_top, Math.round(motor_transport.offset().top)-380, Math.round(motor_transport.offset().top), 'special_achinery', scroll_down);
+          scrollingBg(scrolled_top, Math.round(equipment.offset().top)-380, Math.round(equipment.offset().top), 'motor_transport', scroll_down);
+          scrollingBg(scrolled_top, Math.round(request.offset().top)-380, Math.round(request.offset().top), 'equipment', scroll_down);
 
   			}
 

@@ -10,4 +10,5 @@
 	<item key="articles" name="Статьи" dir="true"/>
 	<item key="docs" name="Документы" dir="true"/>
 	<item key="definitions" name="Глоссарий" dir="true"/>
+	<item key="products" name="Распродажа" dir="true"/>
 </navigation>

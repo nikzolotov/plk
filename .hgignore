@@ -4,3 +4,5 @@ logs/*
 parser3.conf
 www/img/persons/*
 www/customers/docs/files/*
+www/img/partners/*
+www/img/products/*

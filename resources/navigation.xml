@@ -7,19 +7,19 @@
 		<item key="glossary" name="Глоссарий" dir="true"/>
 	</item>
 	<item key="news" name="Новости" dir="true" module="news" long-name="Новости компании"/>
-	<item key="partners" name="Партнёры" dir="true" module="partners" long-name="Наши поставщики" skip="true">
+	<item key="partners" name="Партнёры" dir="true" long-name="Наши поставщики" skip="true">
 		<item key="light" name="Легковые автомобили" dir="true" module="partners"/>
 		<item key="heavy" name="Грузовые автомобили" dir="true" module="partners"/>
 		<item key="special" name="Спецтехника и оборудование" dir="true" module="partners"/>
 	</item>
 	<item key="contacts" name="Контактная информация" dir="true" long-name="Контактная информация"/>
-	<group id="service">
+	<group id="service" module="index">
 		<item key="about" name="Компания" scroll-key="about-title"/>
 		<item key="special-technics" name="Спецтехника"/>
 		<item key="motor-vehicles" name="Автотранспорт"/>
 		<item key="equipment" name="Оборудование"/>
 	</group>
-	<group id="request">
+	<group id="request" module="request">
 		<item key="request" name="Заявка на лизинг"/>
 	</group>
 	<group id="rest">

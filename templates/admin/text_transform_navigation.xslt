@@ -5,11 +5,11 @@
 
 	<xsl:template match="navigation">
 		<navigation>
-			<xsl:apply-templates select="item[@key and not(@module)]"/>
+			<xsl:apply-templates select="item[@key and not(@module)]|group[not(@module)]"/>
 		</navigation>
 	</xsl:template>
 	
-	<xsl:template match="group[not(@module)]">
+	<xsl:template match="group">
 		<xsl:apply-templates select="item[not(@module)]"/>
 	</xsl:template>
 

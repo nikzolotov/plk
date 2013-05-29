@@ -1344,7 +1344,7 @@ OL {
 	z-index: 2;
 	width: 100%;
 	height: 118px;
-	margin-top: 113px;
+	margin: 80px 0 50px 0;
 }
 	.b-moving-car .traffic-line {
 		position: absolute;
@@ -1635,17 +1635,18 @@ OL {
 		}
 .b-paper {
 	position: relative;
+	z-index: 1;
 	width: 556px;
 	height: 858px;
 	margin: -100px 0 0 -77px;
 	padding: 190px 240px 0 70px;
 	background: url('../img/elements/paper.png') no-repeat;
 }
-	.b-paper .cutaway {
+	.b-request .cutaway {
 		position: absolute;
-		bottom: 129px;
-		left: -120px;
-		z-index: -1;
+		bottom: 187px;
+		left: -200px;
+		z-index: 0;
 		display: block;
 		width: 392px;
 		height: 303px;

@@ -5,7 +5,7 @@
 
 	<xsl:template name="content">
 		<xsl:call-template name="breadcrumbs-title">
-			<xsl:with-param name="title">Руководство компании</xsl:with-param>
+			<xsl:with-param name="title" select="static-text/title"/>
 		</xsl:call-template>
 		<xsl:apply-templates select="static-text/text"/>
 		<xsl:if test="persons/person">
@@ -43,19 +43,6 @@
 				</div>
 			</xsl:if>
 		</li>
-	</xsl:template>
-	
-	<xsl:template match="desc | require | salary | employment">
-		<xsl:choose>
-			<xsl:when test="not(*)">
-				<p>
-					<xsl:value-of select="."/>
-				</p>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:apply-templates select="." mode="text"/>
-			</xsl:otherwise>
-		</xsl:choose>
 	</xsl:template>
 	
 </xsl:stylesheet>

@@ -1,2 +1,11 @@
-﻿@main[]
-	^Templates.add[sale.xslt]
+﻿@main[][products]
+	^useModule[product]
+	
+	$products[^product::products[
+		$.published(1)
+	]]
+	^products.xmlString[products]
+	
+	^static-text[^page-id[]]
+	
+	^Templates.add[products.xslt]
