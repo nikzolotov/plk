@@ -174,6 +174,9 @@
 	<xsl:template name="logo">
 		<div class="b-mini-logo">
 			<a href="/" class="link">
+				<xsl:if test="$index">
+					<xsl:attribute name="href">#about</xsl:attribute>
+				</xsl:if>
 				<span class="text">
 					<xsl:value-of select="$txtres/title/text()"/>
 				</span>

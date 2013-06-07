@@ -16,7 +16,7 @@ function param(){
     var myPlacemarkTver = new ymaps.Placemark([56.85646115670938, 35.91733099892737], {
         iconContent: '<b class="b-icon b-icon-map"><b></b></b>',
         balloonContentHeader: '<h3 class="b-map-title">Первая Лизинговая Компания</h3>',
-        balloonContentBody: '<p class="b-map-content">Россия, Тверь, 170100 <br>улица Володарского, дом 34 (здание ОАО «Тверьуниверсалбанк», 3 этаж).</p>'
+        balloonContentBody: '<p class="b-map-content">170100, г. Тверь, <br/>улица Володарского, дом 34 (здание ОАО «Тверьуниверсалбанк», 3 этаж).</p>'
     }, {
         preset: 'twirl#blueStretchyIcon'
     });
@@ -35,7 +35,7 @@ function param(){
     var myPlacemarkMoscow = new ymaps.Placemark([55.788390105635685, 37.508867997676155], {
         iconContent: '<b class="b-icon b-icon-map"><b></b></b>',
         balloonContentHeader: '<h3 class="b-map-title">Первая Лизинговая Компания</h3>',
-        balloonContentBody: '<p class="b-map-content">Россия, Москва, 170100 <br>улица Володарского, дом 34 (здание ОАО «Тверьуниверсалбанк», 3 этаж).</p>'
+        balloonContentBody: '<p class="b-map-content">125252, г. Москва, <br/>ул. Зорге, д. 22А, БЦ "Сокол Бридж"</p>'
     }, {
         preset: 'twirl#blueStretchyIcon'
     });

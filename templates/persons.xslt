@@ -7,7 +7,7 @@
 		<xsl:call-template name="breadcrumbs-title">
 			<xsl:with-param name="title" select="static-text/title"/>
 		</xsl:call-template>
-		<xsl:apply-templates select="static-text/text"/>
+		<xsl:apply-templates select="static-text/text" mode="text"/>
 		<xsl:if test="persons/person">
 			<ul class="b-objects">
 				<xsl:apply-templates select="persons/person"/>

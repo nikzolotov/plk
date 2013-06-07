@@ -2,7 +2,7 @@ $(function(){
     $('.b-moving-car').movingCar();
     $('.b-scroll-gallery').scrollGallery();
     $('#external_content .b-main-navigation').parallaxScroll();
-    $('#external_content .b-main-navigation, .b-navigation-deployed, .l-page .b-modal-calculation .submit').smoothScrolling();
+    $('#external_content .b-main-navigation, .b-navigation-deployed, .l-page .b-modal-calculation .submit, .l-page .b-mini-logo').smoothScrolling();
     
     $('.b-calculation-cost').calculationPayment();
     $('.b-events').toggleLink();
@@ -271,7 +271,7 @@ var independentToggle = (function(){
         if($.cookie('category')) categoryLeasedAsset.find('option[value*='+$.cookie("category")+']').attr('selected', 'selected');
 
         categoryLeasedAsset.change(function() {
-          changeSliders();
+          //changeSliders();
         });
 
 
@@ -676,10 +676,10 @@ var independentToggle = (function(){
           
 
           tempScrollTop = scrolled_top;
-          scrollingBg(scrolled_top, Math.round(special_achinery.offset().top)-380, Math.round(special_achinery.offset().top), 'about_company', scroll_down);
-          scrollingBg(scrolled_top, Math.round(motor_transport.offset().top)-380, Math.round(motor_transport.offset().top), 'special_achinery', scroll_down);
-          scrollingBg(scrolled_top, Math.round(equipment.offset().top)-380, Math.round(equipment.offset().top), 'motor_transport', scroll_down);
-          scrollingBg(scrolled_top, Math.round(request.offset().top)-380, Math.round(request.offset().top), 'equipment', scroll_down);
+          scrollingBg(scrolled_top, Math.round(special_achinery.offset().top)-430, Math.round(special_achinery.offset().top), 'about_company', scroll_down);
+          scrollingBg(scrolled_top, Math.round(motor_transport.offset().top)-430, Math.round(motor_transport.offset().top), 'special_achinery', scroll_down);
+          scrollingBg(scrolled_top, Math.round(equipment.offset().top)-430, Math.round(equipment.offset().top), 'motor_transport', scroll_down);
+          scrollingBg(scrolled_top, Math.round(request.offset().top)-430, Math.round(request.offset().top), 'equipment', scroll_down);
 
   			}
 
@@ -697,12 +697,19 @@ var independentToggle = (function(){
         }
 
         function scrollingBg(scrolled_top, start, end, _bg, _down){
+
           if(_down){
             if(scrolled_top > start && scrolled_top < end){
+
               if(!scrolling_bg[_bg]){
                 scrolling_bg[_bg] = true;
-                if($.browser.safari || $.browser.webkit) $('body').animate( { scrollTop: end }, 200 );
-                else $('html').animate( { scrollTop: end }, 200 );
+                
+                if($.browser.safari || $.browser.webkit) {
+                  if($('body:animated').html() == undefined) $('body').animate( { scrollTop: end }, 200 );
+                }
+                else {
+                  if($('html:animated').html() == undefined) $('html').animate( { scrollTop: end }, 200 );
+                }
               }
             }
             else {
@@ -758,14 +765,14 @@ var independentToggle = (function(){
   			function smoothScrolling(){
   				all_links.click(function (event) { 
   				    elementClick = $(this).attr("href");
-              if(elementClick == '#about'){
+              if(elementClick == '#about' && container.hasClass('b-main-navigation')){
                 destination = $(elementClick).find('.b-area-title').offset().top - 85;
               }
               else {
   				    destination = $(elementClick).offset().top;
               }
-  				    if($.browser.safari || $.browser.webkit) $('body').animate( { scrollTop: destination }, OPTIONS.animateTime );
-  				    else $('html').animate( { scrollTop: destination }, OPTIONS.animateTime );
+  				    if($.browser.safari || $.browser.webkit) $('body').animate( { scrollTop: destination }, OPTIONS.animateTime);
+  				    else $('html').animate( { scrollTop: destination }, OPTIONS.animateTime);
 
   				    event.preventDefault();
   			    });

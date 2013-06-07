@@ -242,7 +242,7 @@ OL {
 	top: 0;
 	z-index: 9999;
 	width: 100%;
-	height: 216px;
+	height: 159px;
 	min-width: 1000px;
 	margin-top: 0;
 	background-image: url('../img/containers/brown-gr.png');
@@ -304,9 +304,9 @@ OL {
 }
 /*Holders*/
 .h-bottom-30 {
-	padding-bottom: 30px;
-	font-size: 17px;
-  line-height: 25px;
+	padding-bottom: 14px;
+	font-size: 15px;
+  line-height: 21px;
 }
 /* Modal overlay */
 .l-theater {
@@ -1019,7 +1019,7 @@ OL {
 	}
 	.b-breadcrumbs .item {
 		display: inline-block;
-		margin: 0 25px 0 0;
+		margin: 0 28px 0 0;
 		vertical-align: top;
 		position: relative;
 	}
@@ -1643,14 +1643,14 @@ OL {
 	background: url('../img/elements/paper.png') no-repeat;
 }
 	.b-request .cutaway {
-		position: absolute;
-		bottom: 187px;
-		left: -200px;
-		z-index: 0;
-		display: block;
-		width: 392px;
-		height: 303px;
-		background: url('../img/elements/cutaway.png') no-repeat;
+	background: url("../img/elements/cutaway.png") no-repeat scroll 0 0 transparent;
+  bottom: 187px;
+  display: block;
+  height: 303px;
+  left: -200px;
+  position: absolute;
+  width: 392px;
+  z-index: 0;
 	}
 .b-cup {
 	position: absolute;
@@ -2544,11 +2544,12 @@ z-index: 333;
 }
 .b-title {
 	position: relative;
-	z-index: 9999;
 	width: 100%;
 	margin: 0;
 }
 	.b-title .text {
+		position: relative;
+		z-index: 9999;
 		display: block;
 		width: 600px;
 		margin: 0 auto;
