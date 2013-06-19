@@ -1,5 +1,6 @@
-@main[][vacancies]
+@main[][vacancies;products]
 	^useModule[vacancy]
+	^useModule[product]
 	
 	$vacancies[^vacancy::vacancies[
 		$.published(1)
@@ -7,6 +8,14 @@
 	
 	^if(^vacancies.table.count[] > 0){
 		<hiring/>
+	}
+	
+	$products[^product::products[
+		$.published(1)
+	]]
+	
+	^if(^products.table.count[] > 0){
+		<sale/>
 	}
 	
 	$XSL-Params.index[true]

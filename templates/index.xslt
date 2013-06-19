@@ -66,17 +66,17 @@
 										<xsl:text>компании</xsl:text>
 									</a>
 								</li>
-								<li class="item">
-									<a class="link">
-										<xsl:attribute name="href">
-											<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'sale']" mode="navigation-item-path"/>
-										</xsl:attribute>
-										<b class="b-icon b-icon-sale"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-										<xsl:text> Распродажа </xsl:text>
-										<br/>
-										<xsl:text>лизингового имущества</xsl:text>
-									</a>
-								</li>
+								<xsl:if test="hiring">
+									<li class="item">
+										<a class="link">
+											<xsl:attribute name="href">
+												<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'hire']" mode="navigation-item-path"/>
+											</xsl:attribute>
+											<b class="b-icon b-icon-jobs"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+											<xsl:text> Вакансии</xsl:text>
+										</a>
+									</li>
+								</xsl:if>
 							</ul>
 						</div>
 						<div class="b-moving-car">
@@ -93,14 +93,16 @@
 								<li class="item">
 									<a href="http://www.all-leasing.ru/leascompany/company.php?ID=2958" class="link" target="_blank"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
 								</li>
-								<xsl:if test="hiring">
+								<xsl:if test="sale">
 									<li class="item">
 										<a class="link">
 											<xsl:attribute name="href">
-												<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'hire']" mode="navigation-item-path"/>
+												<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'sale']" mode="navigation-item-path"/>
 											</xsl:attribute>
-											<b class="b-icon b-icon-jobs"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-											<xsl:text> Вакансии</xsl:text>
+											<b class="b-icon b-icon-sale"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+											<xsl:text> Распродажа </xsl:text>
+											<br/>
+											<xsl:text>лизингового имущества</xsl:text>
 										</a>
 									</li>
 								</xsl:if>

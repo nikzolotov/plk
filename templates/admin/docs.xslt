@@ -47,9 +47,8 @@
 				<div class="b-field b-image-upload">
 					<xsl:if test="doc/ext/text()">
 						<div class="image">
-							<a href="/customers/docs/files/plk-lizing-{doc/@id}.{doc/ext/text()}">
-								<xsl:text>plk-lizing-</xsl:text>
-								<xsl:value-of select="doc/@id"/>
+							<a href="/customers/docs/files/{doc/name/text()}.{doc/ext/text()}">
+								<xsl:value-of select="doc/name/text()"/>
 								<xsl:text>.</xsl:text>
 								<xsl:value-of select="doc/ext/text()"/>
 							</a>

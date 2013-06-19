@@ -1324,7 +1324,7 @@ OL {
 	.b-icon-list .item {
 		position: relative;
 		display: inline-block;
-		margin-right: 20px;
+		margin-right: 36px;
 		vertical-align: top;
 	}
 	.b-icon-list .item:before {

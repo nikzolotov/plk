@@ -24,6 +24,7 @@
 					<xsl:otherwise>АРМ администратора</xsl:otherwise>
 				</xsl:choose>
 			</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 			<link rel="stylesheet" type="text/css" href="/css/main.css" />
 			<link rel="stylesheet" type="text/css" href="{$base-dir}/css/main.css" />
 			<xsl:call-template name="include-script">

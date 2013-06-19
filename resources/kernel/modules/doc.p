@@ -14,6 +14,7 @@ doc
 			SELECT
 				`id`,
 				`title`,
+				`name`,
 				`ext`,
 				`size`,
 				`date`,
@@ -154,18 +155,20 @@ doc
 	^if(def $_doc){
 		<doc id="$_doc.id" date="$_doc.date" created="$_doc.created">
 			<title>^taint[xml][$_doc.title]</title>
+			<name>^taint[xml][$_doc.name]</name>
 			<ext>^taint[xml][$_doc.ext]</ext>
 			<size>^taint[xml][$_doc.size]</size>
 		</doc>
 	}
 
 
-@update[_params][ext;size;updateSql]
+@update[_params][name;ext;size;updateSql]
 	^if(def $_params && $_params is hash && def $_params.title){
 		^db{
 			^if(def $_params.document && $_params.document is file){
 				^deleteFile[$_params.id]
 				
+				$name[^file:justname[$_params.document.name]]
 				$ext[^file:justext[$_params.document.name]]
 				$size[$_params.document.size]
 			}
@@ -175,6 +178,7 @@ doc
 				}
 				`title` = '$_params.title',
 				^if(def $ext){
+					`name` = '$name',
 					`ext` = '$ext',
 					`size` = '$size',
 				}
@@ -194,7 +198,7 @@ doc
 				$result(^int:sql{ SELECT LAST_INSERT_ID() FROM `$TABLES.DOC` }[ $.limit(1) $.default{0} ])
 			}
 			^if(def $ext){
-				^_params.document.save[binary;^filePath[$result;$ext]]
+				^_params.document.save[binary;^filePath[$name;$ext]]
 			}
 		}
 	}
@@ -213,13 +217,13 @@ doc
 @deleteFile[_id]
 	^if(^_id.int(0)){
 		^db{
-			$ext[^string:sql{ SELECT `ext` FROM `$TABLES.DOC` WHERE `id` = '$_id' }[$.limit(1) $.default[]]]
+			$file[^table::sql{ SELECT `name`, `ext` FROM `$TABLES.DOC` WHERE `id` = '$_id' }[$.limit(1)]]
 				
-			^if( -f "^filePath[$_id;$ext]"){
-				^file:delete[^filePath[$_id;$ext]]
+			^if( -f "^filePath[$file.name;$file.ext]"){
+				^file:delete[^filePath[$file.name;$file.ext]]
 			}
 		}
 	}
 
-@filePath[_id;_ext]
-	$result[${DOC_PATH}plk-lizing-${_id}.$_ext]
+@filePath[_name;_ext]
+	$result[${DOC_PATH}${_name}.$_ext]

@@ -16,7 +16,7 @@
 	<xsl:template match="doc" mode="doc">
 		<li class="item">
 			<h3 class="title">
-				<a href="/customers/docs/files/plk-lizing-{@id}.{ext/text()}">
+				<a href="/customers/docs/files/{name/text()}.{ext/text()}">
 					<b class="b-icon b-icon-doc"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
 					<xsl:value-of select="title/text()"/>
 				</a>
