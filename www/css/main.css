@@ -1567,13 +1567,13 @@ OL {
 .b-equipment {
 	position: relative;
 	z-index: -1;
-	height: 356px;
+	height: 295px;
 }
 
 	.b-equipment .image {
 		position: absolute;
-		top: -28px;
-		left: -318px;
+		top: -71px;
+		left: -228px;
 	}
 .b-wrapped-line {
 	position: relative;
