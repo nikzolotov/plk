@@ -56,7 +56,15 @@
 							<p class="b-big-line-height">Первая лизинговая компания&#160;&#8212; универсальная лизинговая компания, созданная в&#160;2001 году в&#160;Твери. Наши клиенты&#160;&#8212; многие крупнейшие предприятия Тверской, Московской областей, а&#160;также других регионов европейской части России. В&#160;настоящий момент заключено более 2&#160;500 договоров финансового лизинга с&#160;более чем 1&#160;000&#160;лизингополучателей. В&#160;2007 году было открыто представительство нашей компании в&#160;Москве. Первая Лизинговая Компания имеет партнерские отношения с&#160;рядом крупнейших тверских и&#160;московских банков.</p>
 							<ul class="b-icon-list">
 								<li class="item">
-									<a href="http://www.all-leasing.ru/leascompany/company.php?ID=2958" class="link" target="_blank"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
+									<a class="link">
+										<xsl:attribute name="href">
+											<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'team']" mode="navigation-item-path"/>
+										</xsl:attribute>
+										<b class="b-icon b-icon-mini-promotion"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
+										<xsl:text> Руководство </xsl:text>
+										<br/>
+										<xsl:text>компании</xsl:text>
+									</a>
 								</li>
 								<li class="item">
 									<a class="link">
@@ -83,15 +91,7 @@
 							<p>Наша компания является одной из&#160;крупнейших универсальных лизинговых компаний по&#160;Центральному федеральному округу.</p>
 							<ul class="b-icon-list b-icon-list-zigzag">
 								<li class="item">
-									<a class="link">
-										<xsl:attribute name="href">
-											<xsl:apply-templates select="navigation/group[@id = 'rest']/item[@key = 'team']" mode="navigation-item-path"/>
-										</xsl:attribute>
-										<b class="b-icon b-icon-mini-promotion"><b><xsl:text><![CDATA[]]></xsl:text></b></b>
-										<xsl:text> Руководство </xsl:text>
-										<br/>
-										<xsl:text>компании</xsl:text>
-									</a>
+									<a href="http://www.all-leasing.ru/leascompany/company.php?ID=2958" class="link" target="_blank"><b class="b-icon b-icon-square"><b><xsl:text><![CDATA[]]></xsl:text></b></b> Мы в каталоге <br/>лизинговых компаний</a>
 								</li>
 								<xsl:if test="hiring">
 									<li class="item">
@@ -320,14 +320,13 @@
 														</li>
 														<li class="item">
 															<div class="content-left">
-																<label for="town" class="label label-left">Выш город</label>
-																<select id="town" name="town" class="l-input-323">
+																<label for="town" class="label label-left">Ваш город</label>
+																<select id="town" name="town" class="l-input-323 change-field">
 																	<option value="Тверь">Тверь</option>
 																	<option value="Москва">Москва</option>
-																	<option value="Санкт-Петербург">Санкт-Петербург</option>
-																	<option value="Бежецк">Бежецк</option>
-																	<option value="Другой">Другой</option>
+																	<option value="other">Другой</option>
 																</select>
+																<input id="other_town" name="other_town" type="text" class="l-input-323 hide-field"/>
 															</div>
 														</li>
 														<li class="item">
@@ -350,16 +349,17 @@
 														</li>
 														<li class="item">
 															<div class="content-left">
-																<label for="know" class="label label-left">Откуда вы узнали о нас</label>
-																<select id="know" name="know" class="l-input-323">
-																	<option value="Газета">Прочитали в газете</option>
-																	<option value="Телевизор">Увидели на телевидении</option>
+																<label for="know" class="label label-left">Откуда Вы узнали о нас</label>
+																<select id="know" name="know" class="l-input-323 change-field">
 																	<option value="Телевизор">Услышали рекламу на радио</option>
 																	<option value="Телевизор">Увидели наружную рекламу</option>
 																	<option value="Поиск">Нашли в поисковых системах</option>
 																	<option value="Интернет">Случайно забрели на сайт</option>
-																	<option value="Другое">Другое</option>
+																	<option value="Газета">Прочитали в газете</option>
+																	<option value="Телевизор">Увидели на телевидении</option>
+																	<option value="other">Другое</option>
 																</select>
+																<input id="other_know" name="other_know" type="text" class="l-input-323 hide-field"/>
 															</div>
 														</li>
 													</ul>
@@ -382,7 +382,7 @@
 														<li class="item">
 															<div class="content-left">
 																<div class="label-left">
-																	<label for="name_supplier" class="label">Общие сведения лизинга</label>
+																	<label for="name_supplier" class="label">Общие сведения</label>
 																	<span class="desc">Марка, модель, год, наименование производителя, страна производителя</span>
 																</div>
 																<textarea id="address" class="l-input-323 required" cols="30" rows="5" name="address">
@@ -405,7 +405,7 @@
 									</form>
 								</div>
 								<div class="l-intercolumn-26-200">
-									<p class="b-desc"><sub>*</sub> Приблизительная оценка. Фактический размер ежемесячного платежа определяется после прохождения финансовой экспертизы. Заявка не является прохожденияубличной офертой.</p>
+									<p class="b-desc"><sub>*</sub> Заявка не является публичной офертой.</p>
 								</div>
 								<a class="cutaway">
 									<xsl:attribute name="href">

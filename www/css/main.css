@@ -306,7 +306,7 @@ OL {
 .h-bottom-30 {
 	padding-bottom: 14px;
 	font-size: 15px;
-  line-height: 21px;
+  line-height: 20px;
 }
 /* Modal overlay */
 .l-theater {
@@ -1546,7 +1546,8 @@ OL {
 .b-special-achinery {
 	position: relative;
 	z-index: -1;
-	height: 317px;
+	height: 296px;
+	margin-top: -39px;
 }
 	.b-special-achinery .image {
 		position: absolute;
@@ -1556,22 +1557,22 @@ OL {
 .b-motor-transport {
 	position: relative;
 	z-index: -1;
-	height: 297px;
+	height: 250px;
 }
 	.b-motor-transport .image {
 		position: absolute;
-		top: -5px;
+		top: -38px;
 		left: -215px;
 	}
 .b-equipment {
 	position: relative;
 	z-index: -1;
-	height: 400px;
+	height: 356px;
 }
 
 	.b-equipment .image {
 		position: absolute;
-		top: -9px;
+		top: -28px;
 		left: -318px;
 	}
 .b-wrapped-line {
@@ -2663,6 +2664,7 @@ z-index: 333;
 					padding-right: 1px;
 				}
 				.b-fields .desc {
+					display: block;
 					padding-right: 10px;
 					font-size: 12px;
 					line-height: 12px;
@@ -2688,9 +2690,7 @@ z-index: 333;
 		font: italic 14px/14px 'PFDindisplayPro Regular',arial,sans-serif;
 	}
 .b-submit {
-	position: absolute;
-	bottom: 147px;
-	left: 307px;
+	padding-top: 20px;
   text-align: center;
 	color: #f5ebec;
 	cursor: pointer;
@@ -2739,6 +2739,10 @@ z-index: 333;
 			width: 190px;
 			margin-left: -190px;
 			overflow: hidden;
+		}
+		.b-general-form .content-left .hide-field {
+			display: none;
+			margin-top: 9px;
 		}
 	.b-general-form .error {
 		padding-top: 2px;

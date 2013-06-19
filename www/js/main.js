@@ -8,7 +8,8 @@ $(function(){
     $('.b-events').toggleLink();
 
 
-
+    /* Скрытое поле */
+    $('.b-general-form .content-left').hidingField();
 
 
     /* Форма обратной связи */
@@ -123,6 +124,36 @@ var independentToggle = (function(){
 
 
 (function( $ ){
+  $.fn.hidingField = function(userOptions) {
+    var OPTIONS = {
+      chagingField: '.change-field',
+      hidingField: '.hide-field',
+      selectedHide: 'selected',
+      valueField: 'other'
+    };
+    return this.each(function(){
+      if(userOptions) {
+        $.extend( OPTIONS, userOptions );
+      }
+      
+      var container = $(this),
+          chagingField = $(OPTIONS.chagingField, container),
+          hidingField = $(OPTIONS.hidingField, container);
+
+      testValue(chagingField.val())
+      chagingField.change(function(){
+        testValue(chagingField.val())
+      });
+
+      function testValue(value){
+        if(value == OPTIONS.valueField && !hidingField.hasClass('selected')){
+          hidingField.addClass('selected').slideDown(100);
+        }
+        else hidingField.removeClass('selected').slideUp(100);
+      }
+      
+    });
+  };
 
   $.fn.switchConditions = function(userOptions) {
     var OPTIONS = {
@@ -249,9 +280,9 @@ var independentToggle = (function(){
         cookieLink = $(OPTIONS.cookieLink),
 
         valueCategoryPS = {
-          'motor_transport': [0.17, 0.20, 700000, 25, 12],
-          'special': [0.17, 0.21, 4000000, 30, 18],
-          'equipment': [0.19, 0.22, 1000000, 30, 12]
+          'motor_transport': [0.17, 0.20, 1000000, 30, 36],
+          'special': [0.17, 0.21, 1000000, 30, 36],
+          'equipment': [0.19, 0.22, 1000000, 30, 36]
         },
 
        change = {

@@ -222,4 +222,4 @@ doc
 	}
 
 @filePath[_id;_ext]
-	$result[${DOC_PATH}${_id}.$_ext]
+	$result[${DOC_PATH}plk-lizing-${_id}.$_ext]

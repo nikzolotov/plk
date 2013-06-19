@@ -3,10 +3,12 @@
 		^sendEmail[
 			$.name[$form:name]
 			$.town[$form:town]
+			$.other_town[$form:other_town]
 			$.person[$form:person]
 			$.phone[$form:phone]
 			$.email[$form:email]
 			$.know[$form:know]
+			$.other_know[$form:other_know]
 			
 			$.category[$form:category]
 			$.address[$form:address]
@@ -43,7 +45,7 @@
 						<p><strong>Наименования организации</strong>: $_params.name</p>
 					}
 					^if(def $_params.town){
-						<p><strong>Город</strong>: $_params.town</p>
+						<p><strong>Город</strong>: ^if(def $_params.other_town){$_params.other_town}{$_params.town}</p>
 					}
 					^if(def $_params.personnel){
 						<p><strong>Контактное лицо</strong>: $_params.personnel чел.</p>
@@ -52,7 +54,7 @@
 						<p><strong>Электронная почта</strong>: $_params.email</p>
 					}
 					^if(def $_params.know){
-						<p><strong>Откуда узнали про нас</strong>: $_params.know</p>
+						<p><strong>Откуда узнали про нас</strong>: ^if(def $_params.other_know){$_params.other_know}{$_params.know}</p>
 					}
 					
 					<h2>Предмет лизинга</h2>
